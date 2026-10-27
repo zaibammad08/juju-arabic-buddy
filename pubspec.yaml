@@ -46,4 +46,19 @@ flutter:
     - assets/places/
     - assets/places/stamp_home.webp
     - assets/places/stamp_beach.webp
+    - assets/audio/adjectives/
+    - assets/audio/batch2/
+    - assets/audio/colours/
+    - assets/audio/corner/
+    - assets/audio/days/
+    - assets/audio/hints/
+    - assets/audio/juju/
+    - assets/audio/letters/
+    - assets/audio/numbers/
+    - assets/audio/polite/
+    - assets/audio/sentences/
+    - assets/audio/words/
+    - assets/audio/batch2/letters/
+    - assets/audio/batch2/words/
+    - assets/data/lessons/
     # - assets/audio/<folder>/

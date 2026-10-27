@@ -46,7 +46,10 @@ class WordCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(32),
             border: Border.all(color: frame, width: 5),
             boxShadow: [
-              BoxShadow(color: frame.withAlpha(90), offset: const Offset(0, 6), blurRadius: 0),
+              BoxShadow(
+                  color: frame.withAlpha(90),
+                  offset: const Offset(0, 6),
+                  blurRadius: 0),
             ],
           ),
           child: Column(
@@ -70,7 +73,8 @@ class WordCard extends StatelessWidget {
                 Text(phonetic!,
                     style: AppTheme.english(size: 16, color: AppColors.muted)),
               if (english != null && english!.isNotEmpty)
-                Text(english!, style: AppTheme.english(size: 18, weight: FontWeight.w700)),
+                Text(english!,
+                    style: AppTheme.english(size: 18, weight: FontWeight.w700)),
               if (onListen != null) ...[
                 const SizedBox(height: 10),
                 IconButton.filled(

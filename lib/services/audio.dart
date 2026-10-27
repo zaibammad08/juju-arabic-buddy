@@ -13,11 +13,14 @@ import 'config.dart';
 
 /// FINAL voices (BUILD_GUIDE.md). Single words are slowed so they don't sound clipped.
 enum TtsVoice {
-  lessonWord('ar-AE', 'ar-AE-FatimaNeural', rate: '-20%'), // single words, letters, colours
+  lessonWord('ar-AE', 'ar-AE-FatimaNeural',
+      rate: '-20%'), // single words, letters, colours
   lesson('ar-AE', 'ar-AE-FatimaNeural'), // sentences, stories (natural)
-  juju('ar-AE', 'ar-AE-FatimaNeural', pitch: '+25%', rate: '-8%'), // Juju in Arabic
+  juju('ar-AE', 'ar-AE-FatimaNeural',
+      pitch: '+25%', rate: '-8%'), // Juju in Arabic
   jujuEnglish('en-US', 'en-US-AnaNeural', rate: '-5%'), // Juju in English
-  parent('en-US', 'en-US-JennyNeural'); // calm adult English – not final, change if you pick another
+  parent('en-US',
+      'en-US-JennyNeural'); // calm adult English – not final, change if you pick another
 
   const TtsVoice(this.lang, this.name, {this.pitch, this.rate});
   final String lang;
@@ -47,16 +50,21 @@ class AudioService {
       _play(AssetSource('audio/$path'), wait);
 
   /// Speak live text. For Arabic pass the `audio_text` field (never `arabic`).
-  Future<bool> say(String text, {TtsVoice voice = TtsVoice.lesson, bool wait = false}) async {
+  Future<bool> say(String text,
+      {TtsVoice voice = TtsVoice.lesson, bool wait = false}) async {
     final file = await ttsFile(text, voice);
     if (file == null) return false;
     return _play(DeviceFileSource(file.path), wait);
   }
 
   /// Pre-made file if there is one, otherwise live TTS.
-  Future<bool> playOrSay({String? asset, required String text,
-      TtsVoice voice = TtsVoice.lesson, bool wait = false}) async {
-    if (asset != null && asset.isNotEmpty && await playAsset(asset, wait: wait)) return true;
+  Future<bool> playOrSay(
+      {String? asset,
+      required String text,
+      TtsVoice voice = TtsVoice.lesson,
+      bool wait = false}) async {
+    if (asset != null && asset.isNotEmpty && await playAsset(asset, wait: wait))
+      return true;
     return say(text, voice: voice, wait: wait);
   }
 
@@ -71,7 +79,8 @@ class AudioService {
     final text = voice.isArabic
         ? (line['audio_text'] ?? line['arabic'] ?? '') as String
         : (line['english'] ?? '') as String;
-    return playOrSay(asset: line['audio'] as String?, text: text, voice: voice, wait: wait);
+    return playOrSay(
+        asset: line['audio'] as String?, text: text, voice: voice, wait: wait);
   }
 
   Future<void> stop() async {
@@ -81,22 +90,43 @@ class AudioService {
     playing.value = false;
   }
 
+  int _gen = 0; // which sound is the current one
+
   Future<bool> _play(Source source, bool wait) async {
+    final gen = ++_gen;
+    StreamSubscription<PlayerState>? sub;
     try {
       await _player.stop();
-      final done = _player.onPlayerComplete.first;
+
+      // Done = this sound reached "completed" (or was stopped) AFTER it started.
+      // Old events from an earlier sound are ignored.
+      final done = Completer<void>();
+      var started = false;
+      sub = _player.onPlayerStateChanged.listen((s) {
+        if (s == PlayerState.playing) {
+          started = true;
+        } else if (started &&
+            (s == PlayerState.completed || s == PlayerState.stopped)) {
+          if (!done.isCompleted) done.complete();
+        }
+      });
+
       playing.value = true;
       await _player.play(source);
-      if (wait) {
-        await done.timeout(const Duration(seconds: 30), onTimeout: () {});
-        playing.value = false;
-      } else {
-        unawaited(done.then((_) => playing.value = false, onError: (_) {}));
-      }
+
+      final finished = done.future
+          .timeout(const Duration(seconds: 30), onTimeout: () {})
+          .then((_) {
+        if (gen == _gen) playing.value = false;
+        sub?.cancel();
+      });
+
+      if (wait) await finished;
       return true;
     } catch (e) {
       debugPrint('Audio failed ($source): $e');
-      playing.value = false;
+      await sub?.cancel();
+      if (gen == _gen) playing.value = false;
       return false;
     }
   }
@@ -107,7 +137,8 @@ class AudioService {
     if (clean.trim().isEmpty) return null;
 
     final dir = await _cacheDir();
-    final key = md5.convert(utf8.encode('${voice.name}|${voice.pitch}|${voice.rate}|$clean'));
+    final key = md5.convert(
+        utf8.encode('${voice.name}|${voice.pitch}|${voice.rate}|$clean'));
     final file = File('${dir.path}/$key.mp3');
     if (file.existsSync() && file.lengthSync() > 0) return file;
     if (!AppConfig.hasAzure) return null;
@@ -115,7 +146,8 @@ class AudioService {
     try {
       final res = await _http
           .post(
-            Uri.parse('https://${AppConfig.azureRegion}.tts.speech.microsoft.com/cognitiveservices/v1'),
+            Uri.parse(
+                'https://${AppConfig.azureRegion}.tts.speech.microsoft.com/cognitiveservices/v1'),
             headers: {
               'Ocp-Apim-Subscription-Key': AppConfig.azureKey,
               'Content-Type': 'application/ssml+xml',
@@ -148,7 +180,8 @@ class AudioService {
       if (v.pitch != null) 'pitch="${v.pitch}"',
       if (v.rate != null) 'rate="${v.rate}"',
     ].join(' ');
-    final inner = attrs.isEmpty ? escaped : '<prosody $attrs>$escaped</prosody>';
+    final inner =
+        attrs.isEmpty ? escaped : '<prosody $attrs>$escaped</prosody>';
     return '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" '
         'xml:lang="${v.lang}"><voice name="${v.name}">$inner</voice></speak>';
   }
