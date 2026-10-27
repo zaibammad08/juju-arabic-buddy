@@ -46,3 +46,5 @@ app.*.map.json
 .env
 art_src/
 *.key
+secrets.json
+assets/
