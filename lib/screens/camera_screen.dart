@@ -151,7 +151,7 @@ class _CameraScreenState extends State<CameraScreen>
     }
     AudioService.instance.stop();
     if (line != null) {
-      await AudioService.instance.playLine(line);
+      await AudioService.instance.playLine(line, wait: true);
     } else {
       await AudioService.instance.say(fallback, voice: TtsVoice.jujuEnglish);
     }

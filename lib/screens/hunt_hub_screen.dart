@@ -90,7 +90,7 @@ class _HuntHubScreenState extends State<HuntHubScreen> {
       final line = Repository.instance.jujuLine(id);
       if (line == null)
         continue; // line not added yet → stay quiet, never crash
-      await AudioService.instance.playLine(line);
+      await AudioService.instance.playLine(line, wait: true);
     }
     _speaking = false;
   }
