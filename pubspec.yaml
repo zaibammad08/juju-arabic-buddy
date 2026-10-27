@@ -16,6 +16,7 @@ dependencies:
   shared_preferences: ^2.3.2  # progress
   path_provider: ^2.1.4       # TTS + story picture cache, writing wall
   crypto: ^3.0.5              # cache file names
+  camera: ^0.12.0+2
 
 dev_dependencies:
   flutter_test:
@@ -39,5 +40,10 @@ flutter:
     - assets/data/sentence_bank.json
     - assets/data/adjectives.json
     - assets/data/sentence_templates.json
-    # - assets/places/
+    - assets/data/juju_lines.json
+    - assets/audio/
+    - assets/audio/juju/
+    - assets/places/
+    - assets/places/stamp_home.webp
+    - assets/places/stamp_beach.webp
     # - assets/audio/<folder>/

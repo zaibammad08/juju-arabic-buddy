@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'data/repository.dart';
+import 'services/progress.dart';
 import 'theme/app_theme.dart';
 
 // Screens – uncomment each import (and its line in _builtScreens) once built.
-// import 'screens/home_screen.dart';          // 1
-// import 'screens/letter_hub_screen.dart';    // 2
-// import 'screens/letter_listen_screen.dart'; // 3
+import 'screens/home_screen.dart'; // 1
+//import 'screens/letter_hub_screen.dart'; // 2
+//import 'screens/letter_listen_screen.dart'; // 3
 // import 'screens/letter_speak_screen.dart';  // 4
 // import 'screens/letter_read_screen.dart';   // 5
 // import 'screens/letter_write_screen.dart';  // 6
-// import 'screens/hunt_hub_screen.dart';      // 7
-// import 'screens/camera_screen.dart';        // 8
+import 'screens/hunt_hub_screen.dart'; // 7
+import 'screens/camera_screen.dart'; // 8
 // import 'screens/found_screen.dart';         // 9
 // import 'screens/customise_screen.dart';     // 10
 // import 'screens/story_screen.dart';         // 11
@@ -74,18 +75,18 @@ class Routes {
 /// page, so buttons can point at screens that aren't built yet.
 final Map<String, WidgetBuilder> _builtScreens = {
   Routes.loader: (_) => const LoaderScreen(),
-  // Routes.home: (_) => const HomeScreen(),
-  // Routes.huntHub: (_) => const HuntHubScreen(),
-  // Routes.camera: (_) => const CameraScreen(),
+  Routes.home: (_) => const HomeScreen(),
+  Routes.huntHub: (_) => const HuntHubScreen(),
+  Routes.camera: (_) => const CameraScreen(),
   // Routes.found: (_) => const FoundScreen(),
   // Routes.customise: (_) => const CustomiseScreen(),
   // Routes.story: (_) => const StoryScreen(),
   // Routes.gallery: (_) => const GalleryScreen(),
-  // Routes.letterHub: (_) => const LetterHubScreen(),
+  //Routes.letterHub: (_) => const LetterHubScreen(),
   // Routes.letterRead: (_) => const LetterReadScreen(),
   // Routes.letterWrite: (_) => const LetterWriteScreen(),
   // Routes.letterSpeak: (_) => const LetterSpeakScreen(),
-  // Routes.letterListen: (_) => const LetterListenScreen(),
+  //Routes.letterListen: (_) => const LetterListenScreen(),
   // Routes.sentences: (_) => const SentenceScreen(),
   // Routes.juju: (_) => const JujuScreen(),
   // Routes.writingWall: (_) => const WritingWallScreen(),
@@ -131,11 +132,12 @@ class _LoaderScreenState extends State<LoaderScreen> {
   }
 
   Future<void> _start() async {
-    setState(() => _error = null);
+    if (_error != null) setState(() => _error = null);
     try {
-      // Short minimum so the splash doesn't flash.
+      // Load words + saved progress; short minimum so the splash doesn't flash.
       await Future.wait([
         Repository.instance.load(),
+        ProgressService.instance.load(),
         Future.delayed(const Duration(milliseconds: 900)),
       ]);
       if (!mounted) return;
@@ -158,16 +160,12 @@ class _LoaderScreenState extends State<LoaderScreen> {
               children: [
                 const _JujuImage(pose: 'wave', size: 200),
                 const SizedBox(height: 16),
-                Text(
-                  'Arabic Buddy',
-                  style: AppTheme.english(size: 34, weight: FontWeight.w800),
-                ),
+                Text('Arabic Buddy',
+                    style: AppTheme.english(size: 34, weight: FontWeight.w800)),
                 const SizedBox(height: 8),
                 if (_error == null) ...[
-                  Text(
-                    'Getting Juju ready…',
-                    style: AppTheme.english(color: AppColors.muted),
-                  ),
+                  Text('Getting Juju ready…',
+                      style: AppTheme.english(color: AppColors.muted)),
                   const SizedBox(height: 24),
                   const SizedBox(
                     width: 44,
@@ -175,24 +173,19 @@ class _LoaderScreenState extends State<LoaderScreen> {
                     child: CircularProgressIndicator(strokeWidth: 5),
                   ),
                 ] else ...[
-                  Text(
-                    "Juju couldn't open her word box.",
-                    textAlign: TextAlign.center,
-                    style: AppTheme.english(color: AppColors.muted),
-                  ),
+                  Text("Juju couldn't open her word box.",
+                      textAlign: TextAlign.center,
+                      style: AppTheme.english(color: AppColors.muted)),
                   if (kDebugMode) ...[
                     const SizedBox(height: 8),
-                    Text(
-                      '$_error',
-                      textAlign: TextAlign.center,
-                      style: AppTheme.english(size: 13, color: AppColors.muted),
-                    ),
+                    Text('$_error',
+                        textAlign: TextAlign.center,
+                        style:
+                            AppTheme.english(size: 13, color: AppColors.muted)),
                   ],
                   const SizedBox(height: 24),
                   FilledButton(
-                    onPressed: _start,
-                    child: const Text('Try again'),
-                  ),
+                      onPressed: _start, child: const Text('Try again')),
                 ],
               ],
             ),
@@ -226,16 +219,12 @@ class ComingSoonScreen extends StatelessWidget {
             children: [
               const _JujuImage(pose: 'thinking', size: 160),
               const SizedBox(height: 16),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: AppTheme.english(size: 24, weight: FontWeight.w700),
-              ),
+              Text(title,
+                  textAlign: TextAlign.center,
+                  style: AppTheme.english(size: 24, weight: FontWeight.w700)),
               const SizedBox(height: 6),
-              Text(
-                'Juju is still building this one.',
-                style: AppTheme.english(color: AppColors.muted),
-              ),
+              Text('Juju is still building this one.',
+                  style: AppTheme.english(color: AppColors.muted)),
               if (canGoBack) ...[
                 const SizedBox(height: 24),
                 FilledButton(
@@ -268,9 +257,8 @@ class _JujuImage extends StatelessWidget {
       errorBuilder: (_, __, ___) => SizedBox(
         width: size,
         height: size,
-        child: Center(
-          child: Text('🐪', style: TextStyle(fontSize: size * 0.6)),
-        ),
+        child:
+            Center(child: Text('🐪', style: TextStyle(fontSize: size * 0.6))),
       ),
     );
   }
