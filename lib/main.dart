@@ -1,14 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:juju_arabic_buddy/screens/letter_read_screen.dart';
+import 'package:juju_arabic_buddy/screens/letter_write_screen.dart';
 
 import 'data/repository.dart';
 import 'services/progress.dart';
 import 'theme/app_theme.dart';
-
+import 'screens/alphabet_screen.dart';
 // Screens – uncomment each import (and its line in _builtScreens) once built.
 import 'screens/home_screen.dart'; // 1
-//import 'screens/letter_hub_screen.dart'; // 2
+import 'screens/letter_hub_screen.dart'; // 2
 //import 'screens/letter_listen_screen.dart'; // 3
 // import 'screens/letter_speak_screen.dart';  // 4
 // import 'screens/letter_read_screen.dart';   // 5
@@ -21,7 +23,7 @@ import 'screens/camera_screen.dart'; // 8
 // import 'screens/sentence_screen.dart';      // 12
 // import 'screens/gallery_screen.dart';       // 13
 // import 'screens/writing_wall_screen.dart';  // 14
-// import 'screens/juju_screen.dart';          // 15
+import 'screens/juju_screen.dart'; // 15
 // import 'screens/parent_screen.dart';        // 16
 
 Future<void> main() async {
@@ -36,6 +38,7 @@ class Routes {
   static const loader = '/'; // 0
   static const home = '/home'; // 1
   static const letterHub = '/letter'; // 2
+  static const alphabet = '/alphabet'; //2a
   static const letterListen = '/letter/listen'; // 3
   static const letterSpeak = '/letter/speak'; // 4
   static const letterRead = '/letter/read'; // 5
@@ -82,13 +85,14 @@ final Map<String, WidgetBuilder> _builtScreens = {
   // Routes.customise: (_) => const CustomiseScreen(),
   // Routes.story: (_) => const StoryScreen(),
   // Routes.gallery: (_) => const GalleryScreen(),
-  //Routes.letterHub: (_) => const LetterHubScreen(),
-  // Routes.letterRead: (_) => const LetterReadScreen(),
-  // Routes.letterWrite: (_) => const LetterWriteScreen(),
+  Routes.letterHub: (_) => const LetterHubScreen(),
+  Routes.alphabet: (_) => const AlphabetScreen(),
+  Routes.letterRead: (_) => const LetterReadScreen(),
+  Routes.letterWrite: (_) => const LetterWriteScreen(),
   // Routes.letterSpeak: (_) => const LetterSpeakScreen(),
   //Routes.letterListen: (_) => const LetterListenScreen(),
   // Routes.sentences: (_) => const SentenceScreen(),
-  // Routes.juju: (_) => const JujuScreen(),
+  //Routes.juju: (_) => const JujuScreen(),
   // Routes.writingWall: (_) => const WritingWallScreen(),
   // Routes.parents: (_) => const ParentScreen(),
 };
