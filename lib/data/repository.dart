@@ -34,6 +34,7 @@ class Repository {
   List<BankEntry> sentenceBank = const []; // sentence_bank.json (optional until copied in)
   Map<String, LetterInfo> letters = const {}; // letter_positions.json
   Map<String, Json> lessons = const {}; // per-letter lesson JSON (optional until made)
+  Map<String, Json> jujuLines = const {}; // juju_lines.json: Juju's short lines per screen
 
   Map<String, HuntWord> _huntById = const {};
   Map<String, ArabicColour> _colourById = const {};
@@ -62,6 +63,7 @@ class Repository {
     final tmpl = _list('sentence_templates.json');
     final pos = _map('letter_positions.json');
     final bank = _optional('sentence_bank.json');
+    final juju = _optional('juju_lines.json');
     final lessonFutures = {
       for (final e in lessonFiles.entries) e.key: _optional('lessons/${e.value}.json'),
     };
@@ -85,6 +87,11 @@ class Repository {
     }
     lessons = loadedLessons;
 
+    final j = await juju;
+    jujuLines = j is Map
+        ? {for (final e in j.entries) e.key.toString(): Json.from(e.value as Map)}
+        : const {};
+
     _huntById = {for (final w in huntWords) w.id: w};
     _colourById = {for (final c in colours) c.id: c};
     _adjById = {for (final a in adjectives) a.id: a};
@@ -103,6 +110,7 @@ class Repository {
   BankEntry? bankEntry(String wordId) => _bankById[wordId];
   LetterInfo? letterInfo(String letter) => letters[letter];
   Json? lesson(String letter) => lessons[letter];
+  Json? jujuLine(String id) => jujuLines[id];
   bool isOpenLetter(String letter) => hackathonLetters.contains(letter);
 
   List<LessonWord> lessonWordsFor(String letter) =>

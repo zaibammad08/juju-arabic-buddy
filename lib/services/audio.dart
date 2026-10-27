@@ -60,6 +60,20 @@ class AudioService {
     return say(text, voice: voice, wait: wait);
   }
 
+  /// Play one entry of juju_lines.json: its file if present, else live TTS
+  /// in its voice ("juju", "jujuEnglish", "lesson", …).
+  Future<bool> playLine(Map<String, dynamic>? line, {bool wait = false}) {
+    if (line == null) return Future.value(false);
+    final voice = TtsVoice.values.firstWhere(
+      (v) => v.name == line['voice'],
+      orElse: () => TtsVoice.juju,
+    );
+    final text = voice.isArabic
+        ? (line['audio_text'] ?? line['arabic'] ?? '') as String
+        : (line['english'] ?? '') as String;
+    return playOrSay(asset: line['audio'] as String?, text: text, voice: voice, wait: wait);
+  }
+
   Future<void> stop() async {
     try {
       await _player.stop();
