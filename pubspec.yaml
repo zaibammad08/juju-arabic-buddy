@@ -17,6 +17,8 @@ dependencies:
   path_provider: ^2.1.4       # TTS + story picture cache, writing wall
   crypto: ^3.0.5              # cache file names
   camera: ^0.12.0+2
+  record: ^6.2.1
+  http_parser: ^4.0.2
 
 dev_dependencies:
   flutter_test:

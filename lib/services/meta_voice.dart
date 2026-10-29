@@ -4,7 +4,8 @@ import '../data/arabic_forms.dart';
 import 'meta_client.dart';
 
 class VoiceCheck {
-  const VoiceCheck({required this.heard, required this.matched, this.score = 0});
+  const VoiceCheck(
+      {required this.heard, required this.matched, this.score = 0});
 
   /// What Muse Voice Transcribe heard (null = no reply).
   final String? heard;
@@ -27,27 +28,34 @@ class MetaVoice {
   /// Tune on Day 1 with real recordings.
   static double threshold = 0.75;
 
-  /// [audio] = the recording bytes (the file can be deleted after this call).
+  /// Send the target word as a keyword hint. Off: on short clips keywords can
+  /// make the model "hear" the word even when the child said something else.
+  /// Turn on only if real recordings show it mishears correct answers.
+  static bool useKeywordHint = false;
+
+  /// [audio] = WAV bytes (mono 16-bit PCM, 16 kHz) – record with
+  /// `RecordConfig(encoder: AudioEncoder.wav, sampleRate: 16000, numChannels: 1)`.
+  /// Delete the file after this call.
   /// [target] = the word or sentence with marks (the `arabic` field is fine).
   Future<VoiceCheck> check(
     Uint8List audio, {
     required String target,
     List<String> variants = const [],
-    String filename = 'speech.m4a',
-    String language = 'ar',
+    String filename = 'speech.wav',
   }) async {
     final heard = await MetaClient.instance.transcribe(
       audio,
       filename: filename,
-      language: language,
-      prompt: ArabicForms.strip(target), // keyword hint
+      languageBias: const ['Arabic'],
+      keywords: useKeywordHint ? [ArabicForms.strip(target)] : const [],
     );
     if (heard == null) return const VoiceCheck(heard: null, matched: null);
     return compare(heard, target, variants: variants);
   }
 
   /// Pure comparison – easy to unit-test without the API.
-  static VoiceCheck compare(String heard, String target, {List<String> variants = const []}) {
+  static VoiceCheck compare(String heard, String target,
+      {List<String> variants = const []}) {
     final h = ArabicForms.normalise(heard);
     if (h.isEmpty) return VoiceCheck(heard: heard, matched: false);
 

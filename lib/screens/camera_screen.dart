@@ -27,13 +27,7 @@ import '../services/progress.dart';
 import '../widgets/juju.dart';
 import '../widgets/big_button.dart';
 import '../widgets/arabic_text.dart';
-
-/// What Screen 9 receives: `ModalRoute.of(context)!.settings.arguments as FoundArgs`.
-class FoundArgs {
-  final HuntWord word;
-  final String? colour; // colour id from vision (red, blue…) or null
-  const FoundArgs(this.word, {this.colour});
-}
+import 'found_screen.dart' show FoundArgs;
 
 enum _Phase { starting, noCamera, ready, counting, thinking, message }
 
@@ -89,7 +83,8 @@ class _CameraScreenState extends State<CameraScreen>
     if (state == AppLifecycleState.inactive ||
         state == AppLifecycleState.paused) {
       if (c != null) {
-        _cam = null;
+        // Remove the preview first, then dispose (avoids "used after dispose").
+        if (mounted) setState(() => _cam = null);
         c.dispose();
       }
     } else if (state == AppLifecycleState.resumed && _cam == null) {
@@ -332,7 +327,7 @@ class _CameraScreenState extends State<CameraScreen>
       _retry();
       return;
     }
-    _goFound(picked, null);
+    _goFound(picked, null, vision: false);
   }
 
   void _retry() {
@@ -344,163 +339,154 @@ class _CameraScreenState extends State<CameraScreen>
     _juju('cam_again', "Let's try again! Point and tap Snap.");
   }
 
-  void _goFound(HuntWord w, String? colour) {
+  void _goFound(HuntWord w, String? colour, {bool vision = true}) {
+    if (!mounted) return;
     AudioService.instance.stop();
     final c = (colour == null || colour == 'unclear') ? null : colour;
     Navigator.pushReplacementNamed(context, Routes.found,
-        arguments: FoundArgs(w, colour: c));
+        arguments: FoundArgs(wordId: w.id, colourId: c, seenByVision: vision));
   }
 
   // ───────────────────────── sheets ─────────────────────────
 
-  Future<HuntWord?> _chooseSheet(List<HuntWord> words,
-      {required String title}) {
-    return showModalBottomSheet<HuntWord>(
+  /// Shared bottom sheet: scrolls when the content is taller than the space
+  /// (small phones, 4 tiles), so it never overflows.
+  Future<T?> _sheet<T>(Widget Function(BuildContext ctx) content) {
+    return showModalBottomSheet<T>(
       context: context,
+      isScrollControlled: true,
       backgroundColor: AppColors.surface,
+      constraints:
+          BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.85),
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
       builder: (ctx) => SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(title,
-                  textAlign: TextAlign.center,
-                  style: AppTheme.english(
-                      size: 20, color: AppColors.ink, weight: FontWeight.w800)),
-              const SizedBox(height: 14),
-              Wrap(
-                spacing: 12,
-                runSpacing: 12,
-                alignment: WrapAlignment.center,
-                children: [
-                  for (final w in words)
-                    _ChoiceTile(
-                      word: w,
-                      onTap: () {
-                        _sayWord(w);
-                        Navigator.pop(ctx, w);
-                      },
-                    ),
-                ],
-              ),
-              const SizedBox(height: 14),
-              TextButton(
-                onPressed: () => Navigator.pop(ctx),
-                child: Text('Take another photo',
-                    style: AppTheme.english(
-                        size: 16,
-                        color: AppColors.blue,
-                        weight: FontWeight.w800)),
-              ),
-            ],
-          ),
+          child: content(ctx),
         ),
       ),
     );
+  }
+
+  Future<HuntWord?> _chooseSheet(List<HuntWord> words,
+      {required String title}) {
+    return _sheet<HuntWord>((ctx) => Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(title,
+                textAlign: TextAlign.center,
+                style: AppTheme.english(
+                    size: 20, color: AppColors.ink, weight: FontWeight.w800)),
+            const SizedBox(height: 14),
+            Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              alignment: WrapAlignment.center,
+              children: [
+                for (final w in words)
+                  _ChoiceTile(
+                    word: w,
+                    onTap: () {
+                      _sayWord(w);
+                      Navigator.pop(ctx, w);
+                    },
+                  ),
+              ],
+            ),
+            const SizedBox(height: 14),
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              style: TextButton.styleFrom(
+                  minimumSize: const Size(0, AppTheme.minTap)),
+              child: Text('Take another photo',
+                  style: AppTheme.english(
+                      size: 16,
+                      color: AppColors.blue,
+                      weight: FontWeight.w800)),
+            ),
+          ],
+        ));
   }
 
   Future<bool?> _confirmSheet(HuntWord w) {
     AudioService.instance.say('Is this a ${w.englishWord.toLowerCase()}?',
         voice: TtsVoice.jujuEnglish);
-    return showModalBottomSheet<bool>(
-      context: context,
-      backgroundColor: AppColors.surface,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
-      builder: (ctx) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _Sticker(word: w, size: 120),
-              const SizedBox(height: 8),
-              Text('Is this a ${w.englishWord.toLowerCase()}?',
-                  style: AppTheme.english(
-                      size: 22, color: AppColors.ink, weight: FontWeight.w800)),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                    child: BigButton(
-                      label: 'No',
-                      emoji: '🤔',
-                      style: BigButtonStyle.white,
-                      height: 72,
-                      expand: true,
-                      onTap: () => Navigator.pop(ctx, false),
-                    ),
+    return _sheet<bool>((ctx) => Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _Sticker(word: w, size: 120),
+            const SizedBox(height: 8),
+            Text('Is this a ${w.englishWord.toLowerCase()}?',
+                textAlign: TextAlign.center,
+                style: AppTheme.english(
+                    size: 22, color: AppColors.ink, weight: FontWeight.w800)),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: BigButton(
+                    label: 'No',
+                    emoji: '🤔',
+                    style: BigButtonStyle.white,
+                    height: 72,
+                    expand: true,
+                    onTap: () => Navigator.pop(ctx, false),
                   ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: BigButton(
-                      label: 'Yes!',
-                      emoji: '✓',
-                      style: BigButtonStyle.good,
-                      height: 72,
-                      expand: true,
-                      onTap: () => Navigator.pop(ctx, true),
-                    ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: BigButton(
+                    label: 'Yes!',
+                    emoji: '✓',
+                    style: BigButtonStyle.good,
+                    height: 72,
+                    expand: true,
+                    onTap: () => Navigator.pop(ctx, true),
                   ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+                ),
+              ],
+            ),
+          ],
+        ));
   }
 
   Future<bool?> _wrongLetterSheet(HuntWord w, String target) {
     AudioService.instance.say(
         "That's a ${w.englishWord.toLowerCase()}! Can you find something with $target?",
         voice: TtsVoice.jujuEnglish);
-    return showModalBottomSheet<bool>(
-      context: context,
-      backgroundColor: AppColors.surface,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
-      builder: (ctx) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _Sticker(word: w, size: 110),
-              ArabicText(w.arabicWord,
-                  size: 40, highlightLetter: w.letter, firstOnly: true),
-              Text(
-                'This starts with ${w.letter}. Can you find something with $target?',
-                textAlign: TextAlign.center,
-                style: AppTheme.english(
-                    size: 18, color: AppColors.ink, weight: FontWeight.w700),
-              ),
-              const SizedBox(height: 16),
-              BigButton(
-                label: 'Find a $target',
-                emoji: '📷',
-                style: BigButtonStyle.good,
-                height: 72,
-                expand: true,
-                onTap: () => Navigator.pop(ctx, false),
-              ),
-              const SizedBox(height: 10),
-              BigButton(
-                label: 'Learn this word',
-                emoji: '📖',
-                style: BigButtonStyle.white,
-                height: 64,
-                expand: true,
-                onTap: () => Navigator.pop(ctx, true),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    return _sheet<bool>((ctx) => Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _Sticker(word: w, size: 110),
+            ArabicText(w.arabicWord,
+                size: 40, highlightLetter: w.letter, firstOnly: true),
+            Text(
+              'This starts with ${w.letter}. Can you find something with $target?',
+              textAlign: TextAlign.center,
+              style: AppTheme.english(
+                  size: 18, color: AppColors.ink, weight: FontWeight.w700),
+            ),
+            const SizedBox(height: 16),
+            BigButton(
+              label: 'Find a $target',
+              emoji: '📷',
+              style: BigButtonStyle.good,
+              height: 72,
+              expand: true,
+              onTap: () => Navigator.pop(ctx, false),
+            ),
+            const SizedBox(height: 10),
+            BigButton(
+              label: 'Learn this word',
+              emoji: '📖',
+              style: BigButtonStyle.white,
+              height: 64,
+              expand: true,
+              onTap: () => Navigator.pop(ctx, true),
+            ),
+          ],
+        ));
   }
 
   // ───────────────────────── UI ─────────────────────────
