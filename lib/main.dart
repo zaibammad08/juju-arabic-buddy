@@ -21,12 +21,12 @@ import 'screens/letter_listen_screen.dart'; // 3
 import 'screens/hunt_hub_screen.dart'; // 7
 import 'screens/camera_screen.dart'; // 8
 // import 'screens/found_screen.dart';         // 9
-// import 'screens/story_screen.dart';         // 11
-// import 'screens/sentence_screen.dart';      // 12
-// import 'screens/gallery_screen.dart';       // 13
-// import 'screens/writing_wall_screen.dart';  // 14
+import 'screens/story_screen.dart'; // 11
+import 'screens/sentence_screen.dart'; // 12
+import 'screens/gallery_screen.dart'; // 13
+import 'screens/writing_wall_screen.dart'; // 14
 //import 'screens/juju_screen.dart'; // 15
-// import 'screens/parent_screen.dart';        // 16
+import 'screens/parent_screen.dart'; // 16
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -85,18 +85,18 @@ final Map<String, WidgetBuilder> _builtScreens = {
   Routes.camera: (_) => const CameraScreen(),
   Routes.found: (_) => const FoundScreen(),
   Routes.customise: (_) => const CustomiseScreen(),
-  // Routes.story: (_) => const StoryScreen(),
-  // Routes.gallery: (_) => const GalleryScreen(),
+  Routes.story: (_) => const StoryScreen(),
+  Routes.gallery: (_) => const GalleryScreen(),
   Routes.letterHub: (_) => const LetterHubScreen(),
   Routes.alphabet: (_) => const AlphabetScreen(),
   Routes.letterRead: (_) => const LetterReadScreen(),
   Routes.letterWrite: (_) => const LetterWriteScreen(),
   Routes.letterSpeak: (_) => const LetterSpeakScreen(),
   Routes.letterListen: (_) => const LetterListenScreen(),
-  // Routes.sentences: (_) => const SentenceScreen(),
+  Routes.sentences: (_) => const SentenceScreen(),
   //Routes.juju: (_) => const JujuScreen(),
-  // Routes.writingWall: (_) => const WritingWallScreen(),
-  // Routes.parents: (_) => const ParentScreen(),
+  Routes.writingWall: (_) => const WritingWallScreen(),
+  Routes.parents: (_) => const ParentScreen(),
 };
 
 class ArabicBuddyApp extends StatelessWidget {

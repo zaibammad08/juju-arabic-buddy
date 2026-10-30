@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
-
+import 'found_screen.dart' show FoundArgs;
 import '../main.dart' show Routes;
 import '../theme/app_theme.dart';
 import '../data/repository.dart';
@@ -103,7 +103,11 @@ class _CustomiseScreenState extends State<CustomiseScreen> {
     final args = ModalRoute.of(context)?.settings.arguments;
     HuntWord? w;
     String? detected;
-    if (args is HuntWord) {
+    if (args is FoundArgs) {
+      w = repo.huntWord(args.wordId);
+      final c = args.colourId;
+      if (c != null && c != 'unclear') detected = c;
+    } else if (args is HuntWord) {
       w = args;
     } else if (args is String) {
       w = repo.huntWord(args);

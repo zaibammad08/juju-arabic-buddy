@@ -18,6 +18,7 @@ import '../widgets/arabic_text.dart';
 import '../widgets/skill_tile.dart';
 import '../widgets/parent_tip.dart';
 import '../data/audio_index.dart';
+import '../widgets/writing_board.dart'; // ← no: use this line instead
 
 class LetterHubScreen extends StatefulWidget {
   const LetterHubScreen({super.key});
@@ -147,6 +148,7 @@ class _LetterHubScreenState extends State<LetterHubScreen> {
                   const SizedBox(height: 22),
                   _skillRow(letter),
                   const SizedBox(height: 10),
+
                   Center(
                     child: TextButton.icon(
                       onPressed: () {
@@ -164,8 +166,13 @@ class _LetterHubScreenState extends State<LetterHubScreen> {
                           minimumSize: const Size(160, AppTheme.minTap)),
                     ),
                   ),
+
                   const SizedBox(height: 22),
                   _findButton(letter),
+
+                  const SizedBox(height: 14),
+                  WritingWallStrip(
+                      letter: letter), // the hub's current letter variable
                   const SizedBox(height: 16),
                   ParentTip(
                     text: _parentTip,

@@ -41,6 +41,7 @@ flutter:
     - assets/data/colours.json
     - assets/data/sentence_bank.json
     - assets/data/adjectives.json
+    - assets/data/parent_guide.json
     - assets/data/sentence_templates.json
     - assets/data/juju_lines.json
     - assets/audio/
