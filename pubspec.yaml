@@ -47,6 +47,7 @@ flutter:
     - assets/data/sentence_templates.json
     - assets/data/juju_lines.json
     - assets/audio/
+    - assets/audio/lex
     - assets/audio/juju/
     - assets/places/
     - assets/places/stamp_home.webp

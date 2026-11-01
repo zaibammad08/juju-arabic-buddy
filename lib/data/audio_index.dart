@@ -5,6 +5,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 
+import 'lex.dart';
 import 'repository.dart';
 import '../services/audio.dart';
 
@@ -67,6 +68,13 @@ class AudioIndex {
   /// A word: its mp3 (found by sticker id) or live TTS of [text].
   Future<void> playWord(String text, {String? sticker}) async {
     await _ensureLoaded();
+    // The word library wins: it is named by the WORD, so a lesson word that
+    // borrows a hunt picture (بَيْض with the egg sticker) still says itself.
+    final lex = await Lex.instance.fileFor(text);
+    if (lex != null && await AudioService.instance.hasAsset(lex)) {
+      await AudioService.instance.playAsset(lex, wait: true);
+      return;
+    }
     final f = wordFile(sticker);
     if (f != null) {
       await AudioService.instance.playAsset(f, wait: true);

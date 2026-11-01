@@ -336,13 +336,14 @@ class _LetterSpeakScreenState extends State<LetterSpeakScreen> {
     final v = list[i];
     final move = _moves[i];
     if (long) {
+      // long sounds (بَا بِي بُو) sound right from Azure: play them
       await _jujuSays('${move.$2} Now stretch it long!');
-      if (i < _short.length) await _sayArabic(_short[i].say);
-      await Future.delayed(const Duration(milliseconds: 250));
       await _sayArabic(v.say);
     } else {
+      // A lone short sound (بُ) comes out wrong from TTS, so the example
+      // word carries it (بُرْتُقَال). Letters with no example word keep the sound.
       await _jujuSays(move.$2);
-      await _sayArabic(v.say);
+      if (v.exSay.isEmpty) await _sayArabic(v.say);
     }
     if (v.exSay.isNotEmpty) {
       await Future.delayed(const Duration(milliseconds: 300));
