@@ -28,6 +28,13 @@ import 'screens/writing_wall_screen.dart'; // 14
 //import 'screens/juju_screen.dart'; // 15
 import 'screens/parent_screen.dart'; // 16
 
+import 'screens/juju_screen.dart';
+import 'screens/magic/detective_screen.dart';
+import 'screens/magic/feed_juju_screen.dart';
+import 'screens/magic/playdough_screen.dart';
+import 'screens/magic/story_maker_screen.dart';
+import 'screens/magic/treasure_unlock_screen.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -55,6 +62,11 @@ class Routes {
   static const writingWall = '/writing-wall'; // 14
   static const juju = '/juju'; // 15
   static const parents = '/parents'; // 16
+  static const detective = '/detective';
+  static const feedJuju = '/feed-juju';
+  static const playdough = '/playdough';
+  static const storyMaker = '/story-maker';
+  static const treasureUnlock = '/treasure-unlock';
 
   static const titles = {
     home: (1, 'Home'),
@@ -94,9 +106,14 @@ final Map<String, WidgetBuilder> _builtScreens = {
   Routes.letterSpeak: (_) => const LetterSpeakScreen(),
   Routes.letterListen: (_) => const LetterListenScreen(),
   Routes.sentences: (_) => const SentenceScreen(),
-  //Routes.juju: (_) => const JujuScreen(),
   Routes.writingWall: (_) => const WritingWallScreen(),
   Routes.parents: (_) => const ParentScreen(),
+  Routes.juju: (_) => const JujuScreen(),
+  Routes.detective: (_) => const DetectiveScreen(),
+  Routes.feedJuju: (_) => const FeedJujuScreen(),
+  Routes.playdough: (_) => const PlaydoughScreen(),
+  Routes.storyMaker: (_) => const StoryMakerScreen(),
+  Routes.treasureUnlock: (_) => const TreasureUnlockScreen(),
 };
 
 class ArabicBuddyApp extends StatelessWidget {

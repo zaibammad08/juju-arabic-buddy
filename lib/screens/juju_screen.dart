@@ -1,791 +1,260 @@
-import 'dart:math';
+// lib/screens/juju_screen.dart
+// Screen 15 – Juju Magic World (game hub, carousel)
+// Kid-first: one big game card at a time, big picture, short name, big Play
+// button. Swipe to the next game and Juju says its name (for pre-readers).
+// Everything fits on one screen – no scrolling.
+// Parent-facing detail (skill + Juju power) stays in the data for the
+// Parents screen / pitch; kids only see a small skill icon.
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import '../main.dart' show Routes;
 import '../theme/app_theme.dart';
 import '../data/repository.dart';
 import '../services/audio.dart';
 import '../services/progress.dart';
 import '../widgets/juju.dart';
 import '../widgets/big_button.dart';
-import '../widgets/arabic_text.dart';
+import 'magic/magic_common.dart';
 
-// Screen 15: Juju World (hackathon cut)
-// Tab 0: Colours backpack | Tab 1: Numbers 1-10 | Tab 2: Juju Forgets!
-// Rest shows "coming soon". Nothing stored. Photos never used here.
-
-/// Spark prompt for MetaText.sillyMistake() — wire it when hasMeta.
-/// Input: correct word JSON. Output JSON only: {"wrong_id":"chair","tease_en":"Hehe..."}
-/// Rules: same room/category, child-friendly, never people, English only,
-/// max 15 words, never say the correct name.
-const String kSillyMistakePrompt = '''
-You are Juju, a silly baby camel playing with a 5-year-old.
-Correct object JSON: {CORRECT_JSON}. Allowed ids: {ALLOWED_IDS}.
-Pick ONE funny confusion from the same room/category.
-Return JSON only: {"wrong_id":"<id>","tease_en":"<short sleepy joke, max 15 words>"}.
-''';
-
-String _stickerPath(String sticker) {
-  if (sticker.isEmpty) return '';
-  if (sticker.startsWith('assets/')) return sticker;
-  if (sticker.contains('/')) return 'assets/$sticker';
-  return 'assets/images/$sticker';
+class _Game {
+  final String id; // also: assets/world/game_<id>.webp + Juju line 'game_<id>'
+  final String title;
+  final String subtitle; // for parents / screen readers
+  final String skill;
+  final String skillIcon;
+  final String power; // for parents / pitch
+  final String emoji; // fallback if the picture is missing
+  final Color colour;
+  final String route;
+  final bool isNew;
+  const _Game(this.id, this.title, this.subtitle, this.skill, this.skillIcon,
+      this.power, this.emoji, this.colour, this.route,
+      {this.isNew = false});
 }
 
-Color _colourDot(String id) {
-  switch (id.toLowerCase()) {
-    case 'red':
-      return const Color(0xFFE5536B);
-    case 'blue':
-      return const Color(0xFF2F6FDE);
-    case 'green':
-      return const Color(0xFF1FA67A);
-    case 'yellow':
-      return const Color(0xFFF5B83D);
-    case 'pink':
-      return const Color(0xFFF48FB1);
-    case 'orange':
-      return const Color(0xFFF08A24);
-    case 'purple':
-      return const Color(0xFF9B7EDE);
-    case 'brown':
-      return const Color(0xFF8D6E63);
-    case 'black':
-      return const Color(0xFF0B2A3D);
-    case 'white':
-      return Colors.white;
-    case 'grey':
-    case 'gray':
-      return const Color(0xFFB0BEC5);
-    default:
-      return AppColors.line;
-  }
-}
+const List<_Game> _games = [
+  _Game('hunt', 'Treasure Hunt', 'Snap things, then unlock the chest',
+      'Speaking', '🗣️', 'SEES & NAMES', '🧰', AppColors.good, Routes.huntHub),
+  _Game(
+      'detective',
+      'Juju Detective',
+      "Follow Juju's clues, snap the answer",
+      'Listening',
+      '👂',
+      'SOLVES CLUES',
+      '🔍',
+      AppColors.blue,
+      Routes.detective),
+  _Game('feed', 'Feed Juju', 'Find food that fits 3 clues', 'Reading', '📖',
+      'THINKS WITH RULES', '🍎', AppColors.highlight, Routes.feedJuju,
+      isNew: true),
+  _Game(
+      'playdough',
+      'Playdough Magic',
+      'Make a letter, add the magic dots',
+      'Writing',
+      '✍️',
+      'TRANSFORMS',
+      '✨',
+      AppColors.accentShadow,
+      Routes.playdough),
+  _Game('story', 'Story Maker', 'Draw it, Juju tells the story', 'Drawing',
+      '🖍️', 'CREATES', '🎨', AppColors.feminine, Routes.storyMaker),
+];
 
 class JujuScreen extends StatefulWidget {
   const JujuScreen({super.key});
+
   @override
   State<JujuScreen> createState() => _JujuScreenState();
 }
 
 class _JujuScreenState extends State<JujuScreen> {
-  int _tab = 0;
-
-  // colours
-  String _bagColourId = 'red';
-  String _bagArabicF = '';
-  bool _bagInit = false;
-
-  // numbers
-  int _count = 3;
-
-  // forgets game
-  List<dynamic> _pool = [];
-  int _round = 0;
-  int _score = 0;
-  dynamic _correct;
-  dynamic _wrong;
-  String _phase = 'ask'; // ask -> pick -> cheer
-  String? _feedback;
-  bool _busy = false;
+  final _pager = PageController(viewportFraction: 0.78);
+  int _page = 0;
+  bool _busy = false; // blocks double-taps while a game opens
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (!_bagInit) {
-      _bagInit = true;
-      try {
-        final c = Repository.instance.colours.firstWhere(
-          (e) {
-            try {
-              return (e as dynamic).id == 'red';
-            } catch (_) {
-              return false;
-            }
-          },
-        );
-        try {
-          _bagArabicF = (c as dynamic).f as String;
-        } catch (_) {
-          _bagArabicF = '';
-        }
-      } catch (_) {}
-      _newForgetRound(first: true);
-    }
-    if (_correct == null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        AudioService.instance
-            .say('Hi! I am Juju!', voice: TtsVoice.jujuEnglish);
-      });
+  void initState() {
+    super.initState();
+    MagicData.load();
+    WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _speak(const ['world_hello', 'world_hello_en']));
+  }
+
+  @override
+  void dispose() {
+    _pager.dispose();
+    AudioService.instance.stop();
+    super.dispose();
+  }
+
+  /// Plays Juju lines in order; missing lines are skipped silently.
+  Future<void> _speak(List<String> ids) async {
+    await AudioService.instance.stop();
+    for (final id in ids) {
+      if (!mounted) return;
+      final line = Repository.instance.jujuLine(id);
+      if (line == null) continue;
+      await AudioService.instance.playLine(line, wait: true);
     }
   }
 
-  // ---------- colours ----------
-
-  void _pickColour(dynamic c) {
-    String id = '';
-    String f = '';
-    String en = '';
-    try {
-      id = (c as dynamic).id as String;
-    } catch (_) {}
-    try {
-      f = (c as dynamic).f as String;
-    } catch (_) {}
-    try {
-      en = (c as dynamic).en as String;
-    } catch (_) {}
-    setState(() {
-      _bagColourId = id;
-      _bagArabicF = f;
-    });
-    // Spark path: if child SAID the colour, call
-    // MetaVision.instance.colourFromSpeech(heardText) -> id
-    // then set _bagColourId. Tap path works offline.
-    if (f.isNotEmpty) {
-      AudioService.instance.playOrSay(
-        asset: null,
-        text: f,
-        voice: TtsVoice.lessonWord,
-      );
-    } else if (en.isNotEmpty) {
-      AudioService.instance.say(en, voice: TtsVoice.jujuEnglish);
+  String? _lineArabic(String id) {
+    final Object? line = Repository.instance.jujuLine(id);
+    if (line is Map) {
+      final a = line['arabic'];
+      if (a is String && a.isNotEmpty) return a;
     }
-    ProgressService.instance.addStars(1);
-  }
-
-  // ---------- numbers ----------
-
-  void _sayCount() {
-    // Arabic number audio lives in assets/audio/numbers/ (batch2).
-    // Until filenames land in juju_lines.json, count in English + star.
-    // Eastern digits shown via codepoint (not hard-coded words): ١ = 0x0661 + n-1
-    AudioService.instance
-        .say('$_count! Count with me!', voice: TtsVoice.jujuEnglish);
-    ProgressService.instance.addStars(1);
-  }
-
-  // ---------- juju forgets ----------
-
-  void _newForgetRound({bool first = false}) {
-    try {
-      if (_pool.isEmpty) {
-        final all = Repository.instance.huntWords;
-        _pool = List<dynamic>.from(all as List);
-        _pool.shuffle(Random());
-      }
-    } catch (_) {
-      _pool = [];
-    }
-    if (_pool.isEmpty) return;
-    final correct = _pool[_round % _pool.length];
-
-    // Local fallback for Spark: same room/category confusion.
-    // Upgrade: replace with await MetaText.instance.sillyMistake(correct.id)
-    // using kSillyMistakePrompt above. Must return wrong_id from allowed list.
-    dynamic wrong;
-    try {
-      String room = '';
-      String cat = '';
-      try {
-        room = (correct as dynamic).room as String;
-      } catch (_) {}
-      try {
-        cat = (correct as dynamic).category as String;
-      } catch (_) {}
-      final cands = _pool.where((w) {
-        if (identical(w, correct)) return false;
-        String r = '';
-        String cc = '';
-        try {
-          r = (w as dynamic).room as String;
-        } catch (_) {}
-        try {
-          cc = (w as dynamic).category as String;
-        } catch (_) {}
-        return (r.isNotEmpty && r == room) || (cc.isNotEmpty && cc == cat);
-      }).toList();
-      cands.shuffle(Random());
-      wrong = cands.isNotEmpty ? cands.first : null;
-      if (wrong == null) {
-        final others = _pool.where((w) => !identical(w, correct)).toList();
-        others.shuffle(Random());
-        wrong = others.first;
-      }
-    } catch (_) {
-      wrong = null;
-    }
-
-    setState(() {
-      _correct = correct;
-      _wrong = wrong;
-      _phase = 'ask';
-      _feedback = null;
-      _busy = false;
-    });
-
-    if (!first) return;
-    // first intro is handled by header speech
-  }
-
-  String _ar(dynamic w) {
-    try {
-      return (w as dynamic).arabicWord as String;
-    } catch (_) {
-      try {
-        return (w as dynamic).arabic as String;
-      } catch (_) {
-        return '';
-      }
-    }
-  }
-
-  String _en(dynamic w) {
-    try {
-      return (w as dynamic).englishWord as String;
-    } catch (_) {
-      try {
-        return (w as dynamic).english as String;
-      } catch (_) {
-        return 'this';
-      }
-    }
-  }
-
-  String _audioText(dynamic w) {
-    try {
-      final raw = (w as dynamic).raw as Map;
-      final at = raw['audio_text'] as String?;
-      if (at != null && at.isNotEmpty) return at;
-    } catch (_) {}
-    return _ar(w);
-  }
-
-  String? _audioAsset(dynamic w) {
-    try {
-      final raw = (w as dynamic).raw as Map;
-      final a = (raw['audio'] ?? raw['word_audio']) as String?;
-      if (a != null && a.toString().isNotEmpty) return a.toString();
-    } catch (_) {}
     return null;
   }
 
-  String _sticker(dynamic w) {
-    try {
-      return _stickerPath((w as dynamic).sticker as String);
-    } catch (_) {
-      return '';
+  /// Swiped to a new game → Juju names it.
+  void _onPage(int i) {
+    setState(() => _page = i);
+    HapticFeedback.selectionClick();
+    _speak(['game_${_games[i].id}']);
+  }
+
+  /// Tap a side card → slide it to the middle; tap the middle one → play.
+  void _tapCard(int i) {
+    if (i != _page) {
+      _pager.animateToPage(i,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOutCubic);
+      return;
     }
+    _open(_games[i]);
   }
 
-  Future<void> _jujuSaysWrong() async {
-    if (_correct == null || _wrong == null) return;
-    // Juju proudly says the WRONG name — kids love to correct her.
-    await AudioService.instance.playOrSay(
-      asset: _audioAsset(_wrong),
-      text: _audioText(_wrong),
-      voice: TtsVoice.lessonWord,
-    );
+  Future<void> _open(_Game g) async {
+    if (_busy) return;
+    _busy = true;
+    await AudioService.instance.stop();
+    if (mounted) await Navigator.pushNamed(context, g.route);
+    _busy = false;
   }
 
-  void _onAskAnswer(bool saidYes) {
-    if (_busy || _correct == null) return;
-    if (saidYes) {
-      // Child agreed with wrong Juju — be kind, blame Juju being sleepy.
-      setState(() {
-        _feedback = 'try';
-        _phase = 'pick';
-      });
-      AudioService.instance
-          .say('Hmm, am I sleepy? Listen again!', voice: TtsVoice.jujuEnglish);
-      Future.delayed(const Duration(milliseconds: 700), () {
-        if (mounted) _jujuSaysWrong();
-      });
+  void _goBack() {
+    AudioService.instance.stop();
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
     } else {
-      // Child caught her! Now prove it: tap the right one.
-      setState(() {
-        _feedback = 'caught';
-        _phase = 'pick';
-      });
-      AudioService.instance
-          .say('Oh no! Show me which one!', voice: TtsVoice.jujuEnglish);
-      ProgressService.instance.addStars(1);
-    }
-  }
-
-  void _onPick(dynamic picked) {
-    if (_busy || _correct == null) return;
-    final bool ok = identical(picked, _correct);
-    setState(() => _busy = true);
-    if (ok) {
-      setState(() {
-        _feedback = 'good';
-        _phase = 'cheer';
-        _score++;
-      });
-      // Model the right word right away so the name sticks.
-      AudioService.instance.playOrSay(
-        asset: _audioAsset(_correct),
-        text: _audioText(_correct),
-        voice: TtsVoice.lessonWord,
-      );
-      ProgressService.instance.addStars(2);
-      Future.delayed(const Duration(milliseconds: 1600), () {
-        if (!mounted) return;
-        setState(() {
-          _round++;
-          _busy = false;
-        });
-        _newForgetRound();
-        Future.delayed(const Duration(milliseconds: 500), () {
-          if (mounted) _jujuSaysWrong();
-        });
-      });
-    } else {
-      setState(() {
-        _feedback = 'try';
-        _busy = false;
-      });
-      // Juju takes blame, never the child.
-      AudioService.instance.say('Sorry, I missed it! Say it louder!',
-          voice: TtsVoice.jujuEnglish);
+      Navigator.pushReplacementNamed(context, Routes.home);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.bg,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          child: Column(
-            children: [
-              _TopBar(
-                tab: _tab,
-                onTab: (t) => setState(() => _tab = t),
-              ),
-              const SizedBox(height: 12),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: _tab == 0
-                      ? _buildColours()
-                      : _tab == 1
-                          ? _buildNumbers()
-                          : _buildForgets(),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+    final progress = ProgressService.instance;
 
-  Widget _buildColours() {
-    List<dynamic> colours = [];
-    try {
-      colours = List<dynamic>.from(Repository.instance.colours as List);
-    } catch (_) {}
-    if (colours.length > 8) colours = colours.sublist(0, 8);
-    return Column(
-      children: [
-        SpeechBubble(
-          tailOnLeft: false,
-          child: Text(
-            'What colour is my backpack?',
-            textAlign: TextAlign.center,
-            style: AppTheme.english(
-                size: 17, color: AppColors.ink, weight: FontWeight.w800),
-          ),
-        ),
-        const SizedBox(height: 4),
-        Stack(
-          alignment: Alignment.center,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.dark
+          .copyWith(statusBarColor: Colors.transparent),
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF3D4A0),
+        body: Stack(
           children: [
-            const Juju(
-                pose: JujuPose.wave, size: 170, motion: JujuMotion.bounce),
-            Positioned(
-              bottom: 6,
-              child: Container(
-                width: 90,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: _colourDot(_bagColourId),
-                  borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: AppColors.ink, width: 3),
-                ),
-                child: const Center(
-                  child: Text('🎒', style: TextStyle(fontSize: 36)),
-                ),
-              ),
-            ),
-          ],
-        ),
-        if (_bagArabicF.isNotEmpty)
-          Padding(
-            padding: const EdgeInsets.only(top: 4),
-            child:
-                ArabicText(_bagArabicF, size: 32, color: AppColors.highlight),
-          ),
-        const SizedBox(height: 8),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: AppColors.surface,
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: AppColors.line, width: 2),
-          ),
-          child: Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            alignment: WrapAlignment.center,
-            children: [
-              for (final c in colours)
-                GestureDetector(
-                  onTap: () => _pickColour(c),
-                  child: Builder(builder: (_) {
-                    String id = '';
-                    try {
-                      id = (c as dynamic).id as String;
-                    } catch (_) {}
-                    final sel = id == _bagColourId;
-                    return Container(
-                      width: 64,
-                      height: 64,
-                      decoration: BoxDecoration(
-                        color: _colourDot(id),
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: sel ? AppColors.highlight : AppColors.line,
-                          width: sel ? 4 : 2,
-                        ),
-                      ),
-                    );
-                  }),
-                ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          'Tap or SAY the colour — Spark understands!',
-          textAlign: TextAlign.center,
-          style: AppTheme.english(
-              size: 13, color: AppColors.muted, weight: FontWeight.w700),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildNumbers() {
-    return Column(
-      children: [
-        SpeechBubble(
-          tailOnLeft: false,
-          child: Text(
-            'Count with Juju! Tap a number.',
-            textAlign: TextAlign.center,
-            style: AppTheme.english(
-                size: 17, color: AppColors.ink, weight: FontWeight.w800),
-          ),
-        ),
-        const SizedBox(height: 4),
-        const Juju(pose: JujuPose.wave, size: 150, motion: JujuMotion.bounce),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            color: AppColors.surface,
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: AppColors.line, width: 2),
-          ),
-          child: Column(
-            children: [
-              // Basket preview: N balloons/stars
-              Wrap(
-                spacing: 6,
-                runSpacing: 6,
-                alignment: WrapAlignment.center,
-                children: [
-                  for (int i = 0; i < _count; i++)
-                    const Text('🎈', style: TextStyle(fontSize: 28)),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                alignment: WrapAlignment.center,
-                children: [
-                  for (int n = 1; n <= 10; n++)
-                    GestureDetector(
-                      onTap: () {
-                        setState(() => _count = n);
-                        _sayCount();
-                      },
-                      child: Container(
-                        width: 64,
-                        height: 64,
-                        decoration: BoxDecoration(
-                          color: n == _count
-                              ? AppColors.accent
-                              : AppColors.surface2,
-                          borderRadius: BorderRadius.circular(18),
-                          border: Border.all(
-                            color: n == _count
-                                ? AppColors.accentShadow
-                                : AppColors.line,
-                            width: 2,
+            const Positioned.fill(
+                child: CustomPaint(painter: _DeepDesertPainter())),
+            SafeArea(
+              child: LayoutBuilder(builder: (context, c) {
+                final sceneH = (c.maxHeight * 0.27).clamp(150.0, 230.0);
+                return Column(
+                  children: [
+                    // ── Top bar
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+                      child: Row(
+                        children: [
+                          _RoundIconButton(
+                            icon: Icons.arrow_back_rounded,
+                            semantic: 'Go back',
+                            onTap: _goBack,
                           ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '$n',
-                            style: AppTheme.english(
-                                size: 22,
-                                color: AppColors.ink,
-                                weight: FontWeight.w800),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text('Juju Magic World',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: AppTheme.english(
+                                    size: 24,
+                                    color: AppColors.ink,
+                                    weight: FontWeight.w800)),
+                          ),
+                          ListenableBuilder(
+                            listenable: progress,
+                            builder: (_, __) =>
+                                _StarsChip(stars: progress.stars),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // ── Juju + bubble
+                    SizedBox(
+                      height: sceneH,
+                      child: _JujuScene(
+                        height: sceneH,
+                        arabic: _lineArabic('world_hello'),
+                        onTap: () =>
+                            _speak(const ['world_hello', 'world_hello_en']),
+                      ),
+                    ),
+
+                    // ── Game carousel
+                    Expanded(
+                      child: PageView.builder(
+                        controller: _pager,
+                        itemCount: _games.length,
+                        onPageChanged: _onPage,
+                        itemBuilder: (_, i) => AnimatedScale(
+                          scale: i == _page ? 1.0 : 0.88,
+                          duration: const Duration(milliseconds: 220),
+                          curve: Curves.easeOut,
+                          child: AnimatedOpacity(
+                            opacity: i == _page ? 1.0 : 0.7,
+                            duration: const Duration(milliseconds: 220),
+                            child: _GameCard(
+                              game: _games[i],
+                              active: i == _page,
+                              onTap: () => _tapCard(i),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
 
-  Widget _buildForgets() {
-    if (_correct == null || _wrong == null) {
-      return Padding(
-        padding: const EdgeInsets.all(24),
-        child: Center(
-          child: Text('Add hunt words to play!',
-              style: AppTheme.english(
-                  size: 15, color: AppColors.muted, weight: FontWeight.w700)),
-        ),
-      );
-    }
-    final wrongAr = _ar(_wrong);
-    final opts = [_correct, _wrong]..shuffle(Random());
+                    // ── Dots
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (var i = 0; i < _games.length; i++)
+                            AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              margin: const EdgeInsets.symmetric(horizontal: 4),
+                              width: i == _page ? 26 : 10,
+                              height: 10,
+                              decoration: BoxDecoration(
+                                color: i == _page
+                                    ? _games[i].colour
+                                    : Colors.white.withOpacity(0.8),
+                                borderRadius: BorderRadius.circular(999),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
 
-    return Column(
-      children: [
-        SpeechBubble(
-          tailOnLeft: false,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              if (_phase == 'ask') ...[
-                // Juju says the WRONG name on purpose.
-                if (wrongAr.isNotEmpty)
-                  ArabicText(wrongAr, size: 34, color: AppColors.ink),
-                Text(
-                  'Juju says this! Is she right?',
-                  textAlign: TextAlign.center,
-                  style: AppTheme.english(
-                      size: 15,
-                      color: AppColors.muted,
-                      weight: FontWeight.w700),
-                ),
-              ] else if (_phase == 'pick') ...[
-                Text(
-                  _feedback == 'caught'
-                      ? 'You caught me! Tap the right one!'
-                      : 'Listen again — tap the right one!',
-                  textAlign: TextAlign.center,
-                  style: AppTheme.english(
-                      size: 16, color: AppColors.ink, weight: FontWeight.w800),
-                ),
-              ] else ...[
-                Text(
-                  'You did it! Great remembering! ⭐',
-                  textAlign: TextAlign.center,
-                  style: AppTheme.english(
-                      size: 17, color: AppColors.ink, weight: FontWeight.w800),
-                ),
-              ],
-            ],
-          ),
-        ),
-        const SizedBox(height: 4),
-        GestureDetector(
-          onTap: _jujuSaysWrong,
-          child: const Juju(
-              pose: JujuPose.wave, size: 140, motion: JujuMotion.wiggle),
-        ),
-        // Correct sticker always shown — child corrects the NAME.
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: AppColors.surface,
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: AppColors.line, width: 2),
-          ),
-          child: Column(
-            children: [
-              Text('Round ${_round + 1} • Stars for remembering ⭐ $_score',
-                  style: AppTheme.english(
-                      size: 13,
-                      color: AppColors.muted,
-                      weight: FontWeight.w700)),
-              const SizedBox(height: 8),
-              Container(
-                width: 170,
-                height: 170,
-                decoration: BoxDecoration(
-                  color: AppColors.surface2,
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: AppColors.line, width: 2),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(22),
-                  child: Builder(builder: (_) {
-                    final p = _sticker(_correct);
-                    if (p.isEmpty) {
-                      return const Center(
-                          child: Text('📦', style: TextStyle(fontSize: 64)));
-                    }
-                    return Image.asset(p,
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => const Center(
-                            child: Text('📦', style: TextStyle(fontSize: 64))));
-                  }),
-                ),
-              ),
-              const SizedBox(height: 6),
-              GestureDetector(
-                onTap: _jujuSaysWrong,
-                child: Container(
-                  width: 64,
-                  height: 64,
-                  decoration: const BoxDecoration(
-                      color: AppColors.accent, shape: BoxShape.circle),
-                  child: const Icon(Icons.volume_up,
-                      size: 30, color: AppColors.ink),
-                ),
-              ),
-              if (_feedback == 'try' && _phase != 'cheer')
-                Padding(
-                  padding: const EdgeInsets.only(top: 6),
-                  child: Text('Good trying! Juju was sleepy 😴',
-                      style: AppTheme.english(
-                          size: 14,
-                          color: AppColors.ink,
-                          weight: FontWeight.w800)),
-                ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 12),
-        if (_phase == 'ask')
-          Row(
-            children: [
-              Expanded(
-                child: BigButton(
-                  label: 'Yes',
-                  style: BigButtonStyle.good,
-                  height: 72,
-                  expand: true,
-                  onTap: () => _onAskAnswer(true),
-                  child: Text('Yes 😊',
-                      style: AppTheme.english(
-                          size: 20,
-                          color: Colors.white,
-                          weight: FontWeight.w800)),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: BigButton(
-                  label: 'No',
-                  style: BigButtonStyle.accent,
-                  height: 72,
-                  expand: true,
-                  onTap: () => _onAskAnswer(false),
-                  child: Text('No! 🙈',
-                      style: AppTheme.english(
-                          size: 20,
-                          color: AppColors.ink,
-                          weight: FontWeight.w800)),
-                ),
-              ),
-            ],
-          )
-        else
-          Row(
-            children: [
-              for (int i = 0; i < opts.length; i++) ...[
-                Expanded(
-                    child: _PickCard(
-                  w: opts[i],
-                  ar: _ar(opts[i]),
-                  sticker: _sticker(opts[i]),
-                  onTap: () => _onPick(opts[i]),
-                )),
-                if (i == 0) const SizedBox(width: 12),
-              ],
-            ],
-          ),
-      ],
-    );
-  }
-}
-
-class _PickCard extends StatelessWidget {
-  final dynamic w;
-  final String ar;
-  final String sticker;
-  final VoidCallback onTap;
-  const _PickCard(
-      {required this.w,
-      required this.ar,
-      required this.sticker,
-      required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        height: 180,
-        decoration: BoxDecoration(
-          color: AppColors.surface,
-          borderRadius: BorderRadius.circular(22),
-          border: Border.all(color: AppColors.line, width: 2),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 110,
-              height: 110,
-              decoration: BoxDecoration(
-                color: AppColors.surface2,
-                borderRadius: BorderRadius.circular(18),
-                border: Border.all(color: AppColors.line, width: 2),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: sticker.isEmpty
-                    ? const Center(
-                        child: Text('📦', style: TextStyle(fontSize: 48)))
-                    : Image.asset(sticker,
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => const Center(
-                            child: Text('📦', style: TextStyle(fontSize: 48)))),
-              ),
+                    const SizedBox(height: 12),
+                  ],
+                );
+              }),
             ),
-            const SizedBox(height: 6),
-            if (ar.isNotEmpty)
-              ArabicText(ar, size: 22, color: AppColors.ink)
-            else
-              const Icon(Icons.play_circle_fill,
-                  size: 30, color: AppColors.blue),
           ],
         ),
       ),
@@ -793,105 +262,390 @@ class _PickCard extends StatelessWidget {
   }
 }
 
-class _TopBar extends StatelessWidget {
-  final int tab;
-  final ValueChanged<int> onTab;
-  const _TopBar({required this.tab, required this.onTab});
+// ───────────────────────── private widgets ─────────────────────────
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 64,
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () => Navigator.maybePop(context),
-                child: Container(
-                  width: 64,
-                  height: 64,
-                  decoration: BoxDecoration(
-                    color: AppColors.surface,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.line, width: 2),
-                  ),
-                  child: const Icon(Icons.arrow_back,
-                      size: 30, color: AppColors.ink),
-                ),
-              ),
-              Expanded(
-                child: Text('Juju World',
-                    textAlign: TextAlign.center,
-                    style: AppTheme.english(
-                        size: 20,
-                        color: AppColors.ink,
-                        weight: FontWeight.w800)),
-              ),
-              Container(
-                height: 48,
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                decoration: BoxDecoration(
-                  color: AppColors.surface,
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: AppColors.line, width: 2),
-                ),
-                child: Center(
-                  child: ListenableBuilder(
-                    listenable: ProgressService.instance,
-                    builder: (_, __) => Text(
-                      '⭐ ${ProgressService.instance.stars}',
-                      style: AppTheme.english(
-                          size: 17,
-                          color: AppColors.ink,
-                          weight: FontWeight.w800),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            _TabBtn(label: 'Colours', sel: tab == 0, onTap: () => onTab(0)),
-            const SizedBox(width: 8),
-            _TabBtn(label: 'Numbers', sel: tab == 1, onTap: () => onTab(1)),
-            const SizedBox(width: 8),
-            _TabBtn(label: 'Forgets!', sel: tab == 2, onTap: () => onTab(2)),
-          ],
-        ),
-      ],
-    );
-  }
-}
-
-class _TabBtn extends StatelessWidget {
-  final String label;
-  final bool sel;
+/// Juju waving on the dune, with her bubble. Tap to hear her again.
+class _JujuScene extends StatelessWidget {
+  final double height;
+  final String? arabic;
   final VoidCallback onTap;
-  const _TabBtn({required this.label, required this.sel, required this.onTap});
+  const _JujuScene(
+      {required this.height, required this.arabic, required this.onTap});
+
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    final jujuSize = height * 0.92;
+    return Semantics(
+      button: true,
+      label: 'Juju says: pick a game! Tap to hear her again.',
       child: GestureDetector(
         onTap: onTap,
-        child: Container(
-          height: 56,
-          decoration: BoxDecoration(
-            color: sel ? AppColors.accent : AppColors.surface,
-            borderRadius: BorderRadius.circular(28),
-            border: Border.all(
-                color: sel ? AppColors.accentShadow : AppColors.line, width: 2),
-          ),
-          child: Center(
-            child: Text(label,
-                style: AppTheme.english(
-                    size: 15, color: AppColors.ink, weight: FontWeight.w800)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Stack(
+            children: [
+              Positioned(
+                bottom: 2,
+                right: jujuSize * 0.18,
+                child: Container(
+                  width: jujuSize * 0.6,
+                  height: 14,
+                  decoration: BoxDecoration(
+                    color: const Color(0x22704A1E),
+                    borderRadius:
+                        BorderRadius.all(Radius.elliptical(jujuSize * 0.6, 14)),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 6,
+                right: 0,
+                child: ValueListenableBuilder<bool>(
+                  valueListenable: AudioService.instance.playing,
+                  builder: (_, talking, __) => Juju(
+                    pose: talking ? JujuPose.talking : JujuPose.wave,
+                    size: jujuSize,
+                    motion: JujuMotion.bounce,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 12,
+                left: 0,
+                width: 180,
+                child: ValueListenableBuilder<bool>(
+                  valueListenable: AudioService.instance.playing,
+                  builder: (_, talking, child) => AnimatedScale(
+                    scale: talking ? 1.05 : 1.0,
+                    duration: const Duration(milliseconds: 200),
+                    alignment: Alignment.topLeft,
+                    child: child,
+                  ),
+                  child: SpeechBubble(
+                    tailOnLeft: false,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (arabic != null)
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(arabic!,
+                                textDirection: TextDirection.rtl,
+                                style: AppTheme.arabic(
+                                    size: 22,
+                                    color: AppColors.ink,
+                                    weight: FontWeight.w800)),
+                          ),
+                        Text('Pick a game!',
+                            style: AppTheme.english(
+                                size: 16,
+                                color: AppColors.ink,
+                                weight: FontWeight.w800)),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
+}
+
+/// One big kid-first game card: huge picture, name, skill icon, Play.
+class _GameCard extends StatelessWidget {
+  final _Game game;
+  final bool active;
+  final VoidCallback onTap;
+  const _GameCard(
+      {required this.game, required this.active, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final g = game;
+    return Semantics(
+      button: true,
+      label: '${g.title}. ${g.subtitle}. Practises ${g.skill}.',
+      excludeSemantics: true,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(6, 6, 6, 10),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
+                decoration: BoxDecoration(
+                  color: AppColors.surface,
+                  borderRadius: BorderRadius.circular(32),
+                  border: Border.all(
+                      color: g.colour.withOpacity(active ? 0.7 : 0.3),
+                      width: 4),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Color(0x55A8763A),
+                        offset: Offset(0, 6),
+                        blurRadius: 0),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    // big picture
+                    Expanded(
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: g.colour.withOpacity(0.12),
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(24),
+                          child: Image.asset(
+                            'assets/world/game_${g.id}.webp',
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: Text(g.emoji,
+                                    style: const TextStyle(fontSize: 110)),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    // name + skill icon
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Text(g.title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: AppTheme.english(
+                                  size: 24,
+                                  color: AppColors.ink,
+                                  weight: FontWeight.w800)),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(g.skillIcon, style: const TextStyle(fontSize: 22)),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    // big Play button
+                    Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: g.colour,
+                        borderRadius: BorderRadius.circular(22),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.lerp(g.colour, Colors.black, 0.3)!,
+                              offset: const Offset(0, 5),
+                              blurRadius: 0),
+                        ],
+                      ),
+                      child: const Center(
+                        child: Icon(Icons.play_arrow_rounded,
+                            color: Colors.white, size: 46),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (g.isNew)
+                Positioned(
+                  top: -4,
+                  right: 10,
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: AppColors.accent,
+                      borderRadius: BorderRadius.circular(999),
+                    ),
+                    child: Text('New!',
+                        style: AppTheme.english(
+                            size: 14,
+                            color: AppColors.ink,
+                            weight: FontWeight.w800)),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Parent feature, kept out of kids' reach behind the hold gate.
+class _ParentsStrip extends StatelessWidget {
+  final VoidCallback onOpen;
+  const _ParentsStrip({required this.onOpen});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(14, 10, 10, 10),
+      decoration: BoxDecoration(
+        color: AppColors.surface.withOpacity(0.85),
+        borderRadius: BorderRadius.circular(AppTheme.radius),
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.description_outlined,
+              color: AppColors.muted, size: 26),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text('Parents: snap a school page, Juju makes a lesson',
+                style: AppTheme.english(
+                    size: 13, color: AppColors.muted, weight: FontWeight.w700)),
+          ),
+          const SizedBox(width: 8),
+          HoldButton(onComplete: onOpen),
+        ],
+      ),
+    );
+  }
+}
+
+class _RoundIconButton extends StatelessWidget {
+  final IconData icon;
+  final String semantic;
+  final VoidCallback onTap;
+  const _RoundIconButton(
+      {required this.icon, required this.semantic, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: semantic,
+      child: Container(
+        width: AppTheme.minTap,
+        height: AppTheme.minTap,
+        decoration: const BoxDecoration(
+          color: AppColors.surface,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+                color: Color(0x55A8763A), offset: Offset(0, 3), blurRadius: 0)
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          shape: const CircleBorder(),
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: onTap,
+            child: Icon(icon, color: AppColors.ink, size: 30),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _StarsChip extends StatelessWidget {
+  final int stars;
+  const _StarsChip({required this.stars});
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: '$stars stars',
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: AppColors.surface,
+          borderRadius: BorderRadius.circular(999),
+          boxShadow: const [
+            BoxShadow(
+                color: Color(0x55A8763A), offset: Offset(0, 2), blurRadius: 0)
+          ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.star_rounded, color: AppColors.accent, size: 24),
+            const SizedBox(width: 4),
+            Text('$stars',
+                style: AppTheme.english(
+                    size: 18, color: AppColors.ink, weight: FontWeight.w800)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// "Deep in the desert": a short warm sky; dunes fill most of the screen.
+/// Home is sky-heavy and this one is sand-heavy, so kids feel they travelled.
+class _DeepDesertPainter extends CustomPainter {
+  const _DeepDesertPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width, h = size.height;
+    final full = Offset.zero & size;
+
+    // sky
+    canvas.drawRect(
+      full,
+      Paint()
+        ..shader = const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color(0xFFAEDDF0), Color(0xFFFFE9C4)],
+          stops: [0.0, 0.28],
+        ).createShader(full),
+    );
+
+    // sun + glow
+    final sun = Offset(w * 0.18, h * 0.20);
+    canvas.drawCircle(
+      sun,
+      w * 0.30,
+      Paint()
+        ..shader = const RadialGradient(
+          colors: [Color(0xAAFFF3CF), Color(0x00FFF3CF)],
+        ).createShader(Rect.fromCircle(center: sun, radius: w * 0.30)),
+    );
+    canvas.drawCircle(sun, w * 0.06, Paint()..color = const Color(0xFFFFF0BF));
+
+    // dunes, back to front
+    void dune(double y0, double c1, double c2, double y1, List<Color> cols) {
+      final top = h * (y0 < y1 ? y0 : y1) - h * 0.04;
+      final p = Path()
+        ..moveTo(0, h * y0)
+        ..cubicTo(w * 0.3, h * c1, w * 0.65, h * c2, w, h * y1)
+        ..lineTo(w, h)
+        ..lineTo(0, h)
+        ..close();
+      canvas.drawPath(
+        p,
+        Paint()
+          ..shader = LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: cols,
+          ).createShader(Rect.fromLTRB(0, top, w, h)),
+      );
+    }
+
+    dune(0.27, 0.22, 0.30, 0.25, const [Color(0xFFF6DDAE), Color(0xFFF2D19A)]);
+    dune(0.36, 0.31, 0.40, 0.33, const [Color(0xFFF1CB8F), Color(0xFFEBBE7E)]);
+    dune(0.47, 0.42, 0.50, 0.44, const [Color(0xFFEDBF80), Color(0xFFE2AA66)]);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
