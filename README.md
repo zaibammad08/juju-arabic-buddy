@@ -81,8 +81,8 @@ Our lesson plans follow the school's letter sequence. They were written and chec
 ### 62 parents surveyed
 The results above shaped our focus: English support for parents, fun practice at home, and lessons that match school.
 Evidence: 
-[survey questions]
-[anonymised results]
+ (https://forms.gle/EDPpW6kpKJhxFxum8)
+ (https://docs.google.com/spreadsheets/d/1epfZQ5pWoT1iNOiSfxbLg3awwG6dk9mTcNEQ68__Xek/edit?usp=sharing)
 [docs/evidence/](docs/evidence/)
 
 ### Reviewed by the Head of Arabic B, GEMS Founders School, Abu Dhabi
