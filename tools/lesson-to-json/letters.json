@@ -1,0 +1,142 @@
+{
+ "ا": {
+  "name_ar": "أَلِف",
+  "name_en": "Alif",
+  "connects": false
+ },
+ "ب": {
+  "name_ar": "بَاء",
+  "name_en": "Baa",
+  "connects": true
+ },
+ "ت": {
+  "name_ar": "تَاء",
+  "name_en": "Taa",
+  "connects": true
+ },
+ "ث": {
+  "name_ar": "ثَاء",
+  "name_en": "Thaa",
+  "connects": true
+ },
+ "ج": {
+  "name_ar": "جِيم",
+  "name_en": "Jiim",
+  "connects": true
+ },
+ "ح": {
+  "name_ar": "حَاء",
+  "name_en": "Haa",
+  "connects": true
+ },
+ "خ": {
+  "name_ar": "خَاء",
+  "name_en": "Khaa",
+  "connects": true
+ },
+ "د": {
+  "name_ar": "دَال",
+  "name_en": "Daal",
+  "connects": false
+ },
+ "ذ": {
+  "name_ar": "ذَال",
+  "name_en": "Dhaal",
+  "connects": false
+ },
+ "ر": {
+  "name_ar": "رَاء",
+  "name_en": "Raa",
+  "connects": false
+ },
+ "ز": {
+  "name_ar": "زَاي",
+  "name_en": "Zaay",
+  "connects": false
+ },
+ "س": {
+  "name_ar": "سِين",
+  "name_en": "Siin",
+  "connects": true
+ },
+ "ش": {
+  "name_ar": "شِين",
+  "name_en": "Shiin",
+  "connects": true
+ },
+ "ص": {
+  "name_ar": "صَاد",
+  "name_en": "Saad",
+  "connects": true
+ },
+ "ض": {
+  "name_ar": "ضَاد",
+  "name_en": "Daad",
+  "connects": true
+ },
+ "ط": {
+  "name_ar": "طَاء",
+  "name_en": "Taa (heavy)",
+  "connects": true
+ },
+ "ظ": {
+  "name_ar": "ظَاء",
+  "name_en": "Zaa",
+  "connects": true
+ },
+ "ع": {
+  "name_ar": "عَيْن",
+  "name_en": "Ayn",
+  "connects": true
+ },
+ "غ": {
+  "name_ar": "غَيْن",
+  "name_en": "Ghayn",
+  "connects": true
+ },
+ "ف": {
+  "name_ar": "فَاء",
+  "name_en": "Faa",
+  "connects": true
+ },
+ "ق": {
+  "name_ar": "قَاف",
+  "name_en": "Qaaf",
+  "connects": true
+ },
+ "ك": {
+  "name_ar": "كَاف",
+  "name_en": "Kaaf",
+  "connects": true
+ },
+ "ل": {
+  "name_ar": "لَام",
+  "name_en": "Laam",
+  "connects": true
+ },
+ "م": {
+  "name_ar": "مِيم",
+  "name_en": "Miim",
+  "connects": true
+ },
+ "ن": {
+  "name_ar": "نُون",
+  "name_en": "Nuun",
+  "connects": true
+ },
+ "ه": {
+  "name_ar": "هَاء",
+  "name_en": "Haa (soft)",
+  "connects": true
+ },
+ "و": {
+  "name_ar": "وَاو",
+  "name_en": "Waaw",
+  "connects": false
+ },
+ "ي": {
+  "name_ar": "يَاء",
+  "name_en": "Yaa",
+  "connects": true
+ }
+}

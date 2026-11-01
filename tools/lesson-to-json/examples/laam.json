@@ -1,0 +1,321 @@
+{
+ "letter": "ل",
+ "name": "Laam",
+ "shapes": [
+  {
+   "position": "beginning",
+   "form": "لـ",
+   "word": "لَيْمُون",
+   "plain": "ليمون",
+   "english": "lemon",
+   "emoji": "🍋"
+  },
+  {
+   "position": "middle",
+   "form": "ـلـ",
+   "word": "حَلِيب",
+   "plain": "حليب",
+   "english": "milk",
+   "emoji": "🥛"
+  },
+  {
+   "position": "end",
+   "form": "ـل",
+   "word": "جَمَل",
+   "plain": "جمل",
+   "english": "camel",
+   "emoji": "🐫"
+  }
+ ],
+ "posq": [
+  {
+   "word": "لَاعِب",
+   "plain": "لاعب",
+   "english": "player",
+   "emoji": "⚽",
+   "answer": "beginning"
+  },
+  {
+   "word": "قُلُوب",
+   "plain": "قلوب",
+   "english": "hearts",
+   "emoji": "❤️",
+   "answer": "middle"
+  },
+  {
+   "word": "فِيل",
+   "plain": "فيل",
+   "english": "elephant",
+   "emoji": "🐘",
+   "answer": "end"
+  }
+ ],
+ "words": [
+  {
+   "word": "لَيْمُون",
+   "plain": "ليمون",
+   "english": "lemon",
+   "emoji": "🍋",
+   "phonetic": "laymuun"
+  },
+  {
+   "word": "لِسَان",
+   "plain": "لسان",
+   "english": "tongue",
+   "emoji": "👅",
+   "phonetic": "lisaan"
+  },
+  {
+   "word": "لَحْم",
+   "plain": "لحم",
+   "english": "meat",
+   "emoji": "🍖",
+   "phonetic": "laḥm"
+  },
+  {
+   "word": "لُؤْلُؤ",
+   "plain": "لؤلؤ",
+   "english": "pearl",
+   "emoji": "🦪",
+   "phonetic": "luʾluʾ"
+  },
+  {
+   "word": "لَيْل",
+   "plain": "ليل",
+   "english": "night",
+   "emoji": "🌙",
+   "phonetic": "layl"
+  },
+  {
+   "word": "لَبَن",
+   "plain": "لبن",
+   "english": "laban (milk)",
+   "emoji": "🥛",
+   "phonetic": "laban"
+  },
+  {
+   "word": "لُعْبَة",
+   "plain": "لعبة",
+   "english": "toy",
+   "emoji": "🧸",
+   "phonetic": "luʿba"
+  },
+  {
+   "word": "لِبَاس",
+   "plain": "لباس",
+   "english": "clothes",
+   "emoji": "👕",
+   "phonetic": "libaas"
+  }
+ ],
+ "not_words": [
+  {
+   "word": "مَوْز",
+   "plain": "موز",
+   "english": "banana",
+   "emoji": "🍌",
+   "phonetic": "mawz"
+  },
+  {
+   "word": "جَزَر",
+   "plain": "جزر",
+   "english": "carrot",
+   "emoji": "🥕",
+   "phonetic": "jazar"
+  },
+  {
+   "word": "رِيشَة",
+   "plain": "ريشة",
+   "english": "feather",
+   "emoji": "🪶",
+   "phonetic": "riisha"
+  },
+  {
+   "word": "يَد",
+   "plain": "يد",
+   "english": "hand",
+   "emoji": "✋",
+   "phonetic": "yad"
+  },
+  {
+   "word": "مِرْوَحَة",
+   "plain": "مروحة",
+   "english": "fan",
+   "emoji": "🌀",
+   "phonetic": "mirwaḥa"
+  }
+ ],
+ "vowels": [
+  {
+   "ar": "لَ",
+   "say": "لَ",
+   "s": "la",
+   "mark": "fatha: a small line on top",
+   "ex": {
+    "e": "🍋",
+    "ar": "ليمون",
+    "say": "لَيْمُون",
+    "tr": "laymuun",
+    "en": "lemon"
+   }
+  },
+  {
+   "ar": "لِ",
+   "say": "لِ",
+   "s": "li",
+   "mark": "kasra: a small line below",
+   "ex": {
+    "e": "👕",
+    "ar": "لباس",
+    "say": "لِبَاس",
+    "tr": "libaas",
+    "en": "clothes"
+   }
+  },
+  {
+   "ar": "لُ",
+   "say": "لُ",
+   "s": "lu",
+   "mark": "damma: a little curl on top",
+   "ex": {
+    "e": "🧸",
+    "ar": "لعبة",
+    "say": "لُعْبَة",
+    "tr": "luʿba",
+    "en": "toy"
+   }
+  }
+ ],
+ "long_vowels": [
+  {
+   "ar": "لا",
+   "say": "لَا",
+   "s": "laa",
+   "mark": "with alif: a long a",
+   "ex": {
+    "e": "⚽",
+    "ar": "لاعب",
+    "say": "لَاعِب",
+    "tr": "laaʿib",
+    "en": "player"
+   }
+  },
+  {
+   "ar": "لي",
+   "say": "لِي",
+   "s": "lii",
+   "mark": "with yaa: a long i",
+   "ex": {
+    "e": "🥛",
+    "ar": "حليب",
+    "say": "حَلِيب",
+    "tr": "ḥaliib",
+    "en": "milk"
+   }
+  },
+  {
+   "ar": "لو",
+   "say": "لُو",
+   "s": "luu",
+   "mark": "with waaw: a long u",
+   "ex": {
+    "e": "❤️",
+    "ar": "قلوب",
+    "say": "قُلُوب",
+    "tr": "quluub",
+    "en": "hearts"
+   }
+  }
+ ],
+ "trace": [
+  "ل",
+  "ليمون",
+  "ليل"
+ ],
+ "trace_say": [
+  [
+   "لَام",
+   ""
+  ],
+  [
+   "لَيْمُون",
+   "lemon"
+  ],
+  [
+   "لَيْل",
+   "night"
+  ]
+ ],
+ "speak": [
+  {
+   "e": "🍋",
+   "ar": "هذا ليمون.",
+   "say": "هَذَا لَيْمُون",
+   "tr": "haadhaa laymuun",
+   "en": "This is a lemon."
+  },
+  {
+   "e": "🍖",
+   "ar": "هذا لحم.",
+   "say": "هَذَا لَحْم",
+   "tr": "haadhaa laḥm",
+   "en": "This is meat."
+  },
+  {
+   "e": "🧸",
+   "ar": "هذه لعبة.",
+   "say": "هَذِهِ لُعْبَة",
+   "tr": "haadhihi luʿba",
+   "en": "This is a toy."
+  },
+  {
+   "e": "🦪",
+   "ar": "هذا لؤلؤ.",
+   "say": "هَذَا لُؤْلُؤ",
+   "tr": "haadhaa luʾluʾ",
+   "en": "This is a pearl."
+  },
+  {
+   "e": "👅",
+   "ar": "هذا لسان.",
+   "say": "هَذَا لِسَان",
+   "tr": "haadhaa lisaan",
+   "en": "This is a tongue."
+  },
+  {
+   "e": "🍋",
+   "ar": "أنا أرى ليمونًا.",
+   "say": "أَنَا أَرَى لَيْمُونَا",
+   "tr": "anaa araa laymuunaa",
+   "en": "I see a lemon."
+  },
+  {
+   "e": "🍖",
+   "ar": "أنا أرى لحمًا.",
+   "say": "أَنَا أَرَى لَحْمَا",
+   "tr": "anaa araa laḥmaa",
+   "en": "I see meat."
+  },
+  {
+   "e": "🧸",
+   "ar": "أنا أرى لعبة.",
+   "say": "أَنَا أَرَى لُعْبَة",
+   "tr": "anaa araa luʿba",
+   "en": "I see a toy."
+  },
+  {
+   "e": "🦪",
+   "ar": "أنا أرى لؤلؤًا.",
+   "say": "أَنَا أَرَى لُؤْلُؤَا",
+   "tr": "anaa araa luʾluʾaa",
+   "en": "I see a pearl."
+  },
+  {
+   "e": "👅",
+   "ar": "أنا أرى لسانًا.",
+   "say": "أَنَا أَرَى لِسَانَا",
+   "tr": "anaa araa lisaanaa",
+   "en": "I see a tongue."
+  }
+ ]
+}
