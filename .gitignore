@@ -48,3 +48,4 @@ art_src/
 *.key
 secrets.json
 assets/
+audio_list.txt
