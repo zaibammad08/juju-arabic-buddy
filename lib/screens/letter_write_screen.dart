@@ -13,7 +13,7 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
-
+import '../widgets/writing_board.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -245,6 +245,15 @@ class _LetterWriteScreenState extends State<LetterWriteScreen> {
         : 'Trace the grey word with your finger.');
   }
 
+  // Jump to any writing anytime from the top chips (same as Listen stepper).
+  void _jumpTo(int i) {
+    if (i < 0 || i >= _items.length) return;
+    if (i == _index && _phase == _Phase.work) return;
+    if (_busy) return;
+    AudioService.instance.stop();
+    _startItem(i);
+  }
+
   void _say(String msg, {String? asset}) {
     setState(() => _message = msg);
     if (asset != null) {
@@ -414,7 +423,8 @@ class _LetterWriteScreenState extends State<LetterWriteScreen> {
 
     setState(() {
       _lastPng = png;
-      _lastBoard = _boardOf(entry);
+      _lastBoard = JujuBoard.boardFor(_boardOf(entry),
+          isLetter: _item.isLetter, text: _item.display);
       _done.add(_index);
       _phase = _Phase.celebrate;
     });
@@ -704,13 +714,73 @@ class _LetterWriteScreenState extends State<LetterWriteScreen> {
     );
   }
 
+  // Top chips: letter + 5 words. Tap anytime to jump (same as Listen stepper).
+  Widget _itemNav() {
+    if (_items.isEmpty) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 2),
+      child: SizedBox(
+        height: 60,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: _items.length,
+          separatorBuilder: (_, __) => const SizedBox(width: 8),
+          itemBuilder: (context, i) {
+            final it = _items[i];
+            final done = _done.contains(i);
+            final now = i == _index && _phase != _Phase.finished;
+            return GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: _busy ? null : () => _jumpTo(i),
+              child: Semantics(
+                button: true,
+                selected: now,
+                label: it.isLetter ? 'Write the letter' : 'Write ${it.english}',
+                child: Container(
+                  constraints: const BoxConstraints(
+                      minWidth: 64, maxWidth: 120, minHeight: 56),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: done
+                        ? AppColors.good
+                        : now
+                            ? AppColors.accent
+                            : AppColors.surface,
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(
+                      color: now ? AppColors.accentShadow : AppColors.line,
+                      width: 2,
+                    ),
+                  ),
+                  alignment: Alignment.center,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      done ? '✓ ${it.plain}' : it.plain,
+                      textDirection: TextDirection.rtl,
+                      style: AppTheme.arabic(
+                          size: 22,
+                          color: done || now ? Colors.white : AppColors.ink,
+                          weight: FontWeight.w800),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
   Widget _progressDots() {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         for (var i = 0; i < _items.length; i++)
           GestureDetector(
-            onTap: _busy ? null : () => _startItem(i),
+            onTap: _busy ? null : () => _jumpTo(i),
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 3),
               width: i == _index ? 18 : 12,
@@ -941,6 +1011,7 @@ class _LetterWriteScreenState extends State<LetterWriteScreen> {
     return Column(
       children: [
         _topBar(),
+        _itemNav(),
         _jujuRow(),
         _modelCard(),
         _stepChips(),
@@ -965,6 +1036,7 @@ class _LetterWriteScreenState extends State<LetterWriteScreen> {
       return Column(
         children: [
           _topBar(),
+          _itemNav(),
           const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -1067,6 +1139,7 @@ class _LetterWriteScreenState extends State<LetterWriteScreen> {
     return Column(
       children: [
         _topBar(),
+        _itemNav(),
         const Spacer(),
         Juju(pose: JujuPose.gradCap, size: 200, motion: JujuMotion.pop),
         const SizedBox(height: 12),

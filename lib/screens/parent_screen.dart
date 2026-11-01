@@ -1,4 +1,4 @@
-// Screen 16 – Parent Corner (opened from Home after the hold-3-s gate).
+﻿// Screen 16 – Parent Corner (opened from Home after the hold-3-s gate).
 // Tabs: Progress (skills per letter + Muse Spark weekly report) ·
 //       Arabic guide (55 tips from parent_guide.json, today's tip on top) ·
 //       Ask Juju (lesson questions only, 2–3 sentences, Muse Spark).
@@ -673,7 +673,7 @@ class _ParentScreenState extends State<ParentScreen> {
               style: AppTheme.english(size: 14, weight: FontWeight.w500)),
           const SizedBox(height: 6),
           Row(children: [
-            if (t.audio) ...[
+            if ((t.group == 'say-it-at-home')) ...[
               _listen(() => _sayArabic(t.exampleAr),
                   label: 'Listen to the example'),
               const SizedBox(width: 8),
@@ -690,9 +690,9 @@ class _ParentScreenState extends State<ParentScreen> {
               style: AppTheme.english(size: 13, weight: FontWeight.w700)),
           if (t.girlAr != null)
             _extraRow(t.girlLabel ?? 'To a girl', t.girlAr!, t.girlSay ?? '',
-                t.audio),
+                (t.group == 'say-it-at-home')),
           if (t.replyAr != null)
-            _extraRow('Reply', t.replyAr!, t.replySay ?? '', t.audio),
+            _extraRow('Reply', t.replyAr!, t.replySay ?? '', (t.group == 'say-it-at-home')),
         ],
       ),
     );
@@ -936,3 +936,4 @@ class _ParentScreenState extends State<ParentScreen> {
     );
   }
 }
+

@@ -388,6 +388,26 @@ class _LetterSpeakScreenState extends State<LetterSpeakScreen> {
     }
   }
 
+  // Jump to Short / Long / Sentence anytime from the top bar.
+  void _jumpTo(int i) {
+    if (!_ready) return;
+    if (i == _step) return;
+    if (_mic != _Mic.idle) return; // never cut the mic mid-recording
+    AudioService.instance.stop();
+    setState(() {
+      _step = i;
+      _active = null;
+      _poseOverride = null;
+    });
+    if (i == 0) {
+      _jujuSays('Move with me! Tap a sound, then say it.');
+    } else if (i == 1) {
+      _jujuSays('Short, then long. Tap a sound!');
+    } else if (i == 2) {
+      _jujuSays('Listen to my sentence. Then say it three times!');
+    }
+  }
+
   // ───────────────────────── sentence step ─────────────────────────
 
   _Sentence? get _sentence =>
@@ -712,21 +732,62 @@ class _LetterSpeakScreenState extends State<LetterSpeakScreen> {
   }
 
   Widget _stepDots() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(4, (i) {
-        final on = i <= _step;
-        return AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
-          margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
-          width: i == _step ? 28 : 12,
-          height: 12,
-          decoration: BoxDecoration(
-            color: on ? AppColors.good : AppColors.line,
-            borderRadius: BorderRadius.circular(6),
+    final labels = ['Short', 'Long', 'Sentence'];
+    Widget chip(int i, String label) {
+      final done = _step > i;
+      final now = _step == i;
+      final disabled = _mic != _Mic.idle;
+      return Expanded(
+        child: Semantics(
+          button: true,
+          selected: now,
+          label: 'Go to $label',
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: disabled ? null : () => _jumpTo(i),
+            child: Opacity(
+              opacity: disabled ? 0.6 : 1,
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                constraints: const BoxConstraints(minHeight: 64),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: done
+                      ? AppColors.good
+                      : now
+                          ? AppColors.accent
+                          : AppColors.surface,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: now ? AppColors.accentShadow : AppColors.line,
+                    width: 2,
+                  ),
+                ),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(done ? '✓ $label' : label,
+                      textAlign: TextAlign.center,
+                      style: AppTheme.english(
+                          size: 15,
+                          weight: FontWeight.w800,
+                          color: done || now ? Colors.white : AppColors.muted)),
+                ),
+              ),
+            ),
           ),
-        );
-      }),
+        ),
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      child: Row(children: [
+        chip(0, labels[0]),
+        chip(1, labels[1]),
+        chip(2, labels[2])
+      ]),
     );
   }
 

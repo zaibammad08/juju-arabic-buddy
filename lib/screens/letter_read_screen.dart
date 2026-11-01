@@ -1,6 +1,5 @@
 // Screen 5 – Read: letter shapes + "Where is ب hiding?" quiz
-// Data: assets/data/lessons/<name>.json ("shapes", "posq") made by
-// tools/lesson_to_json.py from the founder's lesson pages.
+// Data: assets/data/lessons/<name>.json ("shapes", "posq")
 // Fallback (no lesson file yet): words from letter_positions.json.
 // Route argument: the letter (String). Marks skill 'read' done at the end.
 
@@ -56,14 +55,17 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
   final _audio = AudioService.instance;
   final _progress = ProgressService.instance;
 
+  final _scrollController = ScrollController();
+  int _section = 0; // 0 = shapes, 1 = quiz — only one shown at a time
+
   String? _letter;
   List<_ReadWord> _shapes = [];
   List<_ReadWord> _quiz = [];
 
-  int _playing = -1; // shape card Juju is pointing at
-  int _q = 0; // quiz question
-  final Set<String> _tried = {}; // wrong answers on this question
-  String? _rightAnswer; // shown green for a moment
+  int _playing = -1;
+  int _q = 0;
+  final Set<String> _tried = {};
+  String? _rightAnswer;
   bool _finished = false;
   int _runId = 0;
 
@@ -79,6 +81,7 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
   @override
   void dispose() {
     _runId++;
+    _scrollController.dispose();
     _audio.stop();
     super.dispose();
   }
@@ -112,7 +115,6 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
     );
   }
 
-  /// No lesson file yet (ا ب until you run the script): use letter_positions.json.
   void _fallback(String l) {
     final info = _repo.letterInfo(l);
     if (info == null) return;
@@ -132,7 +134,6 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
     }
   }
 
-  /// "بَاب (Door)" → word + english + hunt sticker.
   _ReadWord _parse(String s, String pos) {
     final m = RegExp(r'^(.*?)\s*\((.*)\)\s*$').firstMatch(s);
     final word = (m?.group(1) ?? s).trim();
@@ -149,12 +150,35 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
 
   String get _name => _repo.letterInfo(_letter!)?.name ?? _letter!;
 
+  // ── Top nav: show only one section at a time ──
+  void _jumpTo(int i) {
+    if (_section == i) return;
+    _runId++;
+    _audio.stop();
+    setState(() {
+      _section = i;
+      _playing = -1;
+    });
+    if (_scrollController.hasClients) {
+      _scrollController.animateTo(0,
+          duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+    }
+    if (i == 1 && _quiz.isNotEmpty && !_finished) {
+      Future.delayed(const Duration(milliseconds: 400), () {
+        if (mounted && _section == 1) _sayWord(_quiz[_q]);
+      });
+    }
+  }
+
   // ── Shapes: Juju points at each card with the audio ──────────
   Future<void> _showMe() async {
     final id = ++_runId;
     for (var i = 0; i < _shapes.length; i++) {
       if (!mounted || id != _runId) return;
-      setState(() => _playing = i);
+      setState(() {
+        _playing = i;
+        _section = 0;
+      });
       await _sayWord(_shapes[i]);
       await Future.delayed(const Duration(milliseconds: 500));
     }
@@ -212,18 +236,17 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
       backgroundColor: AppColors.bg,
       body: SafeArea(
         child: ListView(
+          controller: _scrollController,
           padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
           children: [
             _topBar(),
+            const SizedBox(height: 8),
+            _sectionBar(),
             const SizedBox(height: 14),
-            _header(),
-            const SizedBox(height: 12),
-            for (var i = 0; i < _shapes.length; i++) ...[
-              _shapeCard(i),
-              const SizedBox(height: 10),
-            ],
-            const SizedBox(height: 10),
-            if (_quiz.isNotEmpty) (_finished ? _doneCard() : _quizCard()),
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 250),
+              child: _section == 0 ? _shapesSection() : _quizSection(),
+            ),
             const SizedBox(height: 16),
             ParentTip(
               text: _parentTip,
@@ -232,6 +255,35 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _shapesSection() {
+    return Column(
+      key: const ValueKey('shapes'),
+      children: [
+        _header(),
+        const SizedBox(height: 12),
+        for (var i = 0; i < _shapes.length; i++) ...[
+          _shapeCard(i),
+          const SizedBox(height: 10),
+        ],
+      ],
+    );
+  }
+
+  Widget _quizSection() {
+    return Column(
+      key: ValueKey('quiz$_q$_finished'),
+      children: [
+        if (_quiz.isEmpty)
+          Text('No quiz yet.',
+              style: AppTheme.english(size: 16, color: AppColors.muted))
+        else if (_finished)
+          _doneCard()
+        else
+          _quizCard(),
+      ],
     );
   }
 
@@ -263,6 +315,45 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
         ),
       ),
     ]);
+  }
+
+  Widget _sectionBar() {
+    Widget chip(int i, String label) {
+      final now = _section == i;
+      return Expanded(
+        child: Semantics(
+          button: true,
+          selected: now,
+          label: 'Go to $label',
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => _jumpTo(i),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              constraints: const BoxConstraints(minHeight: 64),
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: now ? AppColors.accent : AppColors.surface,
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(
+                  color: now ? AppColors.accentShadow : AppColors.line,
+                  width: 2,
+                ),
+              ),
+              child: Text(label,
+                  textAlign: TextAlign.center,
+                  style: AppTheme.english(
+                      size: 15,
+                      weight: FontWeight.w800,
+                      color: now ? Colors.white : AppColors.muted)),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Row(children: [chip(0, 'Shapes'), chip(1, 'Quiz')]);
   }
 
   Widget _circleButton(IconData icon, String label, VoidCallback onTap,
@@ -429,7 +520,7 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
             _picture(q, 80),
             const SizedBox(width: 12),
             Column(children: [
-              ArabicText(q.word, size: 44), // no highlight: that's the question
+              ArabicText(q.word, size: 44),
               Text(q.english,
                   style: AppTheme.english(
                       size: 14,
@@ -443,7 +534,6 @@ class _LetterReadScreenState extends State<LetterReadScreen> {
           ]),
         ),
         const SizedBox(height: 14),
-        // RTL row: "Start" sits on the RIGHT, like Arabic reading.
         Directionality(
           textDirection: TextDirection.rtl,
           child: Row(children: [

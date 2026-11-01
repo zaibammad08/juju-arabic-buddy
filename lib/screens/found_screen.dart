@@ -1,16 +1,19 @@
 // Screen 9 · Found it  –  lib/screens/found_screen.dart
 //
-// Shows the word the child found: sticker in its gender frame, the word with
-// full marks and the red letter, the colour sentence ("الْبَاب بُنِّيّ" –
-// Your door is brown!), Listen + hold-to-talk "Say it!" (Muse Voice
-// Transcribe), Juju listening. Next → Screen 10 (Make it yours).
+// Opens with the treasure chest in Juju's room: the lid opens, the child's
+// snap rises out and turns into the sticker (gender-coloured frame around the
+// room). Then the word with full marks and the red letter, the colour sentence
+// ("الْبَاب بُنِّيّ" – Your door is brown!), Listen + hold-to-talk "Say it!"
+// (Muse Voice Transcribe), Juju listening. Next → Screen 10 (Make it yours).
 //
 // Arguments (from Screen 8): FoundArgs, or a HuntWord, or a word id String,
 // or a Map {'wordId', 'colour', 'vision'}. No argument → "door" (build order).
+// The photo arrives in memory only and is not passed on to Screen 10.
 // The recording is deleted straight after the check – never stored.
 
 import 'dart:async';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -26,18 +29,28 @@ import '../services/audio.dart';
 import '../services/meta_voice.dart';
 import '../services/progress.dart';
 import '../widgets/juju.dart';
-import '../widgets/word_card.dart';
 import '../widgets/big_button.dart';
 import '../widgets/arabic_text.dart';
+import '../widgets/chest_reveal.dart';
+import '../widgets/room_backdrop.dart';
 
 /// What Screen 8 hands to Screen 9 (and Screen 9 passes on to Screen 10).
 class FoundArgs {
   final String wordId;
   final String? colourId; // colour id from MetaVision (e.g. "brown"), optional
   final bool seenByVision; // true = Muse Spark identified it from the photo
+  final Uint8List? photo; // the snap, in memory only, for the chest reveal
 
-  const FoundArgs(
-      {required this.wordId, this.colourId, this.seenByVision = false});
+  const FoundArgs({
+    required this.wordId,
+    this.colourId,
+    this.seenByVision = false,
+    this.photo,
+  });
+
+  /// Same args without the photo (what gets passed on to Screen 10).
+  FoundArgs withoutPhoto() =>
+      FoundArgs(wordId: wordId, colourId: colourId, seenByVision: seenByVision);
 
   static FoundArgs from(Object? a) {
     if (a is FoundArgs) return a;
@@ -87,6 +100,7 @@ class _FoundScreenState extends State<FoundScreen> {
   late HuntWord _word;
   ArabicColour? _colour;
   bool _ready = false;
+  bool _revealed = false; // chest has opened and the sticker is out
 
   final AudioRecorder _rec = AudioRecorder();
   _Say _say = _Say.idle;
@@ -105,9 +119,13 @@ class _FoundScreenState extends State<FoundScreen> {
     _word = repo.huntWord(_args.wordId) ?? repo.huntWord('door')!;
     if (_args.colourId != null) _colour = repo.colour(_args.colourId!);
     _ready = true;
+    // _intro() runs when the chest reveal finishes (see _onRevealed).
+  }
 
-    // Side effects after the first frame (calling notifiers during build crashes).
-    WidgetsBinding.instance.addPostFrameCallback((_) => _intro());
+  void _onRevealed() {
+    if (!mounted) return;
+    setState(() => _revealed = true);
+    _intro();
   }
 
   Future<void> _intro() async {
@@ -161,7 +179,7 @@ class _FoundScreenState extends State<FoundScreen> {
   bool get _sayDone => _say == _Say.saidIt || _say == _Say.greatTrying;
 
   Future<void> _startRec() async {
-    if (_busy) return;
+    if (_busy || !_revealed) return;
     await AudioService.instance.stop();
     if (!await _rec.hasPermission()) {
       _juju('Ask a grown-up to let me use the microphone.');
@@ -251,7 +269,9 @@ class _FoundScreenState extends State<FoundScreen> {
 
   void _next() {
     AudioService.instance.stop();
-    Navigator.pushNamed(context, Routes.customise, arguments: _args);
+    // the photo stays here – Screen 10 only gets the word
+    Navigator.pushNamed(context, Routes.customise,
+        arguments: _args.withoutPhoto());
   }
 
   // ---------- UI ----------
@@ -272,50 +292,159 @@ class _FoundScreenState extends State<FoundScreen> {
                   child: Column(
                     children: [
                       if (_args.seenByVision) _sawItLabel(),
-                      WordCard(
-                        sticker: _word.sticker,
-                        arabic: _word.arabicWord,
-                        isFeminine: _word.isFeminine,
-                        english: _word.englishWord,
-                        phonetic: _word.phonetic,
-                        highlightLetter: _word.letter,
-                        onListen: _playWord,
-                      ).animate().scale(
-                            begin: const Offset(0.85, 0.85),
-                            duration: 450.ms,
-                            curve: Curves.elasticOut,
-                          ),
-                      if (_colourSentence != null) ...[
+                      _treasureRoom(),
+                      if (_revealed) ...[
                         const SizedBox(height: 12),
-                        _colourRow(),
+                        _wordPanel()
+                            .animate()
+                            .fadeIn(duration: 350.ms)
+                            .slideY(begin: 0.15, curve: Curves.easeOut),
+                        if (_colourSentence != null) ...[
+                          const SizedBox(height: 12),
+                          _colourRow().animate().fadeIn(delay: 150.ms),
+                        ],
+                        const SizedBox(height: 14),
+                        _jujuPanel().animate().fadeIn(delay: 250.ms),
                       ],
-                      const SizedBox(height: 14),
-                      _jujuPanel(),
                     ],
                   ),
                 ),
               ),
               const SizedBox(height: 12),
-              Row(
-                children: [
-                  Expanded(
-                    child: BigButton(
-                      label: 'Listen',
-                      icon: Icons.volume_up_rounded,
-                      style: BigButtonStyle.accent,
-                      height: 74,
-                      onTap: _playWord,
-                    ),
+              // buttons wait until the chest has opened
+              IgnorePointer(
+                ignoring: !_revealed,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 300),
+                  opacity: _revealed ? 1 : 0.4,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: BigButton(
+                              label: 'Listen',
+                              icon: Icons.volume_up_rounded,
+                              style: BigButtonStyle.accent,
+                              height: 74,
+                              onTap: _playWord,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(child: _holdMic()),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      _nextButton(),
+                    ],
                   ),
-                  const SizedBox(width: 12),
-                  Expanded(child: _holdMic()),
-                ],
+                ),
               ),
-              const SizedBox(height: 12),
-              _nextButton(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  /// Room background in the word's gender colour, with the chest reveal inside.
+  Widget _treasureRoom() {
+    final frame = _word.isFeminine ? AppColors.feminine : AppColors.masculine;
+    return Container(
+      height: 340,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(32),
+        border: Border.all(color: frame, width: 6),
+        boxShadow: [
+          BoxShadow(color: frame.withAlpha(90), offset: const Offset(0, 6))
+        ],
+      ),
+      child: RoomBackdrop(
+        child: ChestReveal(
+          height: 328,
+          ready: Future.value(), // Muse Spark already looked on Screen 8
+          minWait: const Duration(milliseconds: 600),
+          photo: _args.photo,
+          sticker: _stickerImage(190),
+          onRevealed: _onRevealed,
+        ),
+      ),
+    );
+  }
+
+  /// Sticker from the word data; falls back to assets/images/<id>.webp, then 🧸.
+  Widget _stickerImage(double size) {
+    final s = '${_word.sticker}';
+    final byId = 'assets/images/${_word.id}.webp';
+    final teddy = SizedBox(
+      width: size,
+      height: size,
+      child: Center(child: Text('🧸', style: TextStyle(fontSize: size * 0.5))),
+    );
+    Widget asset(String path, Widget Function() fallback) => Image.asset(path,
+        width: size,
+        height: size,
+        fit: BoxFit.contain,
+        errorBuilder: (_, __, ___) => fallback());
+    return s.startsWith('assets/')
+        ? asset(s, () => asset(byId, () => teddy))
+        : asset(byId, () => teddy);
+  }
+
+  /// The word itself: Arabic with the red letter, how to say it, English.
+  Widget _wordPanel() {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(14, 10, 18, 12),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(26),
+        boxShadow: const [
+          BoxShadow(color: AppColors.line, offset: Offset(0, 4))
+        ],
+      ),
+      child: Row(
+        children: [
+          Semantics(
+            label: 'Hear the word',
+            button: true,
+            child: InkResponse(
+              onTap: _playWord,
+              radius: 36,
+              child: Container(
+                width: 64,
+                height: 64,
+                decoration: const BoxDecoration(
+                  color: AppColors.accent,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                        color: AppColors.accentShadow, offset: Offset(0, 4))
+                  ],
+                ),
+                child: const Icon(Icons.volume_up_rounded,
+                    color: AppColors.ink, size: 32),
+              ),
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                ArabicText(_word.arabicWord,
+                    size: 52, highlightLetter: _word.letter, firstOnly: true),
+                Text('${_word.phonetic ?? ''}',
+                    style: AppTheme.english(
+                        size: 18,
+                        color: AppColors.muted,
+                        weight: FontWeight.w700)),
+                Text(_word.englishWord,
+                    style: AppTheme.english(size: 22, weight: FontWeight.w800)),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

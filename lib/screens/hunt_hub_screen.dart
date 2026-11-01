@@ -1,6 +1,8 @@
 // Screen 7 – Treasure Hunt hub
-// Big "Start hunting!" door, My Arabic Passport (Home open, other places locked),
-// link to My Arabic Room (Screen 13). Juju (camera pose) hosts and speaks on arrival.
+// Juju's living room (scene_home) with a locked treasure chest on the floor and
+// her "هَيَّا! Let's go hunting!" bubble over the window. Big "Start hunting!" door,
+// My Arabic Passport (Home open, other places locked), link to My Arabic Room
+// (Screen 13). Juju speaks on arrival; tap the room to hear her again.
 
 import 'package:flutter/material.dart';
 
@@ -11,6 +13,7 @@ import '../services/audio.dart';
 import '../services/progress.dart';
 import '../widgets/juju.dart';
 import '../widgets/big_button.dart';
+import '../widgets/chest_painter.dart';
 
 /// Passport places. Only Home is playable in the hackathon build.
 /// Images come from generate_stickers.py --places → assets/places/stamp_<id>.webp
@@ -153,7 +156,7 @@ class _HuntHubScreenState extends State<HuntHubScreen> {
                   children: [
                     _RoundIconButton(
                       icon: Icons.arrow_back_rounded,
-                      semantic: 'Back to home',
+                      semantic: 'Go back',
                       onTap: _goBack,
                     ),
                     const SizedBox(width: 12),
@@ -171,57 +174,10 @@ class _HuntHubScreenState extends State<HuntHubScreen> {
                 ),
                 const SizedBox(height: 12),
 
-                // ── Juju with camera + speech bubble
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // multiply blend turns the pose image's white background mint
-                    ColorFiltered(
-                      colorFilter: const ColorFilter.mode(
-                          AppColors.bg, BlendMode.multiply),
-                      child: ValueListenableBuilder<bool>(
-                        valueListenable: AudioService.instance.playing,
-                        builder: (context, talking, _) => Juju(
-                          pose: talking ? JujuPose.talking : JujuPose.camera,
-                          size: 180,
-                          motion: JujuMotion.bounce,
-                          onTap: () =>
-                              _speak(const ['hunt_hello', 'hunt_hello_en']),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: SpeechBubble(
-                        tailOnLeft: true,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            if (_lineArabic('hunt_hello') != null)
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  _lineArabic('hunt_hello')!,
-                                  textDirection: TextDirection.rtl,
-                                  style: AppTheme.arabic(
-                                      size: 26,
-                                      color: AppColors.ink,
-                                      weight: FontWeight.w800),
-                                ),
-                              ),
-                            Text(
-                              "Let's go hunting!",
-                              style: AppTheme.english(
-                                  size: 16,
-                                  color: AppColors.muted,
-                                  weight: FontWeight.w700),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                // ── Juju's room with the locked chest + speech bubble
+                _HomeScene(
+                  arabic: _lineArabic('hunt_hello'),
+                  onTap: () => _speak(const ['hunt_hello', 'hunt_hello_en']),
                 ),
                 const SizedBox(height: 16),
 
@@ -244,7 +200,7 @@ class _HuntHubScreenState extends State<HuntHubScreen> {
                         weight: FontWeight.w700),
                   ),
                 ),
-                const SizedBox(height: 60),
+                const SizedBox(height: 28),
 
                 // ── Passport header
                 Row(
@@ -269,8 +225,7 @@ class _HuntHubScreenState extends State<HuntHubScreen> {
                 ),
                 const SizedBox(height: 10),
 
-                // ── Stamps carousel: swipe sideways. A Row inside a horizontal
-                // scroll view takes its height from the stamps, so it can't overflow.
+                // ── Stamps carousel: swipe sideways.
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -310,6 +265,115 @@ class _HuntHubScreenState extends State<HuntHubScreen> {
 }
 
 // ───────────────────────── small private widgets ─────────────────────────
+
+/// Juju standing in her living room, a locked treasure chest on the floor and
+/// her speech bubble over the window. Tap anywhere to hear her again.
+class _HomeScene extends StatelessWidget {
+  final String? arabic;
+  final VoidCallback onTap;
+  const _HomeScene({required this.arabic, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: "Juju in her home. Let's go hunting!",
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.circular(AppTheme.radius),
+            boxShadow: const [
+              BoxShadow(
+                  color: AppColors.line, offset: Offset(0, 5), blurRadius: 0)
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(AppTheme.radius),
+            child: AspectRatio(
+              aspectRatio: 1.1,
+              child: LayoutBuilder(builder: (context, box) {
+                final w = box.maxWidth;
+                return Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      'assets/places/scene_home.webp',
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => const Center(
+                        child: Juju(
+                            pose: JujuPose.camera,
+                            size: 180,
+                            motion: JujuMotion.bounce),
+                      ),
+                    ),
+
+                    // locked treasure chest on the floor, by the basket
+                    Positioned(
+                      left: w * 0.02,
+                      bottom: w * 0.03,
+                      child: SizedBox(
+                        width: w * 0.22,
+                        height: w * 0.22 * 0.79,
+                        child: CustomPaint(
+                            painter: ChestPainter(open: 0, total: 1)),
+                      ),
+                    ),
+
+                    // speech bubble over the window, grows a little while Juju talks
+                    Positioned(
+                      left: w * 0.03,
+                      top: w * 0.03,
+                      width: w * 0.46,
+                      child: ValueListenableBuilder<bool>(
+                        valueListenable: AudioService.instance.playing,
+                        builder: (context, talking, child) => AnimatedScale(
+                          scale: talking ? 1.05 : 1.0,
+                          duration: const Duration(milliseconds: 200),
+                          alignment: Alignment.topLeft,
+                          child: child,
+                        ),
+                        child: SpeechBubble(
+                          tailOnLeft: false,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (arabic != null)
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    arabic!,
+                                    textDirection: TextDirection.rtl,
+                                    style: AppTheme.arabic(
+                                        size: 24,
+                                        color: AppColors.ink,
+                                        weight: FontWeight.w800),
+                                  ),
+                                ),
+                              Text(
+                                "Let's go hunting!",
+                                style: AppTheme.english(
+                                    size: 15,
+                                    color: AppColors.muted,
+                                    weight: FontWeight.w700),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              }),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class _RoundIconButton extends StatelessWidget {
   final IconData icon;

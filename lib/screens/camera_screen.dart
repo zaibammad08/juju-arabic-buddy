@@ -1,11 +1,14 @@
 // Screen 8 – Camera
 // Live preview in a yellow frame → tap "Snap!" → 3-2-1 countdown (Juju: "Hold still!")
 // → photo → Muse Spark vision (MetaVision) → Screen 9 (Found it).
+// While Muse Spark looks, a locked treasure chest wobbles over the preview;
+// Screen 9 opens it and the snap comes out and turns into the sticker.
 // Other flows: blurry / too dark / nothing found / unknown object / several objects (choice)
 // / low confidence ("Is this a door?") / wrong letter (only when a target letter was given)
 // / offline (Juju's camera is resting → pick from this letter's words).
 //
 // Photos are NEVER saved: the file is deleted right after it is read into memory.
+// The bytes stay in memory only until Screen 9 has shown the chest reveal.
 //
 // Route arguments (optional): a target letter String, e.g. 'ب', when opened from
 // the My Letter hub ("Find a ب at home!"). From the Treasure Hunt hub: no arguments.
@@ -27,6 +30,7 @@ import '../services/progress.dart';
 import '../widgets/juju.dart';
 import '../widgets/big_button.dart';
 import '../widgets/arabic_text.dart';
+import '../widgets/chest_reveal.dart' show WobblingChest;
 import 'found_screen.dart' show FoundArgs;
 
 enum _Phase { starting, noCamera, ready, counting, thinking, message }
@@ -48,6 +52,7 @@ class _CameraScreenState extends State<CameraScreen>
   String? _targetLetter; // only set when opened from a letter lesson
   bool _argsRead = false;
   bool _busy = false;
+  Uint8List? _lastPhoto; // in memory only, handed to Screen 9 for the reveal
 
   Repository get _repo => Repository.instance;
 
@@ -97,6 +102,7 @@ class _CameraScreenState extends State<CameraScreen>
     WidgetsBinding.instance.removeObserver(this);
     AudioService.instance.stop();
     _cam?.dispose();
+    _lastPhoto = null;
     super.dispose();
   }
 
@@ -168,6 +174,7 @@ class _CameraScreenState extends State<CameraScreen>
     final c = _cam;
     if (c == null || !c.value.isInitialized || _busy) return;
     _busy = true;
+    _lastPhoto = null;
 
     // 3-2-1 countdown
     setState(() {
@@ -217,7 +224,8 @@ class _CameraScreenState extends State<CameraScreen>
     _juju('cam_thinking', 'Hmm, let me look!', pose: JujuPose.thinking);
 
     final result = await MetaVision.instance.identify(bytes);
-    bytes = null; // drop the photo from memory too
+    _lastPhoto = bytes; // memory only – for the chest reveal on Screen 9
+    bytes = null;
     if (!mounted) return;
     _busy = false;
     await _handle(result);
@@ -226,6 +234,7 @@ class _CameraScreenState extends State<CameraScreen>
   Future<void> _handle(VisionResult r) async {
     final status =
         r.status.name; // ok | blurry | tooDark | nothingFound | offline
+    if (status != 'ok') _lastPhoto = null;
     setState(() => _phase = _Phase.message);
 
     switch (status) {
@@ -256,6 +265,7 @@ class _CameraScreenState extends State<CameraScreen>
     }
 
     if (known.isEmpty) {
+      _lastPhoto = null;
       if (newName != null) {
         // Unknown-object flow (Muse Spark word + Muse Image sticker) comes later.
         return _juju('cam_new',
@@ -331,6 +341,7 @@ class _CameraScreenState extends State<CameraScreen>
   }
 
   void _retry() {
+    _lastPhoto = null;
     if (!mounted) return;
     setState(() {
       _phase = _Phase.ready;
@@ -343,8 +354,11 @@ class _CameraScreenState extends State<CameraScreen>
     if (!mounted) return;
     AudioService.instance.stop();
     final c = (colour == null || colour == 'unclear') ? null : colour;
+    final photo = vision ? _lastPhoto : null;
+    _lastPhoto = null;
     Navigator.pushReplacementNamed(context, Routes.found,
-        arguments: FoundArgs(wordId: w.id, colourId: c, seenByVision: vision));
+        arguments: FoundArgs(
+            wordId: w.id, colourId: c, seenByVision: vision, photo: photo));
   }
 
   // ───────────────────────── sheets ─────────────────────────
@@ -680,16 +694,12 @@ class _CameraScreenState extends State<CameraScreen>
                           weight: FontWeight.w800)),
                 ),
               ),
+            // while Muse Spark looks: the locked treasure chest wobbles
             if (_phase == _Phase.thinking)
               Container(
-                color: Colors.white.withAlpha(140),
+                color: Colors.white.withAlpha(150),
                 alignment: Alignment.center,
-                child: const SizedBox(
-                  width: 70,
-                  height: 70,
-                  child: CircularProgressIndicator(
-                      color: AppColors.good, strokeWidth: 7),
-                ),
+                child: const WobblingChest(width: 170),
               ),
           ],
         ),

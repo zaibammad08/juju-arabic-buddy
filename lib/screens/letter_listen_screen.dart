@@ -7,6 +7,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import '../theme/app_theme.dart';
@@ -167,7 +168,7 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
   int _clapScore = 0;
   int _tries = 0;
   bool _revealed = false;
-  bool? _wrongPick; // the button that faded (true = yes, false = no)
+  bool? _wrongPick;
   bool _busy = false;
 
   // Pairs
@@ -178,6 +179,10 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
   int? _pairRight;
 
   bool _finishedOnce = false;
+
+  // Mini cheer overlay (star pop on each correct, never blocks)
+  bool _cheering = false;
+  int _cheerId = 0;
 
   // ---------------------------------------------------------------- setup
 
@@ -268,16 +273,13 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
   }
 
   void _buildRounds() {
-    // Clap: up to 5 letter words + 3 others, mixed (same shape as the pages).
     final yes = List<_Item>.of(_yes)..shuffle(_rng);
     final no = List<_Item>.of(_no)..shuffle(_rng);
     _clap = [...yes.take(5), ...no.take(3)]..shuffle(_rng);
 
-    // Pairs: 3 rounds, one letter word vs one other word.
     _pairs = [];
     final n = min(3, min(yes.length, no.length));
     for (var i = 0; i < n; i++) {
-      // reuse letter words from the end so pairs differ from early claps
       final y = yes[yes.length - 1 - i];
       _pairs.add([y, no[i]]..shuffle(_rng));
     }
@@ -311,12 +313,26 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
 
   Future<void> _playSound() async {
     setState(() => _heardSound = true);
-    // fatha syllable: أَ for alif, otherwise the letter + fatha
     final syllable = letter == 'ا' ? 'أَ' : '$letter\u064E';
     await AudioIndex.instance.playWord(syllable);
   }
 
   Future<void> _wait(int ms) => Future.delayed(Duration(milliseconds: ms));
+
+  /// Mini celebration: star pop + gentle buzz. Overlay auto-hides, never blocks.
+  /// Praise voice is played by the caller (_jujuSay) — this is the visual+dizzy part.
+  void _cheer() {
+    try {
+      HapticFeedback.lightImpact();
+    } catch (_) {}
+    setState(() {
+      _cheering = true;
+      _cheerId++;
+    });
+    Future.delayed(const Duration(milliseconds: 900), () {
+      if (mounted) setState(() => _cheering = false);
+    });
+  }
 
   // ---------------------------------------------------------------- flow
 
@@ -342,11 +358,56 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
         'Tap a picture to hear it. Then tap the one that starts with $_letterName.');
   }
 
+  void _jumpTo(int i) {
+    if (_letter == null) return;
+    if (_stage.index == i) return;
+    AudioService.instance.stop();
+    if (i == 1 && _clap.isEmpty) {
+      _goPairs();
+      return;
+    }
+    if (i == 2 && _pairs.isEmpty) {
+      _finish();
+      return;
+    }
+    setState(() {
+      _busy = false;
+      if (i == 0) {
+        _stage = _Stage.meet;
+      } else if (i == 1) {
+        _stage = _Stage.clap;
+        _ci = _ci.clamp(0, _clap.length - 1);
+        _tries = 0;
+        _revealed = false;
+        _wrongPick = null;
+      } else if (i == 2) {
+        _stage = _Stage.pairs;
+        _pi = _pi.clamp(0, _pairs.length - 1);
+        _heard.clear();
+        _pairWrong.clear();
+        _pairRight = null;
+      }
+    });
+    if (i == 0) {
+      _jujuSay('Meet $_letterName!');
+    } else if (i == 1) {
+      _jujuSay('Clap if it starts with $_letterName!');
+      Future.delayed(const Duration(milliseconds: 600), () {
+        if (mounted && _stage == _Stage.clap && _clap.isNotEmpty) {
+          _playItem(_clap[_ci]);
+        }
+      });
+    } else if (i == 2) {
+      _jujuSay('Pick the one with $_letterName!');
+    }
+  }
+
   Future<void> _answerClap(bool saidYes) async {
     if (_busy || _revealed) return;
     final it = _clap[_ci];
     if (saidYes == it.target) {
       _busy = true;
+      _cheer(); // ⭐ pop right away, voice follows
       setState(() {
         _revealed = true;
         _wrongPick = null;
@@ -404,6 +465,7 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
     }
     if (it.target) {
       _busy = true;
+      _cheer(); // ⭐ pop right away
       setState(() => _pairRight = k);
       await _jujuSay(_praise[_rng.nextInt(_praise.length)]);
       await _playItem(it);
@@ -452,24 +514,35 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
     return Scaffold(
       backgroundColor: AppColors.bg,
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            _topBar(),
-            _stepper(),
-            Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  child: switch (_stage) {
-                    _Stage.meet => _meetView(),
-                    _Stage.clap => _clapView(),
-                    _Stage.pairs => _pairsView(),
-                    _Stage.done => _doneView(),
-                  },
+            Column(
+              children: [
+                _topBar(),
+                _stepper(),
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                    child: AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      child: switch (_stage) {
+                        _Stage.meet => _meetView(),
+                        _Stage.clap => _clapView(),
+                        _Stage.pairs => _pairsView(),
+                        _Stage.done => _doneView(),
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            // Mini cheer overlay — ignores taps so game never blocks
+            if (_cheering)
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: _MiniCheer(key: ValueKey(_cheerId)),
                 ),
               ),
-            ),
           ],
         ),
       ),
@@ -519,29 +592,42 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
   }
 
   Widget _stepper() {
-    final idx = _stage.index; // meet 0, clap 1, pairs 2, done 3
+    final idx = _stage.index;
     Widget chip(int i, String label) {
       final done = idx > i;
       final now = idx == i;
       return Expanded(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 4),
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          decoration: BoxDecoration(
-            color: done
-                ? AppColors.good
-                : now
-                    ? AppColors.accent
-                    : AppColors.surface,
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: AppColors.line, width: 2),
+        child: Semantics(
+          button: true,
+          selected: now,
+          label: 'Go to $label',
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => _jumpTo(i),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              constraints: const BoxConstraints(minHeight: 56),
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              decoration: BoxDecoration(
+                color: done
+                    ? AppColors.good
+                    : now
+                        ? AppColors.accent
+                        : AppColors.surface,
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(
+                  color: now ? AppColors.accentShadow : AppColors.line,
+                  width: 2,
+                ),
+              ),
+              child: Text(done ? '✓ $label' : label,
+                  textAlign: TextAlign.center,
+                  style: AppTheme.english(
+                      size: 15,
+                      weight: FontWeight.w800,
+                      color: done || now ? Colors.white : AppColors.muted)),
+            ),
           ),
-          child: Text(done ? '✓ $label' : label,
-              textAlign: TextAlign.center,
-              style: AppTheme.english(
-                  size: 15,
-                  weight: FontWeight.w800,
-                  color: done || now ? Colors.white : AppColors.muted)),
         ),
       );
     }
@@ -552,7 +638,6 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
     );
   }
 
-  /// Juju: headphones while waiting, talking while audio plays.
   Widget _juju({double size = 150}) {
     return ValueListenableBuilder<bool>(
       valueListenable: AudioService.instance.playing,
@@ -564,7 +649,6 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
     );
   }
 
-  // ---- Meet ----
   Widget _meetView() {
     final dots = _dotText[letter] ?? '';
     final twins = _lookalikes[letter];
@@ -630,7 +714,6 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
     );
   }
 
-  // ---- Clap ----
   Widget _clapView() {
     final it = _clap[_ci];
     return Column(
@@ -735,7 +818,6 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
     ).animate().fadeIn().scale(begin: const Offset(.85, .85));
   }
 
-  // ---- Pairs ----
   Widget _pairsView() {
     final opts = _pairs[_pi];
     return Column(
@@ -800,12 +882,33 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
     );
   }
 
-  // ---- Done ----
   Widget _doneView() {
     return Column(
       key: const ValueKey('done'),
       children: [
-        const SizedBox(height: 12),
+        const SizedBox(height: 8),
+        // Big cheer only here: falling emoji, no package needed
+        SizedBox(
+          height: 44,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text('🎉', style: TextStyle(fontSize: 32)),
+              SizedBox(width: 8),
+              Text('🎊', style: TextStyle(fontSize: 32)),
+              SizedBox(width: 8),
+              Text('⭐', style: TextStyle(fontSize: 32)),
+              SizedBox(width: 8),
+              Text('🎊', style: TextStyle(fontSize: 32)),
+              SizedBox(width: 8),
+              Text('🎉', style: TextStyle(fontSize: 32)),
+            ].animate(interval: 120.ms).slideY(
+                begin: -0.6,
+                end: 0.15,
+                duration: 700.ms,
+                curve: Curves.bounceOut),
+          ),
+        ),
         Juju(pose: JujuPose.rewardStar, size: 200, motion: JujuMotion.bounce),
         const SizedBox(height: 8),
         Text('Super listening!',
@@ -850,6 +953,32 @@ class _LetterListenScreenState extends State<LetterListenScreen> {
 }
 
 // ------------------------------------------------------------------ widgets
+
+/// Centre-screen star pop. Small, fast, non-blocking.
+class _MiniCheer extends StatelessWidget {
+  const _MiniCheer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: const Text('⭐', style: TextStyle(fontSize: 110))
+          .animate()
+          .scale(
+            begin: const Offset(0.3, 0.3),
+            end: const Offset(1.15, 1.15),
+            duration: 350.ms,
+            curve: Curves.easeOutBack,
+          )
+          .then()
+          .scale(
+            begin: const Offset(1.15, 1.15),
+            end: const Offset(1.0, 1.0),
+            duration: 200.ms,
+          )
+          .fadeOut(delay: 600.ms, duration: 300.ms),
+    );
+  }
+}
 
 class _Sticker extends StatelessWidget {
   final _Item item;
