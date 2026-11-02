@@ -80,10 +80,11 @@ Our lesson plans follow the school's letter sequence. They were written and chec
 
 ### 62 parents surveyed
 The results above shaped our focus: English support for parents, fun practice at home, and lessons that match school.
-Evidence: 
- (https://forms.gle/EDPpW6kpKJhxFxum8)
- (https://docs.google.com/spreadsheets/d/1epfZQ5pWoT1iNOiSfxbLg3awwG6dk9mTcNEQ68__Xek/edit?usp=sharing)
-[docs/evidence/](docs/evidence/)
+
+**Evidence:**
+- [Parent survey (Google Form)](https://forms.gle/EDPpW6kpKJhxFxum8)
+- [Survey results (Google Sheet)](https://docs.google.com/spreadsheets/d/1epfZQ5pWoT1iNOiSfxbLg3awwG6dk9mTcNEQ68__Xek/edit?usp=sharing)
+- [Screenshots and teacher feedback](docs/evidence/)
 
 ### Reviewed by the Head of Arabic B, GEMS Founders School, Abu Dhabi
 We shared Arabic Buddy with **Mr Mohamed Essam Eldean, Head of Arabic B at GEMS Founders School, Abu Dhabi**, for feedback on its content and vision:
