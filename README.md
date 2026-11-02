@@ -53,7 +53,7 @@ Meta's models handle what needs understanding of images, speech and context. The
 
 | What happens | Meta model |
 |---|---|
-| Lesson-building tools  from the arabic language pdfs and parts of the app code | **Muse Code** |
+| Lesson tools that turn our lesson plans into lesson data, and parts of the app code | **Muse Code** |
 | Recognise objects and colours in the child's photos | **Muse Spark** (vision) |
 | Check Magic World answers: does this object match the clues? Is this playdough shape the letter? | **Muse Spark** (vision) |
 | Kind handwriting check on the child's traced letter | **Muse Spark** (vision) |
@@ -67,7 +67,7 @@ Meta's models handle what needs understanding of images, speech and context. The
 ### From a lesson plan to an interactive lesson
 Our lesson plans follow the school's letter sequence. They were written and checked by a person before the hackathon. During the event we used **Muse Code** to build tools that turn each lesson plan into structured lesson data (JSON) covering all four skills: words for each letter position, a listening quiz, vowel sounds with example words, speaking sentences and tracing. A person checks the result (vowel marks, meanings, pictures) before it is loaded into the app. A new letter becomes a full Listen, Speak, Read and Write lesson in hours, not weeks, still with human review.
 
-**No textbook pages are included in the app or this repository.** Lessons use the school's letter sequence and everyday vocabulary, with our own sentences, pictures and audio.
+**No school materials are included in the app or this repository** Lessons use the school's letter sequence and everyday vocabulary, with our own sentences, pictures and audio.
 
 ## Safe by design for young children
 
