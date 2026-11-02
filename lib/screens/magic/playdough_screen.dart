@@ -45,6 +45,7 @@ class _PlaydoughScreenState extends State<PlaydoughScreen> {
   Rect _box = const Rect.fromLTWH(0.25, 0.35, 0.5, 0.3);
   int _member = 0;
   bool _rewarded = false;
+  int _tries = 0; // failed checks on this shape; the 2nd try always celebrates
   bool _showIntro = true; // short pop message on entry
   Map<String, dynamic> _positions = {}; // letter_positions.json
   int _form = 0; // 0 alone, 1 start, 2 middle, 3 end
@@ -118,11 +119,14 @@ class _PlaydoughScreenState extends State<PlaydoughScreen> {
       _image = image;
       _aspect = decoded.width / decoded.height;
     });
-    if (res != null && !res.looksRight) {
+    debugPrint('shapeCheck: looksRight=${res?.looksRight} box=${res?.box}');
+    if (res != null && !res.looksRight && _tries < 1) {
+      _tries++;
       setState(() => _phase = _Phase.retry);
       AudioService.instance.playAsset('juju/juju_en_great_trying.mp3');
       return;
     }
+    _tries = 0; // success, or second try → celebrate
     // looks right, or couldn't check → celebrate anyway
     setState(() {
       _box = res?.box ?? _box;
@@ -232,6 +236,7 @@ class _PlaydoughScreenState extends State<PlaydoughScreen> {
       _member = 0;
       _rewarded = false;
       _showIntro = false;
+      _tries = 0;
     });
     final ms = (f['members'] as List?) ?? const [];
     final first = ms.isEmpty ? null : ms.first;

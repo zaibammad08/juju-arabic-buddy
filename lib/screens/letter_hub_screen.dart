@@ -1,9 +1,10 @@
 // Screen 2 – My Letter hub (carousel, same style as Juju Magic World)
 // Compact letter card on top (big red letter, name, tap to hear), then one big
-// card per skill: Listen · Speak · Read · Write. The carousel opens on the NEXT
-// skill. Done skills get a green ✓. When all four are done, a last card appears:
-// "Find a ب at home!" → Treasure Hunt. Turquoise background = letter world.
-// Optional route argument: a letter String (from Juju's Alphabet, Screen 2a).
+// card per skill: Listen · Speak · Read · Write – each labelled in Arabic
+// (big, on top) and English (smaller, underneath). The carousel opens on the
+// NEXT skill. Done skills get a green ✓. When all four are done, a last card
+// appears: "Find a ب at home!" → Treasure Hunt. Turquoise background = letter
+// world. Optional route argument: a letter String (from Juju's Alphabet, 2a).
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,22 +20,27 @@ import '../widgets/arabic_text.dart';
 
 class _Skill {
   final String id; // must match ProgressService.skillOrder
-  final String label;
+  final String label; // English
+  final String arabic; // Arabic (with harakat for Year 1 readers)
   final JujuPose pose;
   final Color colour; // same colours as the matching Magic World games
   final String route;
-  const _Skill(this.id, this.label, this.pose, this.colour, this.route);
+  const _Skill(
+      this.id, this.label, this.arabic, this.pose, this.colour, this.route);
 }
 
 const _skills = <_Skill>[
-  _Skill('listen', 'Listen', JujuPose.headphones, AppColors.blue,
+  _Skill('listen', 'Listen', 'اِسْتَمِعْ', JujuPose.headphones, AppColors.blue,
       Routes.letterListen),
-  _Skill('speak', 'Speak', JujuPose.microphone, AppColors.good,
+  _Skill('speak', 'Speak', 'تَحَدَّثْ', JujuPose.microphone, AppColors.good,
       Routes.letterSpeak),
-  _Skill('read', 'Read', JujuPose.book, AppColors.highlight, Routes.letterRead),
-  _Skill('write', 'Write', JujuPose.pencil, AppColors.accentShadow,
+  _Skill('read', 'Read', 'اِقْرَأْ', JujuPose.book, AppColors.highlight,
+      Routes.letterRead),
+  _Skill('write', 'Write', 'اُكْتُبْ', JujuPose.pencil, AppColors.accentShadow,
       Routes.letterWrite),
 ];
+
+const _findArabic = 'اِبْحَثْ فِي الْبَيْتِ'; // "Search at home"
 
 /// skillState may be an enum or a string – compare by name so both work.
 bool _isState(Object? s, String name) =>
@@ -122,12 +128,19 @@ class _LetterHubScreenState extends State<LetterHubScreen> {
     AudioIndex.instance.playLetter(_letter!, withSound: true);
   }
 
-  void _onPage(int i) {
+  Future<void> _onPage(int i) async {
     setState(() => _page = i);
     HapticFeedback.selectionClick();
+    await _audio.stop(); // fast swipers: don't let labels pile up
     final label =
         i < _skills.length ? _skills[i].label : 'Find a $_name at home!';
-    _audio.say(label, voice: TtsVoice.jujuEnglish);
+    await _audio.say(label, voice: TtsVoice.jujuEnglish);
+
+    // OPTIONAL: Juju also says the Arabic word. Uncomment and use your real
+    // Arabic voice name from the TtsVoice enum.
+    // if (!mounted || _page != i) return;
+    // final arabic = i < _skills.length ? _skills[i].arabic : _findArabic;
+    // await _audio.say(arabic, voice: TtsVoice.jujuArabic);
   }
 
   /// Side card → slide it to the middle; middle card → open it.
@@ -145,8 +158,9 @@ class _LetterHubScreenState extends State<LetterHubScreen> {
     if (_busy) return;
     _busy = true;
     await _audio.stop();
-    if (mounted)
+    if (mounted) {
       await Navigator.pushNamed(context, route, arguments: arguments);
+    }
     _busy = false;
   }
 
@@ -396,6 +410,33 @@ class _LetterHubScreenState extends State<LetterHubScreen> {
 
 // ───────────────────────── private widgets ─────────────────────────
 
+/// Two-line bilingual title: Arabic (big, coloured) over English (small).
+class _BilingualTitle extends StatelessWidget {
+  final Widget english;
+  final String arabic;
+  final Color arabicColour;
+  const _BilingualTitle({
+    required this.english,
+    required this.arabic,
+    required this.arabicColour,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: ArabicText(arabic, size: 30, color: arabicColour),
+        ),
+        const SizedBox(height: 2),
+        english,
+      ],
+    );
+  }
+}
+
 /// Shared card shell: white card, coloured border, big picture area,
 /// title row and a big Play button.
 class _CardShell extends StatelessWidget {
@@ -457,9 +498,9 @@ class _CardShell extends StatelessWidget {
                       child: Center(child: picture),
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   title,
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   Container(
                     height: 60,
                     decoration: BoxDecoration(
@@ -501,20 +542,26 @@ class _SkillCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, c) {
-      final jujuSize = (c.maxHeight * 0.42).clamp(110.0, 230.0);
+      // slightly smaller Juju than before to make room for the Arabic line
+      final jujuSize = (c.maxHeight * 0.38).clamp(100.0, 220.0);
       return _CardShell(
         colour: skill.colour,
         active: active,
-        semantic:
-            '${skill.label}${done ? ', done' : next ? ', next' : ''}. Tap to play.',
+        semantic: '${skill.label}, ${skill.arabic}'
+            '${done ? ', done' : next ? ', next' : ''}. Tap to play.',
         onTap: onTap,
         playIcon: done ? Icons.replay_rounded : Icons.play_arrow_rounded,
         picture: Juju(
             pose: skill.pose,
             size: jujuSize,
             motion: active ? JujuMotion.bounce : JujuMotion.none),
-        title: Text(skill.label,
-            style: AppTheme.english(size: 26, weight: FontWeight.w800)),
+        title: _BilingualTitle(
+          arabic: skill.arabic,
+          arabicColour: Color.lerp(skill.colour, Colors.black, 0.15)!,
+          english: Text(skill.label,
+              style: AppTheme.english(
+                  size: 20, weight: FontWeight.w800, color: AppColors.muted)),
+        ),
         badges: [
           if (next)
             Positioned(
@@ -570,28 +617,39 @@ class _FindCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, c) {
-      final jujuSize = (c.maxHeight * 0.42).clamp(110.0, 230.0);
+      final jujuSize = (c.maxHeight * 0.38).clamp(100.0, 220.0);
       return _CardShell(
         colour: AppColors.good,
         active: active,
-        semantic: 'Find a $letter at home. Opens the Treasure Hunt.',
+        semantic:
+            'Find a $letter at home, $_findArabic. Opens the Treasure Hunt.',
         onTap: onTap,
         playIcon: Icons.photo_camera_rounded,
         picture: Juju(
             pose: JujuPose.camera,
             size: jujuSize,
             motion: active ? JujuMotion.bounce : JujuMotion.none),
-        title: Directionality(
-          textDirection: TextDirection.ltr,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Row(mainAxisSize: MainAxisSize.min, children: [
-              Text('Find a ',
-                  style: AppTheme.english(size: 24, weight: FontWeight.w800)),
-              ArabicText(letter, size: 32, color: AppColors.highlight),
-              Text(' at home!',
-                  style: AppTheme.english(size: 24, weight: FontWeight.w800)),
-            ]),
+        title: _BilingualTitle(
+          arabic: _findArabic,
+          arabicColour: Color.lerp(AppColors.good, Colors.black, 0.15)!,
+          english: Directionality(
+            textDirection: TextDirection.ltr,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Row(mainAxisSize: MainAxisSize.min, children: [
+                Text('Find a ',
+                    style: AppTheme.english(
+                        size: 20,
+                        weight: FontWeight.w800,
+                        color: AppColors.muted)),
+                ArabicText(letter, size: 28, color: AppColors.highlight),
+                Text(' at home!',
+                    style: AppTheme.english(
+                        size: 20,
+                        weight: FontWeight.w800,
+                        color: AppColors.muted)),
+              ]),
+            ),
           ),
         ),
       );

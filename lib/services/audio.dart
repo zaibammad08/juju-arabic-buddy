@@ -127,7 +127,9 @@ class AudioService {
         return _play(AssetSource('audio/$lex'), wait);
       }
     }
-    if (asset != null && asset.isNotEmpty && await playAsset(asset, wait: wait)) {
+    if (asset != null &&
+        asset.isNotEmpty &&
+        await playAsset(asset, wait: wait)) {
       return true;
     }
     return say(text, voice: voice, wait: wait);

@@ -81,26 +81,36 @@ class MetaGames {
   }
 
   /// Playdough Magic: does the dough (or finger drawing) look like the target shape?
+  /// Playdough Magic: does the dough (or finger drawing) look like the target shape?
   Future<ShapeCheck?> shapeCheck(Uint8List image, String shapeDescription,
       {bool isDrawing = false}) async {
     final what =
         isDrawing ? 'drew with a finger on a screen' : 'made out of playdough';
     final j = await _ask(
-      'A 5-year-old $what a shape. The target is $shapeDescription.\n'
-      'Be kind: thick, wobbly or uneven shapes count if the overall form is right. '
+      'A 5-year-old $what a shape. The target is $shapeDescription '
+      '(an open curve like a smile or a boat: wider than it is tall, open at the top, '
+      'one end may be higher than the other).\n'
+      'The photo may be rotated and may have a busy background (cloth, patterns, a book). '
+      "Look only at the child's shape and judge it as if turned the right way up.\n"
+      'Be very kind: thick, wobbly, shallow, lumpy, uneven or one-side-higher shapes count. '
+      'Say false ONLY if it is clearly a different shape: a closed circle or ring, '
+      'a straight line, a zigzag, a scribble, or no shape at all.\n'
       'Ignore dots completely; the target has no dots.\n'
-      'Reply exactly as {"looks_right": true or false, "box": [x, y, w, h]} where box is the '
-      "bounding box of the child's shape as fractions (0 to 1) of the image width and height.",
+      'Reply exactly as {"looks_right": true or false, "seen": "<what you see, max 4 words>", '
+      '"box": [x, y, w, h]} where box is the bounding box of the child\'s shape as fractions '
+      '(0 to 1) of the image width and height, in the image exactly as given.',
       image,
       mime: isDrawing ? 'image/png' : 'image/jpeg',
     );
+    debugPrint('shapeCheck: $j');
     if (j == null || j['looks_right'] is! bool) return null;
     Rect? box;
     final b = j['box'];
     if (b is List && b.length == 4 && b.every((v) => v is num)) {
       final v = [for (final n in b) (n as num).clamp(0, 1).toDouble()];
-      if (v[2] > 0.02 && v[3] > 0.02)
+      if (v[2] > 0.02 && v[3] > 0.02) {
         box = Rect.fromLTWH(v[0], v[1], v[2], v[3]);
+      }
     }
     return ShapeCheck(j['looks_right'] as bool, box);
   }

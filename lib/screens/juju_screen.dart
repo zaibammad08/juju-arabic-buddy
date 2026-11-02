@@ -2,6 +2,7 @@
 // Screen 15 – Juju Magic World (game hub, carousel)
 // Kid-first: one big game card at a time, big picture, short name, big Play
 // button. Swipe to the next game and Juju says its name (for pre-readers).
+// Each game name shows in Arabic (big, on top) and English (smaller, below).
 // Everything fits on one screen – no scrolling.
 // Parent-facing detail (skill + Juju power) stays in the data for the
 // Parents screen / pitch; kids only see a small skill icon.
@@ -20,7 +21,8 @@ import 'magic/magic_common.dart';
 
 class _Game {
   final String id; // also: assets/world/game_<id>.webp + Juju line 'game_<id>'
-  final String title;
+  final String title; // English
+  final String arabic; // Arabic name (with harakat for Year 1 readers)
   final String subtitle; // for parents / screen readers
   final String skill;
   final String skillIcon;
@@ -29,17 +31,27 @@ class _Game {
   final Color colour;
   final String route;
   final bool isNew;
-  const _Game(this.id, this.title, this.subtitle, this.skill, this.skillIcon,
-      this.power, this.emoji, this.colour, this.route,
+  const _Game(this.id, this.title, this.arabic, this.subtitle, this.skill,
+      this.skillIcon, this.power, this.emoji, this.colour, this.route,
       {this.isNew = false});
 }
 
 const List<_Game> _games = [
-  _Game('hunt', 'Treasure Hunt', 'Snap things, then unlock the chest',
-      'Speaking', '🗣️', 'SEES & NAMES', '🧰', AppColors.good, Routes.huntHub),
+  _Game(
+      'hunt',
+      'Treasure Hunt',
+      'اَلْبَحْثُ عَنِ الْكَنْزِ',
+      'Snap things, then unlock the chest',
+      'Speaking',
+      '🗣️',
+      'SEES & NAMES',
+      '🧰',
+      AppColors.good,
+      Routes.huntHub),
   _Game(
       'detective',
       'Juju Detective',
+      'جُوجُو الْمُحَقِّقَةُ',
       "Follow Juju's clues, snap the answer",
       'Listening',
       '👂',
@@ -47,12 +59,22 @@ const List<_Game> _games = [
       '🔍',
       AppColors.blue,
       Routes.detective),
-  _Game('feed', 'Feed Juju', 'Find food that fits 3 clues', 'Reading', '📖',
-      'THINKS WITH RULES', '🍎', AppColors.highlight, Routes.feedJuju,
+  _Game(
+      'feed',
+      'Feed Juju',
+      'أَطْعِمْ جُوجُو',
+      'Find food that fits 3 clues',
+      'Reading',
+      '📖',
+      'THINKS WITH RULES',
+      '🍎',
+      AppColors.highlight,
+      Routes.feedJuju,
       isNew: true),
   _Game(
       'playdough',
       'Playdough Magic',
+      'سِحْرُ الصَّلْصَالِ',
       'Make a letter, add the magic dots',
       'Writing',
       '✍️',
@@ -60,8 +82,17 @@ const List<_Game> _games = [
       '✨',
       AppColors.accentShadow,
       Routes.playdough),
-  _Game('story', 'Story Maker', 'Draw it, Juju tells the story', 'Drawing',
-      '🖍️', 'CREATES', '🎨', AppColors.feminine, Routes.storyMaker),
+  _Game(
+      'story',
+      'Story Maker',
+      'صَانِعُ الْقِصَصِ',
+      'Draw it, Juju tells the story',
+      'Drawing',
+      '🖍️',
+      'CREATES',
+      '🎨',
+      AppColors.feminine,
+      Routes.storyMaker),
 ];
 
 class JujuScreen extends StatefulWidget {
@@ -355,7 +386,8 @@ class _JujuScene extends StatelessWidget {
   }
 }
 
-/// One big kid-first game card: huge picture, name, skill icon, Play.
+/// One big kid-first game card: huge picture, Arabic + English name,
+/// skill icon, Play.
 class _GameCard extends StatelessWidget {
   final _Game game;
   final bool active;
@@ -368,7 +400,7 @@ class _GameCard extends StatelessWidget {
     final g = game;
     return Semantics(
       button: true,
-      label: '${g.title}. ${g.subtitle}. Practises ${g.skill}.',
+      label: '${g.title}, ${g.arabic}. ${g.subtitle}. Practises ${g.skill}.',
       excludeSemantics: true,
       child: GestureDetector(
         onTap: onTap,
@@ -420,8 +452,22 @@ class _GameCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 12),
-                    // name + skill icon
+                    const SizedBox(height: 10),
+
+                    // Arabic name (big, in the game's colour)
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(g.arabic,
+                          textDirection: TextDirection.rtl,
+                          maxLines: 1,
+                          style: AppTheme.arabic(
+                              size: 26,
+                              color: Color.lerp(g.colour, Colors.black, 0.15)!,
+                              weight: FontWeight.w800)),
+                    ),
+                    const SizedBox(height: 2),
+
+                    // English name + skill icon (smaller, underneath)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -430,15 +476,16 @@ class _GameCard extends StatelessWidget {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: AppTheme.english(
-                                  size: 24,
-                                  color: AppColors.ink,
+                                  size: 18,
+                                  color: AppColors.muted,
                                   weight: FontWeight.w800)),
                         ),
                         const SizedBox(width: 8),
-                        Text(g.skillIcon, style: const TextStyle(fontSize: 22)),
+                        Text(g.skillIcon, style: const TextStyle(fontSize: 20)),
                       ],
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 10),
+
                     // big Play button
                     Container(
                       height: 60,
@@ -471,11 +518,20 @@ class _GameCard extends StatelessWidget {
                       color: AppColors.accent,
                       borderRadius: BorderRadius.circular(999),
                     ),
-                    child: Text('New!',
-                        style: AppTheme.english(
-                            size: 14,
-                            color: AppColors.ink,
-                            weight: FontWeight.w800)),
+                    child: Row(mainAxisSize: MainAxisSize.min, children: [
+                      Text('جَدِيد',
+                          textDirection: TextDirection.rtl,
+                          style: AppTheme.arabic(
+                              size: 15,
+                              color: AppColors.ink,
+                              weight: FontWeight.w800)),
+                      const SizedBox(width: 6),
+                      Text('New!',
+                          style: AppTheme.english(
+                              size: 14,
+                              color: AppColors.ink,
+                              weight: FontWeight.w800)),
+                    ]),
                   ),
                 ),
             ],
