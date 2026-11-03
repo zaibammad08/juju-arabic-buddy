@@ -1,0 +1,387 @@
+[
+ {
+  "id": "page_biscuit",
+  "arabic": "بَسْكَوِيت",
+  "english": "biscuit",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_biscuit.webp",
+  "sticker_prompt": "a round biscuit",
+  "people_ok": false
+ },
+ {
+  "id": "page_board",
+  "arabic": "سَبُّورَة",
+  "english": "board",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_board.webp",
+  "sticker_prompt": "a classroom whiteboard on a stand",
+  "people_ok": false
+ },
+ {
+  "id": "page_books",
+  "arabic": "كُتُب",
+  "english": "books",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_books.webp",
+  "sticker_prompt": "a small stack of three children's books",
+  "people_ok": false
+ },
+ {
+  "id": "page_brother",
+  "arabic": "أَخ",
+  "english": "brother",
+  "letters": [
+   "ا"
+  ],
+  "sticker": "assets/images/page_brother.webp",
+  "sticker_prompt": "a smiling cartoon boy, a big brother",
+  "people_ok": true
+ },
+ {
+  "id": "page_child",
+  "arabic": "طِفْل",
+  "english": "child",
+  "letters": [
+   "ب",
+   "س"
+  ],
+  "sticker": "assets/images/page_child.webp",
+  "sticker_prompt": "a happy cartoon child waving",
+  "people_ok": true
+ },
+ {
+  "id": "page_cinema",
+  "arabic": "سِينَمَا",
+  "english": "cinema",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_cinema.webp",
+  "sticker_prompt": "a cinema screen with red curtains and popcorn",
+  "people_ok": false
+ },
+ {
+  "id": "page_circle",
+  "arabic": "دَائِرَة",
+  "english": "circle",
+  "letters": [
+   "د"
+  ],
+  "sticker": "assets/images/page_circle.webp",
+  "sticker_prompt": "a big red circle shape",
+  "people_ok": false
+ },
+ {
+  "id": "page_cow",
+  "arabic": "بَقَرَة",
+  "english": "cow",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_cow.webp",
+  "sticker_prompt": "a friendly cow",
+  "people_ok": false
+ },
+ {
+  "id": "page_dirham",
+  "arabic": "دِرْهَم",
+  "english": "dirham",
+  "letters": [
+   "د"
+  ],
+  "sticker": "assets/images/page_dirham.webp",
+  "sticker_prompt": "a shiny UAE one dirham coin",
+  "people_ok": false
+ },
+ {
+  "id": "page_family",
+  "arabic": "أُسْرَة",
+  "english": "family",
+  "letters": [
+   "ا"
+  ],
+  "sticker": "assets/images/page_family.webp",
+  "sticker_prompt": "a happy cartoon family of four holding hands",
+  "people_ok": true
+ },
+ {
+  "id": "page_father",
+  "arabic": "أَب",
+  "english": "father",
+  "letters": [
+   "ا"
+  ],
+  "sticker": "assets/images/page_father.webp",
+  "sticker_prompt": "a smiling cartoon father",
+  "people_ok": true
+ },
+ {
+  "id": "page_five",
+  "arabic": "خَمْس",
+  "english": "five",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_five.webp",
+  "sticker_prompt": "five colourful balloons",
+  "people_ok": false
+ },
+ {
+  "id": "page_girl",
+  "arabic": "بِنْت",
+  "english": "girl",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_girl.webp",
+  "sticker_prompt": "a smiling cartoon girl",
+  "people_ok": true
+ },
+ {
+  "id": "page_hat",
+  "arabic": "قُبَّعَة",
+  "english": "hat",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_hat.webp",
+  "sticker_prompt": "a colourful sun hat",
+  "people_ok": false
+ },
+ {
+  "id": "page_house",
+  "arabic": "بَيْت",
+  "english": "house",
+  "letters": [
+   "ا",
+   "ب"
+  ],
+  "sticker": "assets/images/page_house.webp",
+  "sticker_prompt": "a cute small house",
+  "people_ok": false
+ },
+ {
+  "id": "page_market",
+  "arabic": "سُوق",
+  "english": "market",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_market.webp",
+  "sticker_prompt": "a small market stall with fruit",
+  "people_ok": false
+ },
+ {
+  "id": "page_medal",
+  "arabic": "مِيدَالِيَة",
+  "english": "medal",
+  "letters": [
+   "م"
+  ],
+  "sticker": "assets/images/page_medal.webp",
+  "sticker_prompt": "a gold medal on a ribbon",
+  "people_ok": false
+ },
+ {
+  "id": "page_mouth",
+  "arabic": "فَم",
+  "english": "mouth",
+  "letters": [
+   "م"
+  ],
+  "sticker": "assets/images/page_mouth.webp",
+  "sticker_prompt": "a cartoon smiling mouth",
+  "people_ok": true
+ },
+ {
+  "id": "page_music",
+  "arabic": "مُوسِيقَى",
+  "english": "music",
+  "letters": [
+   "م"
+  ],
+  "sticker": "assets/images/page_music.webp",
+  "sticker_prompt": "colourful music notes",
+  "people_ok": false
+ },
+ {
+  "id": "page_owl",
+  "arabic": "بُومَة",
+  "english": "owl",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_owl.webp",
+  "sticker_prompt": "a cute owl",
+  "people_ok": false
+ },
+ {
+  "id": "page_penguin",
+  "arabic": "بِطْرِيق",
+  "english": "penguin",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_penguin.webp",
+  "sticker_prompt": "a cute penguin",
+  "people_ok": false
+ },
+ {
+  "id": "page_rope",
+  "arabic": "حَبْل",
+  "english": "rope",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_rope.webp",
+  "sticker_prompt": "a coiled rope",
+  "people_ok": false
+ },
+ {
+  "id": "page_ruler",
+  "arabic": "مِسْطَرَة",
+  "english": "ruler",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_ruler.webp",
+  "sticker_prompt": "a school ruler",
+  "people_ok": false
+ },
+ {
+  "id": "page_school",
+  "arabic": "مَدْرَسَة",
+  "english": "school",
+  "letters": [
+   "د"
+  ],
+  "sticker": "assets/images/page_school.webp",
+  "sticker_prompt": "a cheerful school building",
+  "people_ok": false
+ },
+ {
+  "id": "page_sea",
+  "arabic": "بَحْر",
+  "english": "sea",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_sea.webp",
+  "sticker_prompt": "blue sea waves",
+  "people_ok": false
+ },
+ {
+  "id": "page_ship",
+  "arabic": "سَفِينَة",
+  "english": "ship",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_ship.webp",
+  "sticker_prompt": "a big ship on the sea",
+  "people_ok": false
+ },
+ {
+  "id": "page_sister",
+  "arabic": "أُخْت",
+  "english": "sister",
+  "letters": [
+   "ا"
+  ],
+  "sticker": "assets/images/page_sister.webp",
+  "sticker_prompt": "a smiling cartoon girl, a sister",
+  "people_ok": true
+ },
+ {
+  "id": "page_six",
+  "arabic": "سِتَّة",
+  "english": "six",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_six.webp",
+  "sticker_prompt": "six colourful balloons",
+  "people_ok": false
+ },
+ {
+  "id": "page_sugar",
+  "arabic": "سُكَّر",
+  "english": "sugar",
+  "letters": [
+   "س"
+  ],
+  "sticker": "assets/images/page_sugar.webp",
+  "sticker_prompt": "a small bowl of sugar cubes",
+  "people_ok": false
+ },
+ {
+  "id": "page_watermelon",
+  "arabic": "بَطِّيخ",
+  "english": "watermelon",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_watermelon.webp",
+  "sticker_prompt": "a slice of watermelon",
+  "people_ok": false
+ },
+ {
+  "id": "page_worm",
+  "arabic": "دُودَة",
+  "english": "worm",
+  "letters": [
+   "د"
+  ],
+  "sticker": "assets/images/page_worm.webp",
+  "sticker_prompt": "a cute smiling worm",
+  "people_ok": false
+ },
+ {
+  "id": "page_burj_khalifa",
+  "arabic": "بُرْج خَلِيفَة",
+  "english": "Burj Khalifa",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_burj_khalifa.webp",
+  "sticker_prompt": "the Burj Khalifa tower in Dubai, cartoon style",
+  "people_ok": false
+ },
+ {
+  "id": "page_steamship",
+  "arabic": "بَاخِرَة",
+  "english": "steamship",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/page_steamship.webp",
+  "sticker_prompt": "an old wooden steamship",
+  "people_ok": false
+ },
+ {
+  "id": "egg",
+  "arabic": "بَيْض",
+  "english": "egg (school form)",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/egg.webp",
+  "reuse": true
+ },
+ {
+  "id": "orange",
+  "arabic": "بُرْتُقَال",
+  "english": "orange (school form)",
+  "letters": [
+   "ب"
+  ],
+  "sticker": "assets/images/orange.webp",
+  "reuse": true
+ }
+]

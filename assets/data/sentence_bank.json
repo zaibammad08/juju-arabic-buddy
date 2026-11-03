@@ -1,0 +1,3447 @@
+[
+ {
+  "id": "sofa",
+  "english_word": "Sofa",
+  "arabic_word": "أَرِيكَة",
+  "phonetic": "Areeka",
+  "letter": "أ",
+  "gender": "F",
+  "category": "furniture",
+  "word_audio": "sofa_word.mp3",
+  "sticker": "assets/images/sofa.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ أَرِيكَةٌ",
+    "audio_text": "هَذِهِ أَرِيكَة",
+    "phonetic": "Hadhihi areeka",
+    "english": "This is a sofa.",
+    "audio": "sofa_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْأَرِيكَةَ",
+    "audio_text": "أَنَا أَرَى الأَرِيكَة",
+    "phonetic": "Ana ara al-areeka",
+    "english": "I see the sofa.",
+    "audio": "sofa_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الْأَرِيكَةُ كَبِيرَةٌ",
+    "audio_text": "الأَرِيكَةُ كَبِيرَة",
+    "phonetic": "Al-areekatu kabeera",
+    "english": "The sofa is big.",
+    "audio": "sofa_s3.mp3"
+   },
+   {
+    "template": "sit",
+    "arabic": "أَنَا أَجْلِسُ عَلَى الْأَرِيكَةِ",
+    "audio_text": "أَنَا أَجلِسُ عَلَى الأَرِيكَة",
+    "phonetic": "Ana ajlisu 'ala al-areeka",
+    "english": "I sit on the sofa.",
+    "audio": "sofa_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْأَرِيكَةَ",
+    "audio_text": "أَنَا أُحِبُّ الأَرِيكَة",
+    "phonetic": "Ana uhibbu al-areeka",
+    "english": "I like the sofa.",
+    "audio": "sofa_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "door",
+  "english_word": "Door",
+  "arabic_word": "بَاب",
+  "phonetic": "Bab",
+  "letter": "ب",
+  "gender": "M",
+  "category": "furniture",
+  "word_audio": "door_word.mp3",
+  "sticker": "assets/images/door.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا بَابٌ",
+    "audio_text": "هَذَا بَاب",
+    "phonetic": "Hadha bab",
+    "english": "This is a door.",
+    "audio": "door_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْبَابَ",
+    "audio_text": "أَنَا أَرَى البَاب",
+    "phonetic": "Ana ara al-bab",
+    "english": "I see the door.",
+    "audio": "door_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْبَابُ صَغِيرٌ",
+    "audio_text": "البَابُ صَغِير",
+    "phonetic": "Al-babu sagheer",
+    "english": "The door is small.",
+    "audio": "door_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ الْبَابَ",
+    "audio_text": "أَنَا أَفتَحُ البَاب",
+    "phonetic": "Ana aftahu al-bab",
+    "english": "I open the door.",
+    "audio": "door_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْبَابُ؟",
+    "audio_text": "أَينَ البَاب؟",
+    "phonetic": "Ayna al-bab?",
+    "english": "Where is the door?",
+    "audio": "door_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "television",
+  "english_word": "Television",
+  "arabic_word": "تِلْفَاز",
+  "phonetic": "Tilfaz",
+  "letter": "ت",
+  "gender": "M",
+  "category": "furniture",
+  "word_audio": "television_word.mp3",
+  "sticker": "assets/images/television.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا تِلْفَازٌ",
+    "audio_text": "هَذَا تِلفَاز",
+    "phonetic": "Hadha tilfaz",
+    "english": "This is a television.",
+    "audio": "television_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي تِلْفَازٌ",
+    "audio_text": "عِندِي تِلفَاز",
+    "phonetic": "'Indi tilfaz",
+    "english": "I have a television.",
+    "audio": "television_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى التِّلْفَازَ",
+    "audio_text": "أَنَا أَرَى التِّلفَاز",
+    "phonetic": "Ana ara at-tilfaz",
+    "english": "I see the television.",
+    "audio": "television_s3.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "التِّلْفَازُ جَمِيلٌ",
+    "audio_text": "التِّلفَازُ جَمِيل",
+    "phonetic": "At-tilfazu jameel",
+    "english": "The television is beautiful.",
+    "audio": "television_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ التِّلْفَازُ؟",
+    "audio_text": "أَينَ التِّلفَاز؟",
+    "phonetic": "Ayna at-tilfaz?",
+    "english": "Where is the television?",
+    "audio": "television_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "chair",
+  "english_word": "Chair",
+  "arabic_word": "كُرْسِيّ",
+  "phonetic": "Kursi",
+  "letter": "ك",
+  "gender": "M",
+  "category": "furniture",
+  "word_audio": "chair_word.mp3",
+  "sticker": "assets/images/chair.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا كُرْسِيٌّ",
+    "audio_text": "هَذَا كُرسِيّ",
+    "phonetic": "Hadha kursi",
+    "english": "This is a chair.",
+    "audio": "chair_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْكُرْسِيَّ",
+    "audio_text": "أَنَا أَرَى الكُرسِيّ",
+    "phonetic": "Ana ara al-kursi",
+    "english": "I see the chair.",
+    "audio": "chair_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الْكُرْسِيُّ كَبِيرٌ",
+    "audio_text": "الكُرسِيُّ كَبِير",
+    "phonetic": "Al-kursiyyu kabeer",
+    "english": "The chair is big.",
+    "audio": "chair_s3.mp3"
+   },
+   {
+    "template": "sit",
+    "arabic": "أَنَا أَجْلِسُ عَلَى الْكُرْسِيِّ",
+    "audio_text": "أَنَا أَجلِسُ عَلَى الكُرسِيّ",
+    "phonetic": "Ana ajlisu 'ala al-kursi",
+    "english": "I sit on the chair.",
+    "audio": "chair_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْكُرْسِيُّ؟",
+    "audio_text": "أَينَ الكُرسِيّ؟",
+    "phonetic": "Ayna al-kursi?",
+    "english": "Where is the chair?",
+    "audio": "chair_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "lamp",
+  "english_word": "Lamp",
+  "arabic_word": "مِصْبَاح",
+  "phonetic": "Misbah",
+  "letter": "م",
+  "gender": "M",
+  "category": "furniture",
+  "word_audio": "lamp_word.mp3",
+  "sticker": "assets/images/lamp.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا مِصْبَاحٌ",
+    "audio_text": "هَذَا مِصبَاح",
+    "phonetic": "Hadha misbah",
+    "english": "This is a lamp.",
+    "audio": "lamp_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمِصْبَاحَ",
+    "audio_text": "أَنَا أَرَى المِصبَاح",
+    "phonetic": "Ana ara al-misbah",
+    "english": "I see the lamp.",
+    "audio": "lamp_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْمِصْبَاحُ صَغِيرٌ",
+    "audio_text": "المِصبَاحُ صَغِير",
+    "phonetic": "Al-misbahu sagheer",
+    "english": "The lamp is small.",
+    "audio": "lamp_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الْمِصْبَاحَ",
+    "audio_text": "أَنَا أَستَخدِمُ المِصبَاح",
+    "phonetic": "Ana astakhdimu al-misbah",
+    "english": "I use the lamp.",
+    "audio": "lamp_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْمِصْبَاحُ؟",
+    "audio_text": "أَينَ المِصبَاح؟",
+    "phonetic": "Ayna al-misbah?",
+    "english": "Where is the lamp?",
+    "audio": "lamp_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "key",
+  "english_word": "Key",
+  "arabic_word": "مِفْتَاح",
+  "phonetic": "Miftah",
+  "letter": "م",
+  "gender": "M",
+  "category": "furniture",
+  "word_audio": "key_word.mp3",
+  "sticker": "assets/images/key.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا مِفْتَاحٌ",
+    "audio_text": "هَذَا مِفتَاح",
+    "phonetic": "Hadha miftah",
+    "english": "This is a key.",
+    "audio": "key_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمِفْتَاحَ",
+    "audio_text": "أَنَا أَرَى المِفتَاح",
+    "phonetic": "Ana ara al-miftah",
+    "english": "I see the key.",
+    "audio": "key_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْمِفْتَاحُ جَمِيلٌ",
+    "audio_text": "المِفتَاحُ جَمِيل",
+    "phonetic": "Al-miftahu jameel",
+    "english": "The key is beautiful.",
+    "audio": "key_s3.mp3"
+   },
+   {
+    "template": "open_with",
+    "arabic": "أَنَا أَفْتَحُ الْبَابَ بِالْمِفْتَاحِ",
+    "audio_text": "أَنَا أَفتَحُ البَابَ بِالمِفتَاح",
+    "phonetic": "Ana aftahu al-baba bil-miftah",
+    "english": "I open the door with the key.",
+    "audio": "key_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْمِفْتَاحُ؟",
+    "audio_text": "أَينَ المِفتَاح؟",
+    "phonetic": "Ayna al-miftah?",
+    "english": "Where is the key?",
+    "audio": "key_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "shelf",
+  "english_word": "Shelf",
+  "arabic_word": "رَفّ",
+  "phonetic": "Raff",
+  "letter": "ر",
+  "gender": "M",
+  "category": "furniture",
+  "word_audio": "shelf_word.mp3",
+  "sticker": "assets/images/shelf.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا رَفٌّ",
+    "audio_text": "هَذَا رَفّ",
+    "phonetic": "Hadha raff",
+    "english": "This is a shelf.",
+    "audio": "shelf_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي رَفٌّ",
+    "audio_text": "عِندِي رَفّ",
+    "phonetic": "'Indi raff",
+    "english": "I have a shelf.",
+    "audio": "shelf_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الرَّفَّ",
+    "audio_text": "أَنَا أَرَى الرَّفّ",
+    "phonetic": "Ana ara ar-raff",
+    "english": "I see the shelf.",
+    "audio": "shelf_s3.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الرَّفُّ كَبِيرٌ",
+    "audio_text": "الرَّفُّ كَبِير",
+    "phonetic": "Ar-raffu kabeer",
+    "english": "The shelf is big.",
+    "audio": "shelf_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الرَّفُّ؟",
+    "audio_text": "أَينَ الرَّفّ؟",
+    "phonetic": "Ayna ar-raff?",
+    "english": "Where is the shelf?",
+    "audio": "shelf_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "clock",
+  "english_word": "Clock",
+  "arabic_word": "سَاعَة",
+  "phonetic": "Sa'a",
+  "letter": "س",
+  "gender": "F",
+  "category": "furniture",
+  "word_audio": "clock_word.mp3",
+  "sticker": "assets/images/clock.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ سَاعَةٌ",
+    "audio_text": "هَذِهِ سَاعَة",
+    "phonetic": "Hadhihi sa'a",
+    "english": "This is a clock.",
+    "audio": "clock_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي سَاعَةٌ",
+    "audio_text": "عِندِي سَاعَة",
+    "phonetic": "'Indi sa'a",
+    "english": "I have a clock.",
+    "audio": "clock_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى السَّاعَةَ",
+    "audio_text": "أَنَا أَرَى السَّاعَة",
+    "phonetic": "Ana ara as-sa'a",
+    "english": "I see the clock.",
+    "audio": "clock_s3.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "السَّاعَةُ صَغِيرَةٌ",
+    "audio_text": "السَّاعَةُ صَغِيرَة",
+    "phonetic": "As-sa'atu sagheera",
+    "english": "The clock is small.",
+    "audio": "clock_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ السَّاعَةُ؟",
+    "audio_text": "أَينَ السَّاعَة؟",
+    "phonetic": "Ayna as-sa'a?",
+    "english": "Where is the clock?",
+    "audio": "clock_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "carpet",
+  "english_word": "Carpet",
+  "arabic_word": "سَجَّادَة",
+  "phonetic": "Sajjada",
+  "letter": "س",
+  "gender": "F",
+  "category": "furniture",
+  "word_audio": "carpet_word.mp3",
+  "sticker": "assets/images/carpet.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ سَجَّادَةٌ",
+    "audio_text": "هَذِهِ سَجَّادَة",
+    "phonetic": "Hadhihi sajjada",
+    "english": "This is a carpet.",
+    "audio": "carpet_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى السَّجَّادَةَ",
+    "audio_text": "أَنَا أَرَى السَّجَّادَة",
+    "phonetic": "Ana ara as-sajjada",
+    "english": "I see the carpet.",
+    "audio": "carpet_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "السَّجَّادَةُ جَمِيلَةٌ",
+    "audio_text": "السَّجَّادَةُ جَمِيلَة",
+    "phonetic": "As-sajjadatu jameela",
+    "english": "The carpet is beautiful.",
+    "audio": "carpet_s3.mp3"
+   },
+   {
+    "template": "sit",
+    "arabic": "أَنَا أَجْلِسُ عَلَى السَّجَّادَةِ",
+    "audio_text": "أَنَا أَجلِسُ عَلَى السَّجَّادَة",
+    "phonetic": "Ana ajlisu 'ala as-sajjada",
+    "english": "I sit on the carpet.",
+    "audio": "carpet_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ السَّجَّادَةُ؟",
+    "audio_text": "أَينَ السَّجَّادَة؟",
+    "phonetic": "Ayna as-sajjada?",
+    "english": "Where is the carpet?",
+    "audio": "carpet_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "window",
+  "english_word": "Window",
+  "arabic_word": "نَافِذَة",
+  "phonetic": "Nafidha",
+  "letter": "ن",
+  "gender": "F",
+  "category": "furniture",
+  "word_audio": "window_word.mp3",
+  "sticker": "assets/images/window.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ نَافِذَةٌ",
+    "audio_text": "هَذِهِ نَافِذَة",
+    "phonetic": "Hadhihi nafidha",
+    "english": "This is a window.",
+    "audio": "window_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى النَّافِذَةَ",
+    "audio_text": "أَنَا أَرَى النَّافِذَة",
+    "phonetic": "Ana ara an-nafidha",
+    "english": "I see the window.",
+    "audio": "window_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "النَّافِذَةُ كَبِيرَةٌ",
+    "audio_text": "النَّافِذَةُ كَبِيرَة",
+    "phonetic": "An-nafidhatu kabeera",
+    "english": "The window is big.",
+    "audio": "window_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ النَّافِذَةَ",
+    "audio_text": "أَنَا أَفتَحُ النَّافِذَة",
+    "phonetic": "Ana aftahu an-nafidha",
+    "english": "I open the window.",
+    "audio": "window_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ النَّافِذَةُ؟",
+    "audio_text": "أَينَ النَّافِذَة؟",
+    "phonetic": "Ayna an-nafidha?",
+    "english": "Where is the window?",
+    "audio": "window_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "box",
+  "english_word": "Box",
+  "arabic_word": "صُنْدُوق",
+  "phonetic": "Sundooq",
+  "letter": "ص",
+  "gender": "M",
+  "category": "furniture",
+  "word_audio": "box_word.mp3",
+  "sticker": "assets/images/box.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا صُنْدُوقٌ",
+    "audio_text": "هَذَا صُندُوق",
+    "phonetic": "Hadha sundooq",
+    "english": "This is a box.",
+    "audio": "box_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الصُّنْدُوقَ",
+    "audio_text": "أَنَا أَرَى الصُّندُوق",
+    "phonetic": "Ana ara as-sundooq",
+    "english": "I see the box.",
+    "audio": "box_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الصُّنْدُوقُ صَغِيرٌ",
+    "audio_text": "الصُّندُوقُ صَغِير",
+    "phonetic": "As-sundooqu sagheer",
+    "english": "The box is small.",
+    "audio": "box_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ الصُّنْدُوقَ",
+    "audio_text": "أَنَا أَفتَحُ الصُّندُوق",
+    "phonetic": "Ana aftahu as-sundooq",
+    "english": "I open the box.",
+    "audio": "box_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الصُّنْدُوقُ؟",
+    "audio_text": "أَينَ الصُّندُوق؟",
+    "phonetic": "Ayna as-sundooq?",
+    "english": "Where is the box?",
+    "audio": "box_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "picture",
+  "english_word": "Picture",
+  "arabic_word": "صُورَة",
+  "phonetic": "Soora",
+  "letter": "ص",
+  "gender": "F",
+  "category": "furniture",
+  "word_audio": "picture_word.mp3",
+  "sticker": "assets/images/picture.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ صُورَةٌ",
+    "audio_text": "هَذِهِ صُورَة",
+    "phonetic": "Hadhihi soora",
+    "english": "This is a picture.",
+    "audio": "picture_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي صُورَةٌ",
+    "audio_text": "عِندِي صُورَة",
+    "phonetic": "'Indi soora",
+    "english": "I have a picture.",
+    "audio": "picture_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الصُّورَةَ",
+    "audio_text": "أَنَا أَرَى الصُّورَة",
+    "phonetic": "Ana ara as-soora",
+    "english": "I see the picture.",
+    "audio": "picture_s3.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الصُّورَةُ جَمِيلَةٌ",
+    "audio_text": "الصُّورَةُ جَمِيلَة",
+    "phonetic": "As-sooratu jameela",
+    "english": "The picture is beautiful.",
+    "audio": "picture_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الصُّورَةَ",
+    "audio_text": "أَنَا أُحِبُّ الصُّورَة",
+    "phonetic": "Ana uhibbu as-soora",
+    "english": "I like the picture.",
+    "audio": "picture_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "table",
+  "english_word": "Table",
+  "arabic_word": "طَاوِلَة",
+  "phonetic": "Tawila",
+  "letter": "ط",
+  "gender": "F",
+  "category": "furniture",
+  "word_audio": "table_word.mp3",
+  "sticker": "assets/images/table.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ طَاوِلَةٌ",
+    "audio_text": "هَذِهِ طَاوِلَة",
+    "phonetic": "Hadhihi tawila",
+    "english": "This is a table.",
+    "audio": "table_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي طَاوِلَةٌ",
+    "audio_text": "عِندِي طَاوِلَة",
+    "phonetic": "'Indi tawila",
+    "english": "I have a table.",
+    "audio": "table_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الطَّاوِلَةَ",
+    "audio_text": "أَنَا أَرَى الطَّاوِلَة",
+    "phonetic": "Ana ara at-tawila",
+    "english": "I see the table.",
+    "audio": "table_s3.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الطَّاوِلَةُ كَبِيرَةٌ",
+    "audio_text": "الطَّاوِلَةُ كَبِيرَة",
+    "phonetic": "At-tawilatu kabeera",
+    "english": "The table is big.",
+    "audio": "table_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الطَّاوِلَةُ؟",
+    "audio_text": "أَينَ الطَّاوِلَة؟",
+    "phonetic": "Ayna at-tawila?",
+    "english": "Where is the table?",
+    "audio": "table_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "envelope",
+  "english_word": "Envelope",
+  "arabic_word": "ظَرْف",
+  "phonetic": "Dharf",
+  "letter": "ظ",
+  "gender": "M",
+  "category": "furniture",
+  "word_audio": "envelope_word.mp3",
+  "sticker": "assets/images/envelope.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا ظَرْفٌ",
+    "audio_text": "هَذَا ظَرف",
+    "phonetic": "Hadha dharf",
+    "english": "This is an envelope.",
+    "audio": "envelope_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الظَّرْفَ",
+    "audio_text": "أَنَا أَرَى الظَّرف",
+    "phonetic": "Ana ara adh-dharf",
+    "english": "I see the envelope.",
+    "audio": "envelope_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الظَّرْفُ صَغِيرٌ",
+    "audio_text": "الظَّرفُ صَغِير",
+    "phonetic": "Adh-dharfu sagheer",
+    "english": "The envelope is small.",
+    "audio": "envelope_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ الظَّرْفَ",
+    "audio_text": "أَنَا أَفتَحُ الظَّرف",
+    "phonetic": "Ana aftahu adh-dharf",
+    "english": "I open the envelope.",
+    "audio": "envelope_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الظَّرْفُ؟",
+    "audio_text": "أَينَ الظَّرف؟",
+    "phonetic": "Ayna adh-dharf?",
+    "english": "Where is the envelope?",
+    "audio": "envelope_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "toy_rabbit",
+  "english_word": "Toy Rabbit",
+  "arabic_word": "أَرْنَب",
+  "phonetic": "Arnab",
+  "letter": "أ",
+  "gender": "M",
+  "category": "toys",
+  "word_audio": "toy_rabbit_word.mp3",
+  "sticker": "assets/images/toy_rabbit.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا أَرْنَبٌ",
+    "audio_text": "هَذَا أَرنَب",
+    "phonetic": "Hadha arnab",
+    "english": "This is a rabbit.",
+    "audio": "toy_rabbit_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْأَرْنَبَ",
+    "audio_text": "أَنَا أَرَى الأَرنَب",
+    "phonetic": "Ana ara al-arnab",
+    "english": "I see the rabbit.",
+    "audio": "toy_rabbit_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْأَرْنَبُ جَمِيلٌ",
+    "audio_text": "الأَرنَبُ جَمِيل",
+    "phonetic": "Al-arnabu jameel",
+    "english": "The rabbit is beautiful.",
+    "audio": "toy_rabbit_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالْأَرْنَبِ",
+    "audio_text": "أَنَا أَلعَبُ بِالأَرنَب",
+    "phonetic": "Ana al'abu bil-arnab",
+    "english": "I play with the rabbit.",
+    "audio": "toy_rabbit_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْأَرْنَبَ",
+    "audio_text": "أَنَا أُحِبُّ الأَرنَب",
+    "phonetic": "Ana uhibbu al-arnab",
+    "english": "I like the rabbit.",
+    "audio": "toy_rabbit_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "teddy_bear",
+  "english_word": "Teddy Bear",
+  "arabic_word": "دُبّ",
+  "phonetic": "Dubb",
+  "letter": "د",
+  "gender": "M",
+  "category": "toys",
+  "word_audio": "teddy_bear_word.mp3",
+  "sticker": "assets/images/teddy_bear.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا دُبٌّ",
+    "audio_text": "هَذَا دُبّ",
+    "phonetic": "Hadha dubb",
+    "english": "This is a teddy bear.",
+    "audio": "teddy_bear_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الدُّبَّ",
+    "audio_text": "أَنَا أَرَى الدُّبّ",
+    "phonetic": "Ana ara ad-dubb",
+    "english": "I see the teddy bear.",
+    "audio": "teddy_bear_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الدُّبُّ كَبِيرٌ",
+    "audio_text": "الدُّبُّ كَبِير",
+    "phonetic": "Ad-dubbu kabeer",
+    "english": "The teddy bear is big.",
+    "audio": "teddy_bear_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالدُّبِّ",
+    "audio_text": "أَنَا أَلعَبُ بِالدُّبّ",
+    "phonetic": "Ana al'abu bid-dubb",
+    "english": "I play with the teddy bear.",
+    "audio": "teddy_bear_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الدُّبَّ",
+    "audio_text": "أَنَا أُحِبُّ الدُّبّ",
+    "phonetic": "Ana uhibbu ad-dubb",
+    "english": "I like the teddy bear.",
+    "audio": "teddy_bear_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "doll",
+  "english_word": "Doll",
+  "arabic_word": "دُمْيَة",
+  "phonetic": "Dumya",
+  "letter": "د",
+  "gender": "F",
+  "category": "toys",
+  "word_audio": "doll_word.mp3",
+  "sticker": "assets/images/doll.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ دُمْيَةٌ",
+    "audio_text": "هَذِهِ دُميَة",
+    "phonetic": "Hadhihi dumya",
+    "english": "This is a doll.",
+    "audio": "doll_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الدُّمْيَةَ",
+    "audio_text": "أَنَا أَرَى الدُّميَة",
+    "phonetic": "Ana ara ad-dumya",
+    "english": "I see the doll.",
+    "audio": "doll_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الدُّمْيَةُ صَغِيرَةٌ",
+    "audio_text": "الدُّميَةُ صَغِيرَة",
+    "phonetic": "Ad-dumyatu sagheera",
+    "english": "The doll is small.",
+    "audio": "doll_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالدُّمْيَةِ",
+    "audio_text": "أَنَا أَلعَبُ بِالدُّميَة",
+    "phonetic": "Ana al'abu bid-dumya",
+    "english": "I play with the doll.",
+    "audio": "doll_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الدُّمْيَةَ",
+    "audio_text": "أَنَا أُحِبُّ الدُّميَة",
+    "phonetic": "Ana uhibbu ad-dumya",
+    "english": "I like the doll.",
+    "audio": "doll_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "bicycle",
+  "english_word": "Bicycle",
+  "arabic_word": "دَرَّاجَة",
+  "phonetic": "Darraja",
+  "letter": "د",
+  "gender": "F",
+  "category": "toys",
+  "word_audio": "bicycle_word.mp3",
+  "sticker": "assets/images/bicycle.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ دَرَّاجَةٌ",
+    "audio_text": "هَذِهِ دَرَّاجَة",
+    "phonetic": "Hadhihi darraja",
+    "english": "This is a bicycle.",
+    "audio": "bicycle_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الدَّرَّاجَةَ",
+    "audio_text": "أَنَا أَرَى الدَّرَّاجَة",
+    "phonetic": "Ana ara ad-darraja",
+    "english": "I see the bicycle.",
+    "audio": "bicycle_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الدَّرَّاجَةُ جَمِيلَةٌ",
+    "audio_text": "الدَّرَّاجَةُ جَمِيلَة",
+    "phonetic": "Ad-darrajatu jameela",
+    "english": "The bicycle is beautiful.",
+    "audio": "bicycle_s3.mp3"
+   },
+   {
+    "template": "ride",
+    "arabic": "أَنَا أَرْكَبُ الدَّرَّاجَةَ",
+    "audio_text": "أَنَا أَركَبُ الدَّرَّاجَة",
+    "phonetic": "Ana arkabu ad-darraja",
+    "english": "I ride the bicycle.",
+    "audio": "bicycle_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الدَّرَّاجَةَ",
+    "audio_text": "أَنَا أُحِبُّ الدَّرَّاجَة",
+    "phonetic": "Ana uhibbu ad-darraja",
+    "english": "I like the bicycle.",
+    "audio": "bicycle_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "toy_frog",
+  "english_word": "Toy Frog",
+  "arabic_word": "ضِفْدَع",
+  "phonetic": "Difda'",
+  "letter": "ض",
+  "gender": "M",
+  "category": "toys",
+  "word_audio": "toy_frog_word.mp3",
+  "sticker": "assets/images/toy_frog.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا ضِفْدَعٌ",
+    "audio_text": "هَذَا ضِفدَع",
+    "phonetic": "Hadha difda'",
+    "english": "This is a frog.",
+    "audio": "toy_frog_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الضِّفْدَعَ",
+    "audio_text": "أَنَا أَرَى الضِّفدَع",
+    "phonetic": "Ana ara ad-difda'",
+    "english": "I see the frog.",
+    "audio": "toy_frog_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الضِّفْدَعُ كَبِيرٌ",
+    "audio_text": "الضِّفدَعُ كَبِير",
+    "phonetic": "Ad-difda'u kabeer",
+    "english": "The frog is big.",
+    "audio": "toy_frog_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالضِّفْدَعِ",
+    "audio_text": "أَنَا أَلعَبُ بِالضِّفدَع",
+    "phonetic": "Ana al'abu bid-difda'",
+    "english": "I play with the frog.",
+    "audio": "toy_frog_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الضِّفْدَعَ",
+    "audio_text": "أَنَا أُحِبُّ الضِّفدَع",
+    "phonetic": "Ana uhibbu ad-difda'",
+    "english": "I like the frog.",
+    "audio": "toy_frog_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "pen",
+  "english_word": "Pencil",
+  "arabic_word": "قَلَم",
+  "phonetic": "Qalam",
+  "letter": "ق",
+  "gender": "M",
+  "category": "toys",
+  "word_audio": "pen_word.mp3",
+  "sticker": "assets/images/pen.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا قَلَمٌ",
+    "audio_text": "هَذَا قَلَم",
+    "phonetic": "Hadha qalam",
+    "english": "This is a pencil.",
+    "audio": "pen_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْقَلَمَ",
+    "audio_text": "أَنَا أَرَى القَلَم",
+    "phonetic": "Ana ara al-qalam",
+    "english": "I see the pencil.",
+    "audio": "pen_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْقَلَمُ صَغِيرٌ",
+    "audio_text": "القَلَمُ صَغِير",
+    "phonetic": "Al-qalamu sagheer",
+    "english": "The pencil is small.",
+    "audio": "pen_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الْقَلَمَ",
+    "audio_text": "أَنَا أَستَخدِمُ القَلَم",
+    "phonetic": "Ana astakhdimu al-qalam",
+    "english": "I use the pencil.",
+    "audio": "pen_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْقَلَمَ",
+    "audio_text": "أَنَا أُحِبُّ القَلَم",
+    "phonetic": "Ana uhibbu al-qalam",
+    "english": "I like the pencil.",
+    "audio": "pen_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "toy_train",
+  "english_word": "Toy Train",
+  "arabic_word": "قِطَار",
+  "phonetic": "Qitar",
+  "letter": "ق",
+  "gender": "M",
+  "category": "toys",
+  "word_audio": "toy_train_word.mp3",
+  "sticker": "assets/images/toy_train.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا قِطَارٌ",
+    "audio_text": "هَذَا قِطَار",
+    "phonetic": "Hadha qitar",
+    "english": "This is a train.",
+    "audio": "toy_train_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْقِطَارَ",
+    "audio_text": "أَنَا أَرَى القِطَار",
+    "phonetic": "Ana ara al-qitar",
+    "english": "I see the train.",
+    "audio": "toy_train_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْقِطَارُ جَمِيلٌ",
+    "audio_text": "القِطَارُ جَمِيل",
+    "phonetic": "Al-qitaru jameel",
+    "english": "The train is beautiful.",
+    "audio": "toy_train_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالْقِطَارِ",
+    "audio_text": "أَنَا أَلعَبُ بِالقِطَار",
+    "phonetic": "Ana al'abu bil-qitar",
+    "english": "I play with the train.",
+    "audio": "toy_train_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْقِطَارَ",
+    "audio_text": "أَنَا أُحِبُّ القِطَار",
+    "phonetic": "Ana uhibbu al-qitar",
+    "english": "I like the train.",
+    "audio": "toy_train_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "book",
+  "english_word": "Book",
+  "arabic_word": "كِتَاب",
+  "phonetic": "Kitab",
+  "letter": "ك",
+  "gender": "M",
+  "category": "toys",
+  "word_audio": "book_word.mp3",
+  "sticker": "assets/images/book.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا كِتَابٌ",
+    "audio_text": "هَذَا كِتَاب",
+    "phonetic": "Hadha kitab",
+    "english": "This is a book.",
+    "audio": "book_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْكِتَابَ",
+    "audio_text": "أَنَا أَرَى الكِتَاب",
+    "phonetic": "Ana ara al-kitab",
+    "english": "I see the book.",
+    "audio": "book_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الْكِتَابُ كَبِيرٌ",
+    "audio_text": "الكِتَابُ كَبِير",
+    "phonetic": "Al-kitabu kabeer",
+    "english": "The book is big.",
+    "audio": "book_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ الْكِتَابَ",
+    "audio_text": "أَنَا أَفتَحُ الكِتَاب",
+    "phonetic": "Ana aftahu al-kitab",
+    "english": "I open the book.",
+    "audio": "book_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْكِتَابَ",
+    "audio_text": "أَنَا أُحِبُّ الكِتَاب",
+    "phonetic": "Ana uhibbu al-kitab",
+    "english": "I like the book.",
+    "audio": "book_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "ball",
+  "english_word": "Ball",
+  "arabic_word": "كُرَة",
+  "phonetic": "Kura",
+  "letter": "ك",
+  "gender": "F",
+  "category": "toys",
+  "word_audio": "ball_word.mp3",
+  "sticker": "assets/images/ball.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ كُرَةٌ",
+    "audio_text": "هَذِهِ كُرَة",
+    "phonetic": "Hadhihi kura",
+    "english": "This is a ball.",
+    "audio": "ball_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْكُرَةَ",
+    "audio_text": "أَنَا أَرَى الكُرَة",
+    "phonetic": "Ana ara al-kura",
+    "english": "I see the ball.",
+    "audio": "ball_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْكُرَةُ صَغِيرَةٌ",
+    "audio_text": "الكُرَةُ صَغِيرَة",
+    "phonetic": "Al-kuratu sagheera",
+    "english": "The ball is small.",
+    "audio": "ball_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالْكُرَةِ",
+    "audio_text": "أَنَا أَلعَبُ بِالكُرَة",
+    "phonetic": "Ana al'abu bil-kura",
+    "english": "I play with the ball.",
+    "audio": "ball_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْكُرَةَ",
+    "audio_text": "أَنَا أُحِبُّ الكُرَة",
+    "phonetic": "Ana uhibbu al-kura",
+    "english": "I like the ball.",
+    "audio": "ball_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "block",
+  "english_word": "Block",
+  "arabic_word": "مُكَعَّب",
+  "phonetic": "Muka''ab",
+  "letter": "م",
+  "gender": "M",
+  "category": "toys",
+  "word_audio": "block_word.mp3",
+  "sticker": "assets/images/block.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا مُكَعَّبٌ",
+    "audio_text": "هَذَا مُكَعَّب",
+    "phonetic": "Hadha muka''ab",
+    "english": "This is a block.",
+    "audio": "block_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمُكَعَّبَ",
+    "audio_text": "أَنَا أَرَى المُكَعَّب",
+    "phonetic": "Ana ara al-muka''ab",
+    "english": "I see the block.",
+    "audio": "block_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْمُكَعَّبُ جَمِيلٌ",
+    "audio_text": "المُكَعَّبُ جَمِيل",
+    "phonetic": "Al-muka''abu jameel",
+    "english": "The block is beautiful.",
+    "audio": "block_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالْمُكَعَّبِ",
+    "audio_text": "أَنَا أَلعَبُ بِالمُكَعَّب",
+    "phonetic": "Ana al'abu bil-muka''ab",
+    "english": "I play with the block.",
+    "audio": "block_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْمُكَعَّبَ",
+    "audio_text": "أَنَا أُحِبُّ المُكَعَّب",
+    "phonetic": "Ana uhibbu al-muka''ab",
+    "english": "I like the block.",
+    "audio": "block_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "toy_car",
+  "english_word": "Toy Car",
+  "arabic_word": "سَيَّارَة",
+  "phonetic": "Sayyara",
+  "letter": "س",
+  "gender": "F",
+  "category": "toys",
+  "word_audio": "toy_car_word.mp3",
+  "sticker": "assets/images/toy_car.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ سَيَّارَةٌ",
+    "audio_text": "هَذِهِ سَيَّارَة",
+    "phonetic": "Hadhihi sayyara",
+    "english": "This is a car.",
+    "audio": "toy_car_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى السَّيَّارَةَ",
+    "audio_text": "أَنَا أَرَى السَّيَّارَة",
+    "phonetic": "Ana ara as-sayyara",
+    "english": "I see the car.",
+    "audio": "toy_car_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "السَّيَّارَةُ كَبِيرَةٌ",
+    "audio_text": "السَّيَّارَةُ كَبِيرَة",
+    "phonetic": "As-sayyaratu kabeera",
+    "english": "The car is big.",
+    "audio": "toy_car_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالسَّيَّارَةِ",
+    "audio_text": "أَنَا أَلعَبُ بِالسَّيَّارَة",
+    "phonetic": "Ana al'abu bis-sayyara",
+    "english": "I play with the car.",
+    "audio": "toy_car_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ السَّيَّارَةَ",
+    "audio_text": "أَنَا أُحِبُّ السَّيَّارَة",
+    "phonetic": "Ana uhibbu as-sayyara",
+    "english": "I like the car.",
+    "audio": "toy_car_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "toy_bus",
+  "english_word": "Toy Bus",
+  "arabic_word": "حَافِلَة",
+  "phonetic": "Hafila",
+  "letter": "ح",
+  "gender": "F",
+  "category": "toys",
+  "word_audio": "toy_bus_word.mp3",
+  "sticker": "assets/images/toy_bus.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ حَافِلَةٌ",
+    "audio_text": "هَذِهِ حَافِلَة",
+    "phonetic": "Hadhihi hafila",
+    "english": "This is a bus.",
+    "audio": "toy_bus_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْحَافِلَةَ",
+    "audio_text": "أَنَا أَرَى الحَافِلَة",
+    "phonetic": "Ana ara al-hafila",
+    "english": "I see the bus.",
+    "audio": "toy_bus_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْحَافِلَةُ صَغِيرَةٌ",
+    "audio_text": "الحَافِلَةُ صَغِيرَة",
+    "phonetic": "Al-hafilatu sagheera",
+    "english": "The bus is small.",
+    "audio": "toy_bus_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالْحَافِلَةِ",
+    "audio_text": "أَنَا أَلعَبُ بِالحَافِلَة",
+    "phonetic": "Ana al'abu bil-hafila",
+    "english": "I play with the bus.",
+    "audio": "toy_bus_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْحَافِلَةَ",
+    "audio_text": "أَنَا أُحِبُّ الحَافِلَة",
+    "phonetic": "Ana uhibbu al-hafila",
+    "english": "I like the bus.",
+    "audio": "toy_bus_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "paper",
+  "english_word": "Paper",
+  "arabic_word": "وَرَقَة",
+  "phonetic": "Waraqa",
+  "letter": "و",
+  "gender": "F",
+  "category": "toys",
+  "word_audio": "paper_word.mp3",
+  "sticker": "assets/images/paper.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ وَرَقَةٌ",
+    "audio_text": "هَذِهِ وَرَقَة",
+    "phonetic": "Hadhihi waraqa",
+    "english": "This is a paper.",
+    "audio": "paper_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْوَرَقَةَ",
+    "audio_text": "أَنَا أَرَى الوَرَقَة",
+    "phonetic": "Ana ara al-waraqa",
+    "english": "I see the paper.",
+    "audio": "paper_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْوَرَقَةُ جَمِيلَةٌ",
+    "audio_text": "الوَرَقَةُ جَمِيلَة",
+    "phonetic": "Al-waraqatu jameela",
+    "english": "The paper is beautiful.",
+    "audio": "paper_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الْوَرَقَةَ",
+    "audio_text": "أَنَا أَستَخدِمُ الوَرَقَة",
+    "phonetic": "Ana astakhdimu al-waraqa",
+    "english": "I use the paper.",
+    "audio": "paper_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْوَرَقَةَ",
+    "audio_text": "أَنَا أُحِبُّ الوَرَقَة",
+    "phonetic": "Ana uhibbu al-waraqa",
+    "english": "I like the paper.",
+    "audio": "paper_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "yoyo",
+  "english_word": "Yo-yo",
+  "arabic_word": "يُويُو",
+  "phonetic": "Yoyo",
+  "letter": "ي",
+  "gender": "M",
+  "category": "toys",
+  "word_audio": "yoyo_word.mp3",
+  "sticker": "assets/images/yoyo.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا يُويُو",
+    "audio_text": "هَذَا يُويُو",
+    "phonetic": "Hadha yoyo",
+    "english": "This is a yo-yo.",
+    "audio": "yoyo_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْيُويُو",
+    "audio_text": "أَنَا أَرَى اليُويُو",
+    "phonetic": "Ana ara al-yoyo",
+    "english": "I see the yo-yo.",
+    "audio": "yoyo_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الْيُويُو كَبِيرٌ",
+    "audio_text": "اليُويُو كَبِير",
+    "phonetic": "Al-yoyo kabeer",
+    "english": "The yo-yo is big.",
+    "audio": "yoyo_s3.mp3"
+   },
+   {
+    "template": "play",
+    "arabic": "أَنَا أَلْعَبُ بِالْيُويُو",
+    "audio_text": "أَنَا أَلعَبُ بِاليُويُو",
+    "phonetic": "Ana al'abu bil-yoyo",
+    "english": "I play with the yo-yo.",
+    "audio": "yoyo_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْيُويُو",
+    "audio_text": "أَنَا أُحِبُّ اليُويُو",
+    "phonetic": "Ana uhibbu al-yoyo",
+    "english": "I like the yo-yo.",
+    "audio": "yoyo_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "juice",
+  "english_word": "Juice",
+  "arabic_word": "عَصِير",
+  "phonetic": "'Aseer",
+  "letter": "ع",
+  "gender": "M",
+  "category": "food",
+  "word_audio": "juice_word.mp3",
+  "sticker": "assets/images/juice.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا عَصِيرٌ",
+    "audio_text": "هَذَا عَصِير",
+    "phonetic": "Hadha 'Aseer",
+    "english": "This is juice.",
+    "audio": "juice_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْعَصِيرَ",
+    "audio_text": "أَنَا أَرَى العَصِير",
+    "phonetic": "Ana ara al-'Aseer",
+    "english": "I see the juice.",
+    "audio": "juice_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْعَصِيرُ لَذِيذٌ",
+    "audio_text": "العَصِيرُ لَذِيذ",
+    "phonetic": "Al-'Aseeru ladheedh",
+    "english": "The juice is delicious.",
+    "audio": "juice_s3.mp3"
+   },
+   {
+    "template": "drink",
+    "arabic": "أَنَا أَشْرَبُ الْعَصِيرَ",
+    "audio_text": "أَنَا أَشرَبُ العَصِير",
+    "phonetic": "Ana ashrabu al-'Aseer",
+    "english": "I drink the juice.",
+    "audio": "juice_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْعَصِيرَ",
+    "audio_text": "أَنَا أُحِبُّ العَصِير",
+    "phonetic": "Ana uhibbu al-'Aseer",
+    "english": "I like the juice.",
+    "audio": "juice_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "orange",
+  "english_word": "Orange",
+  "arabic_word": "بُرْتُقَالَة",
+  "phonetic": "Burtuqala",
+  "letter": "ب",
+  "gender": "F",
+  "category": "food",
+  "word_audio": "orange_word.mp3",
+  "sticker": "assets/images/orange.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ بُرْتُقَالَةٌ",
+    "audio_text": "هَذِهِ بُرتُقَالَة",
+    "phonetic": "Hadhihi burtuqala",
+    "english": "This is an orange.",
+    "audio": "orange_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْبُرْتُقَالَةَ",
+    "audio_text": "أَنَا أَرَى البُرتُقَالَة",
+    "phonetic": "Ana ara al-burtuqala",
+    "english": "I see the orange.",
+    "audio": "orange_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْبُرْتُقَالَةُ لَذِيذَةٌ",
+    "audio_text": "البُرتُقَالَةُ لَذِيذَة",
+    "phonetic": "Al-burtuqalatu ladheedha",
+    "english": "The orange is delicious.",
+    "audio": "orange_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الْبُرْتُقَالَةَ",
+    "audio_text": "أَنَا آكُلُ البُرتُقَالَة",
+    "phonetic": "Ana akulu al-burtuqala",
+    "english": "I eat the orange.",
+    "audio": "orange_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْبُرْتُقَالَةَ",
+    "audio_text": "أَنَا أُحِبُّ البُرتُقَالَة",
+    "phonetic": "Ana uhibbu al-burtuqala",
+    "english": "I like the orange.",
+    "audio": "orange_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "egg",
+  "english_word": "Egg",
+  "arabic_word": "بَيْضَة",
+  "phonetic": "Bayda",
+  "letter": "ب",
+  "gender": "F",
+  "category": "food",
+  "word_audio": "egg_word.mp3",
+  "sticker": "assets/images/egg.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ بَيْضَةٌ",
+    "audio_text": "هَذِهِ بَيضَة",
+    "phonetic": "Hadhihi bayda",
+    "english": "This is an egg.",
+    "audio": "egg_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْبَيْضَةَ",
+    "audio_text": "أَنَا أَرَى البَيضَة",
+    "phonetic": "Ana ara al-bayda",
+    "english": "I see the egg.",
+    "audio": "egg_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْبَيْضَةُ لَذِيذَةٌ",
+    "audio_text": "البَيضَةُ لَذِيذَة",
+    "phonetic": "Al-baydatu ladheedha",
+    "english": "The egg is delicious.",
+    "audio": "egg_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الْبَيْضَةَ",
+    "audio_text": "أَنَا آكُلُ البَيضَة",
+    "phonetic": "Ana akulu al-bayda",
+    "english": "I eat the egg.",
+    "audio": "egg_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْبَيْضَةَ",
+    "audio_text": "أَنَا أُحِبُّ البَيضَة",
+    "phonetic": "Ana uhibbu al-bayda",
+    "english": "I like the egg.",
+    "audio": "egg_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "apple",
+  "english_word": "Apple",
+  "arabic_word": "تُفَّاحَة",
+  "phonetic": "Tuffaha",
+  "letter": "ت",
+  "gender": "F",
+  "category": "food",
+  "word_audio": "apple_word.mp3",
+  "sticker": "assets/images/apple.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ تُفَّاحَةٌ",
+    "audio_text": "هَذِهِ تُفَّاحَة",
+    "phonetic": "Hadhihi tuffaha",
+    "english": "This is an apple.",
+    "audio": "apple_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى التُّفَّاحَةَ",
+    "audio_text": "أَنَا أَرَى التُّفَّاحَة",
+    "phonetic": "Ana ara at-tuffaha",
+    "english": "I see the apple.",
+    "audio": "apple_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "التُّفَّاحَةُ لَذِيذَةٌ",
+    "audio_text": "التُّفَّاحَةُ لَذِيذَة",
+    "phonetic": "At-tuffahatu ladheedha",
+    "english": "The apple is delicious.",
+    "audio": "apple_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ التُّفَّاحَةَ",
+    "audio_text": "أَنَا آكُلُ التُّفَّاحَة",
+    "phonetic": "Ana akulu at-tuffaha",
+    "english": "I eat the apple.",
+    "audio": "apple_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ التُّفَّاحَةَ",
+    "audio_text": "أَنَا أُحِبُّ التُّفَّاحَة",
+    "phonetic": "Ana uhibbu at-tuffaha",
+    "english": "I like the apple.",
+    "audio": "apple_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "cheese",
+  "english_word": "Cheese",
+  "arabic_word": "جُبْن",
+  "phonetic": "Jubn",
+  "letter": "ج",
+  "gender": "M",
+  "category": "food",
+  "word_audio": "cheese_word.mp3",
+  "sticker": "assets/images/cheese.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا جُبْنٌ",
+    "audio_text": "هَذَا جُبن",
+    "phonetic": "Hadha jubn",
+    "english": "This is cheese.",
+    "audio": "cheese_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْجُبْنَ",
+    "audio_text": "أَنَا أَرَى الجُبن",
+    "phonetic": "Ana ara al-jubn",
+    "english": "I see the cheese.",
+    "audio": "cheese_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْجُبْنُ لَذِيذٌ",
+    "audio_text": "الجُبنُ لَذِيذ",
+    "phonetic": "Al-jubnu ladheedh",
+    "english": "The cheese is delicious.",
+    "audio": "cheese_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الْجُبْنَ",
+    "audio_text": "أَنَا آكُلُ الجُبن",
+    "phonetic": "Ana akulu al-jubn",
+    "english": "I eat the cheese.",
+    "audio": "cheese_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْجُبْنَ",
+    "audio_text": "أَنَا أُحِبُّ الجُبن",
+    "phonetic": "Ana uhibbu al-jubn",
+    "english": "I like the cheese.",
+    "audio": "cheese_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "milk",
+  "english_word": "Milk",
+  "arabic_word": "حَلِيب",
+  "phonetic": "Haleeb",
+  "letter": "ح",
+  "gender": "M",
+  "category": "food",
+  "word_audio": "milk_word.mp3",
+  "sticker": "assets/images/milk.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا حَلِيبٌ",
+    "audio_text": "هَذَا حَلِيب",
+    "phonetic": "Hadha haleeb",
+    "english": "This is milk.",
+    "audio": "milk_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْحَلِيبَ",
+    "audio_text": "أَنَا أَرَى الحَلِيب",
+    "phonetic": "Ana ara al-haleeb",
+    "english": "I see the milk.",
+    "audio": "milk_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْحَلِيبُ لَذِيذٌ",
+    "audio_text": "الحَلِيبُ لَذِيذ",
+    "phonetic": "Al-haleebu ladheedh",
+    "english": "The milk is delicious.",
+    "audio": "milk_s3.mp3"
+   },
+   {
+    "template": "drink",
+    "arabic": "أَنَا أَشْرَبُ الْحَلِيبَ",
+    "audio_text": "أَنَا أَشرَبُ الحَلِيب",
+    "phonetic": "Ana ashrabu al-haleeb",
+    "english": "I drink the milk.",
+    "audio": "milk_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْحَلِيبَ",
+    "audio_text": "أَنَا أُحِبُّ الحَلِيب",
+    "phonetic": "Ana uhibbu al-haleeb",
+    "english": "I like the milk.",
+    "audio": "milk_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "bread",
+  "english_word": "Bread",
+  "arabic_word": "خُبْز",
+  "phonetic": "Khubz",
+  "letter": "خ",
+  "gender": "M",
+  "category": "food",
+  "word_audio": "bread_word.mp3",
+  "sticker": "assets/images/bread.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا خُبْزٌ",
+    "audio_text": "هَذَا خُبز",
+    "phonetic": "Hadha khubz",
+    "english": "This is bread.",
+    "audio": "bread_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْخُبْزَ",
+    "audio_text": "أَنَا أَرَى الخُبز",
+    "phonetic": "Ana ara al-khubz",
+    "english": "I see the bread.",
+    "audio": "bread_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْخُبْزُ لَذِيذٌ",
+    "audio_text": "الخُبزُ لَذِيذ",
+    "phonetic": "Al-khubzu ladheedh",
+    "english": "The bread is delicious.",
+    "audio": "bread_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الْخُبْزَ",
+    "audio_text": "أَنَا آكُلُ الخُبز",
+    "phonetic": "Ana akulu al-khubz",
+    "english": "I eat the bread.",
+    "audio": "bread_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْخُبْزَ",
+    "audio_text": "أَنَا أُحِبُّ الخُبز",
+    "phonetic": "Ana uhibbu al-khubz",
+    "english": "I like the bread.",
+    "audio": "bread_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "corn",
+  "english_word": "Corn",
+  "arabic_word": "ذُرَة",
+  "phonetic": "Dhura",
+  "letter": "ذ",
+  "gender": "F",
+  "category": "food",
+  "word_audio": "corn_word.mp3",
+  "sticker": "assets/images/corn.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ ذُرَةٌ",
+    "audio_text": "هَذِهِ ذُرَة",
+    "phonetic": "Hadhihi dhura",
+    "english": "This is corn.",
+    "audio": "corn_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الذُّرَةَ",
+    "audio_text": "أَنَا أَرَى الذُّرَة",
+    "phonetic": "Ana ara adh-dhura",
+    "english": "I see the corn.",
+    "audio": "corn_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الذُّرَةُ لَذِيذَةٌ",
+    "audio_text": "الذُّرَةُ لَذِيذَة",
+    "phonetic": "Adh-dhuratu ladheedha",
+    "english": "The corn is delicious.",
+    "audio": "corn_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الذُّرَةَ",
+    "audio_text": "أَنَا آكُلُ الذُّرَة",
+    "phonetic": "Ana akulu adh-dhura",
+    "english": "I eat the corn.",
+    "audio": "corn_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الذُّرَةَ",
+    "audio_text": "أَنَا أُحِبُّ الذُّرَة",
+    "phonetic": "Ana uhibbu adh-dhura",
+    "english": "I like the corn.",
+    "audio": "corn_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "lemon",
+  "english_word": "Lemon",
+  "arabic_word": "لَيْمُونَة",
+  "phonetic": "Laymoona",
+  "letter": "ل",
+  "gender": "F",
+  "category": "food",
+  "word_audio": "lemon_word.mp3",
+  "sticker": "assets/images/lemon.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ لَيْمُونَةٌ",
+    "audio_text": "هَذِهِ لَيمُونَة",
+    "phonetic": "Hadhihi laymoona",
+    "english": "This is a lemon.",
+    "audio": "lemon_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي لَيْمُونَةٌ",
+    "audio_text": "عِندِي لَيمُونَة",
+    "phonetic": "'Indi laymoona",
+    "english": "I have a lemon.",
+    "audio": "lemon_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى اللَّيْمُونَةَ",
+    "audio_text": "أَنَا أَرَى اللَّيمُونَة",
+    "phonetic": "Ana ara al-laymoona",
+    "english": "I see the lemon.",
+    "audio": "lemon_s3.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "اللَّيْمُونَةُ صَغِيرَةٌ",
+    "audio_text": "اللَّيمُونَةُ صَغِيرَة",
+    "phonetic": "Al-laymoonatu sagheera",
+    "english": "The lemon is small.",
+    "audio": "lemon_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ اللَّيْمُونَةَ",
+    "audio_text": "أَنَا أُحِبُّ اللَّيمُونَة",
+    "phonetic": "Ana uhibbu al-laymoona",
+    "english": "I like the lemon.",
+    "audio": "lemon_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "banana",
+  "english_word": "Banana",
+  "arabic_word": "مَوْزَة",
+  "phonetic": "Mawza",
+  "letter": "م",
+  "gender": "F",
+  "category": "food",
+  "word_audio": "banana_word.mp3",
+  "sticker": "assets/images/banana.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ مَوْزَةٌ",
+    "audio_text": "هَذِهِ مَوزَة",
+    "phonetic": "Hadhihi mawza",
+    "english": "This is a banana.",
+    "audio": "banana_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمَوْزَةَ",
+    "audio_text": "أَنَا أَرَى المَوزَة",
+    "phonetic": "Ana ara al-mawza",
+    "english": "I see the banana.",
+    "audio": "banana_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْمَوْزَةُ لَذِيذَةٌ",
+    "audio_text": "المَوزَةُ لَذِيذَة",
+    "phonetic": "Al-mawzatu ladheedha",
+    "english": "The banana is delicious.",
+    "audio": "banana_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الْمَوْزَةَ",
+    "audio_text": "أَنَا آكُلُ المَوزَة",
+    "phonetic": "Ana akulu al-mawza",
+    "english": "I eat the banana.",
+    "audio": "banana_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْمَوْزَةَ",
+    "audio_text": "أَنَا أُحِبُّ المَوزَة",
+    "phonetic": "Ana uhibbu al-mawza",
+    "english": "I like the banana.",
+    "audio": "banana_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "water",
+  "english_word": "Water",
+  "arabic_word": "مَاء",
+  "phonetic": "Maa'",
+  "letter": "م",
+  "gender": "M",
+  "category": "food",
+  "word_audio": "water_word.mp3",
+  "sticker": "assets/images/water.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا مَاءٌ",
+    "audio_text": "هَذَا مَاء",
+    "phonetic": "Hadha maa'",
+    "english": "This is water.",
+    "audio": "water_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي مَاءٌ",
+    "audio_text": "عِندِي مَاء",
+    "phonetic": "'Indi maa'",
+    "english": "I have water.",
+    "audio": "water_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمَاءَ",
+    "audio_text": "أَنَا أَرَى المَاء",
+    "phonetic": "Ana ara al-maa'",
+    "english": "I see the water.",
+    "audio": "water_s3.mp3"
+   },
+   {
+    "template": "drink",
+    "arabic": "أَنَا أَشْرَبُ الْمَاءَ",
+    "audio_text": "أَنَا أَشرَبُ المَاء",
+    "phonetic": "Ana ashrabu al-maa'",
+    "english": "I drink the water.",
+    "audio": "water_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْمَاءَ",
+    "audio_text": "أَنَا أُحِبُّ المَاء",
+    "phonetic": "Ana uhibbu al-maa'",
+    "english": "I like the water.",
+    "audio": "water_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "chocolate",
+  "english_word": "Chocolate",
+  "arabic_word": "شُكُولَاتَة",
+  "phonetic": "Shukulata",
+  "letter": "ش",
+  "gender": "F",
+  "category": "food",
+  "word_audio": "chocolate_word.mp3",
+  "sticker": "assets/images/chocolate.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ شُكُولَاتَةٌ",
+    "audio_text": "هَذِهِ شُكُولَاتَة",
+    "phonetic": "Hadhihi shukulata",
+    "english": "This is chocolate.",
+    "audio": "chocolate_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الشُّكُولَاتَةَ",
+    "audio_text": "أَنَا أَرَى الشُّكُولَاتَة",
+    "phonetic": "Ana ara ash-shukulata",
+    "english": "I see the chocolate.",
+    "audio": "chocolate_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الشُّكُولَاتَةُ لَذِيذَةٌ",
+    "audio_text": "الشُّكُولَاتَةُ لَذِيذَة",
+    "phonetic": "Ash-shukulatatu ladheedha",
+    "english": "The chocolate is delicious.",
+    "audio": "chocolate_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الشُّكُولَاتَةَ",
+    "audio_text": "أَنَا آكُلُ الشُّكُولَاتَة",
+    "phonetic": "Ana akulu ash-shukulata",
+    "english": "I eat the chocolate.",
+    "audio": "chocolate_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الشُّكُولَاتَةَ",
+    "audio_text": "أَنَا أُحِبُّ الشُّكُولَاتَة",
+    "phonetic": "Ana uhibbu ash-shukulata",
+    "english": "I like the chocolate.",
+    "audio": "chocolate_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "honey",
+  "english_word": "Honey",
+  "arabic_word": "عَسَل",
+  "phonetic": "'Asal",
+  "letter": "ع",
+  "gender": "M",
+  "category": "food",
+  "word_audio": "honey_word.mp3",
+  "sticker": "assets/images/honey.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا عَسَلٌ",
+    "audio_text": "هَذَا عَسَل",
+    "phonetic": "Hadha 'Asal",
+    "english": "This is honey.",
+    "audio": "honey_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْعَسَلَ",
+    "audio_text": "أَنَا أَرَى العَسَل",
+    "phonetic": "Ana ara al-'Asal",
+    "english": "I see the honey.",
+    "audio": "honey_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْعَسَلُ لَذِيذٌ",
+    "audio_text": "العَسَلُ لَذِيذ",
+    "phonetic": "Al-'Asalu ladheedh",
+    "english": "The honey is delicious.",
+    "audio": "honey_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الْعَسَلَ",
+    "audio_text": "أَنَا آكُلُ العَسَل",
+    "phonetic": "Ana akulu al-'Asal",
+    "english": "I eat the honey.",
+    "audio": "honey_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْعَسَلَ",
+    "audio_text": "أَنَا أُحِبُّ العَسَل",
+    "phonetic": "Ana uhibbu al-'Asal",
+    "english": "I like the honey.",
+    "audio": "honey_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "rice",
+  "english_word": "Rice",
+  "arabic_word": "أَرُزّ",
+  "phonetic": "Aruzz",
+  "letter": "أ",
+  "gender": "M",
+  "category": "food",
+  "word_audio": "rice_word.mp3",
+  "sticker": "assets/images/rice.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا أَرُزٌّ",
+    "audio_text": "هَذَا أَرُزّ",
+    "phonetic": "Hadha aruzz",
+    "english": "This is rice.",
+    "audio": "rice_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْأَرُزَّ",
+    "audio_text": "أَنَا أَرَى الأَرُزّ",
+    "phonetic": "Ana ara al-aruzz",
+    "english": "I see the rice.",
+    "audio": "rice_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْأَرُزُّ لَذِيذٌ",
+    "audio_text": "الأَرُزُّ لَذِيذ",
+    "phonetic": "Al-aruzzu ladheedh",
+    "english": "The rice is delicious.",
+    "audio": "rice_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الْأَرُزَّ",
+    "audio_text": "أَنَا آكُلُ الأَرُزّ",
+    "phonetic": "Ana akulu al-aruzz",
+    "english": "I eat the rice.",
+    "audio": "rice_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْأَرُزَّ",
+    "audio_text": "أَنَا أُحِبُّ الأَرُزّ",
+    "phonetic": "Ana uhibbu al-aruzz",
+    "english": "I like the rice.",
+    "audio": "rice_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "butter",
+  "english_word": "Butter",
+  "arabic_word": "زُبْدَة",
+  "phonetic": "Zubda",
+  "letter": "ز",
+  "gender": "F",
+  "category": "food",
+  "word_audio": "butter_word.mp3",
+  "sticker": "assets/images/butter.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ زُبْدَةٌ",
+    "audio_text": "هَذِهِ زُبدَة",
+    "phonetic": "Hadhihi zubda",
+    "english": "This is butter.",
+    "audio": "butter_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي زُبْدَةٌ",
+    "audio_text": "عِندِي زُبدَة",
+    "phonetic": "'Indi zubda",
+    "english": "I have butter.",
+    "audio": "butter_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الزُّبْدَةَ",
+    "audio_text": "أَنَا أَرَى الزُّبدَة",
+    "phonetic": "Ana ara az-zubda",
+    "english": "I see the butter.",
+    "audio": "butter_s3.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الزُّبْدَةُ لَذِيذَةٌ",
+    "audio_text": "الزُّبدَةُ لَذِيذَة",
+    "phonetic": "Az-zubdatu ladheedha",
+    "english": "The butter is delicious.",
+    "audio": "butter_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الزُّبْدَةَ",
+    "audio_text": "أَنَا أُحِبُّ الزُّبدَة",
+    "phonetic": "Ana uhibbu az-zubda",
+    "english": "I like the butter.",
+    "audio": "butter_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "jam",
+  "english_word": "Jam",
+  "arabic_word": "مُرَبَّى",
+  "phonetic": "Murabba",
+  "letter": "م",
+  "gender": "M",
+  "category": "food",
+  "word_audio": "jam_word.mp3",
+  "sticker": "assets/images/jam.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا مُرَبًّى",
+    "audio_text": "هَذَا مُرَبَّى",
+    "phonetic": "Hadha murabba",
+    "english": "This is jam.",
+    "audio": "jam_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمُرَبَّى",
+    "audio_text": "أَنَا أَرَى المُرَبَّى",
+    "phonetic": "Ana ara al-murabb",
+    "english": "I see the jam.",
+    "audio": "jam_s2.mp3"
+   },
+   {
+    "template": "delicious",
+    "arabic": "الْمُرَبَّى لَذِيذٌ",
+    "audio_text": "المُرَبَّى لَذِيذ",
+    "phonetic": "Al-murabba ladheedh",
+    "english": "The jam is delicious.",
+    "audio": "jam_s3.mp3"
+   },
+   {
+    "template": "eat",
+    "arabic": "أَنَا آكُلُ الْمُرَبَّى",
+    "audio_text": "أَنَا آكُلُ المُرَبَّى",
+    "phonetic": "Ana akulu al-murabb",
+    "english": "I eat the jam.",
+    "audio": "jam_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْمُرَبَّى",
+    "audio_text": "أَنَا أُحِبُّ المُرَبَّى",
+    "phonetic": "Ana uhibbu al-murabb",
+    "english": "I like the jam.",
+    "audio": "jam_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "fridge",
+  "english_word": "Fridge",
+  "arabic_word": "ثَلَّاجَة",
+  "phonetic": "Thallaja",
+  "letter": "ث",
+  "gender": "F",
+  "category": "kitchen",
+  "word_audio": "fridge_word.mp3",
+  "sticker": "assets/images/fridge.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ ثَلَّاجَةٌ",
+    "audio_text": "هَذِهِ ثَلَّاجَة",
+    "phonetic": "Hadhihi thallaja",
+    "english": "This is a fridge.",
+    "audio": "fridge_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الثَّلَّاجَةَ",
+    "audio_text": "أَنَا أَرَى الثَّلَّاجَة",
+    "phonetic": "Ana ara ath-thallaja",
+    "english": "I see the fridge.",
+    "audio": "fridge_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الثَّلَّاجَةُ جَمِيلَةٌ",
+    "audio_text": "الثَّلَّاجَةُ جَمِيلَة",
+    "phonetic": "Ath-thallajatu jameela",
+    "english": "The fridge is beautiful.",
+    "audio": "fridge_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ الثَّلَّاجَةَ",
+    "audio_text": "أَنَا أَفتَحُ الثَّلَّاجَة",
+    "phonetic": "Ana aftahu ath-thallaja",
+    "english": "I open the fridge.",
+    "audio": "fridge_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الثَّلَّاجَةُ؟",
+    "audio_text": "أَينَ الثَّلَّاجَة؟",
+    "phonetic": "Ayna ath-thallaja?",
+    "english": "Where is the fridge?",
+    "audio": "fridge_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "washing_machine",
+  "english_word": "Washing Machine",
+  "arabic_word": "غَسَّالَة",
+  "phonetic": "Ghassala",
+  "letter": "غ",
+  "gender": "F",
+  "category": "kitchen",
+  "word_audio": "washing_machine_word.mp3",
+  "sticker": "assets/images/washing_machine.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ غَسَّالَةٌ",
+    "audio_text": "هَذِهِ غَسَّالَة",
+    "phonetic": "Hadhihi ghassala",
+    "english": "This is a washing machine.",
+    "audio": "washing_machine_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْغَسَّالَةَ",
+    "audio_text": "أَنَا أَرَى الغَسَّالَة",
+    "phonetic": "Ana ara al-ghassala",
+    "english": "I see the washing machine.",
+    "audio": "washing_machine_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الْغَسَّالَةُ كَبِيرَةٌ",
+    "audio_text": "الغَسَّالَةُ كَبِيرَة",
+    "phonetic": "Al-ghassalatu kabeera",
+    "english": "The washing machine is big.",
+    "audio": "washing_machine_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ الْغَسَّالَةَ",
+    "audio_text": "أَنَا أَفتَحُ الغَسَّالَة",
+    "phonetic": "Ana aftahu al-ghassala",
+    "english": "I open the washing machine.",
+    "audio": "washing_machine_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْغَسَّالَةُ؟",
+    "audio_text": "أَينَ الغَسَّالَة؟",
+    "phonetic": "Ayna al-ghassala?",
+    "english": "Where is the washing machine?",
+    "audio": "washing_machine_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "cup",
+  "english_word": "Cup",
+  "arabic_word": "كُوب",
+  "phonetic": "Koob",
+  "letter": "ك",
+  "gender": "M",
+  "category": "kitchen",
+  "word_audio": "cup_word.mp3",
+  "sticker": "assets/images/cup.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا كُوبٌ",
+    "audio_text": "هَذَا كُوب",
+    "phonetic": "Hadha koob",
+    "english": "This is a cup.",
+    "audio": "cup_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْكُوبَ",
+    "audio_text": "أَنَا أَرَى الكُوب",
+    "phonetic": "Ana ara al-koob",
+    "english": "I see the cup.",
+    "audio": "cup_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْكُوبُ صَغِيرٌ",
+    "audio_text": "الكُوبُ صَغِير",
+    "phonetic": "Al-koobu sagheer",
+    "english": "The cup is small.",
+    "audio": "cup_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الْكُوبَ",
+    "audio_text": "أَنَا أَستَخدِمُ الكُوب",
+    "phonetic": "Ana astakhdimu al-koob",
+    "english": "I use the cup.",
+    "audio": "cup_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْكُوبُ؟",
+    "audio_text": "أَينَ الكُوب؟",
+    "phonetic": "Ayna al-koob?",
+    "english": "Where is the cup?",
+    "audio": "cup_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "spoon",
+  "english_word": "Spoon",
+  "arabic_word": "مِلْعَقَة",
+  "phonetic": "Mil'aqa",
+  "letter": "م",
+  "gender": "F",
+  "category": "kitchen",
+  "word_audio": "spoon_word.mp3",
+  "sticker": "assets/images/spoon.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ مِلْعَقَةٌ",
+    "audio_text": "هَذِهِ مِلعَقَة",
+    "phonetic": "Hadhihi mil'aqa",
+    "english": "This is a spoon.",
+    "audio": "spoon_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمِلْعَقَةَ",
+    "audio_text": "أَنَا أَرَى المِلعَقَة",
+    "phonetic": "Ana ara al-mil'aqa",
+    "english": "I see the spoon.",
+    "audio": "spoon_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْمِلْعَقَةُ جَمِيلَةٌ",
+    "audio_text": "المِلعَقَةُ جَمِيلَة",
+    "phonetic": "Al-mil'aqatu jameela",
+    "english": "The spoon is beautiful.",
+    "audio": "spoon_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الْمِلْعَقَةَ",
+    "audio_text": "أَنَا أَستَخدِمُ المِلعَقَة",
+    "phonetic": "Ana astakhdimu al-mil'aqa",
+    "english": "I use the spoon.",
+    "audio": "spoon_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْمِلْعَقَةُ؟",
+    "audio_text": "أَينَ المِلعَقَة؟",
+    "phonetic": "Ayna al-mil'aqa?",
+    "english": "Where is the spoon?",
+    "audio": "spoon_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "plate",
+  "english_word": "Plate",
+  "arabic_word": "صَحْن",
+  "phonetic": "Sahn",
+  "letter": "ص",
+  "gender": "M",
+  "category": "kitchen",
+  "word_audio": "plate_word.mp3",
+  "sticker": "assets/images/plate.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا صَحْنٌ",
+    "audio_text": "هَذَا صَحن",
+    "phonetic": "Hadha sahn",
+    "english": "This is a plate.",
+    "audio": "plate_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الصَّحْنَ",
+    "audio_text": "أَنَا أَرَى الصَّحن",
+    "phonetic": "Ana ara as-sahn",
+    "english": "I see the plate.",
+    "audio": "plate_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الصَّحْنُ كَبِيرٌ",
+    "audio_text": "الصَّحنُ كَبِير",
+    "phonetic": "As-sahnu kabeer",
+    "english": "The plate is big.",
+    "audio": "plate_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الصَّحْنَ",
+    "audio_text": "أَنَا أَستَخدِمُ الصَّحن",
+    "phonetic": "Ana astakhdimu as-sahn",
+    "english": "I use the plate.",
+    "audio": "plate_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الصَّحْنُ؟",
+    "audio_text": "أَينَ الصَّحن؟",
+    "phonetic": "Ayna as-sahn?",
+    "english": "Where is the plate?",
+    "audio": "plate_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "fork",
+  "english_word": "Fork",
+  "arabic_word": "شَوْكَة",
+  "phonetic": "Shawka",
+  "letter": "ش",
+  "gender": "F",
+  "category": "kitchen",
+  "word_audio": "fork_word.mp3",
+  "sticker": "assets/images/fork.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ شَوْكَةٌ",
+    "audio_text": "هَذِهِ شَوكَة",
+    "phonetic": "Hadhihi shawka",
+    "english": "This is a fork.",
+    "audio": "fork_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الشَّوْكَةَ",
+    "audio_text": "أَنَا أَرَى الشَّوكَة",
+    "phonetic": "Ana ara ash-shawka",
+    "english": "I see the fork.",
+    "audio": "fork_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الشَّوْكَةُ صَغِيرَةٌ",
+    "audio_text": "الشَّوكَةُ صَغِيرَة",
+    "phonetic": "Ash-shawkatu sagheera",
+    "english": "The fork is small.",
+    "audio": "fork_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الشَّوْكَةَ",
+    "audio_text": "أَنَا أَستَخدِمُ الشَّوكَة",
+    "phonetic": "Ana astakhdimu ash-shawka",
+    "english": "I use the fork.",
+    "audio": "fork_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الشَّوْكَةُ؟",
+    "audio_text": "أَينَ الشَّوكَة؟",
+    "phonetic": "Ayna ash-shawka?",
+    "english": "Where is the fork?",
+    "audio": "fork_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "bottle",
+  "english_word": "Bottle",
+  "arabic_word": "زُجَاجَة",
+  "phonetic": "Zujaja",
+  "letter": "ز",
+  "gender": "F",
+  "category": "kitchen",
+  "word_audio": "bottle_word.mp3",
+  "sticker": "assets/images/bottle.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ زُجَاجَةٌ",
+    "audio_text": "هَذِهِ زُجَاجَة",
+    "phonetic": "Hadhihi zujaja",
+    "english": "This is a bottle.",
+    "audio": "bottle_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الزُّجَاجَةَ",
+    "audio_text": "أَنَا أَرَى الزُّجَاجَة",
+    "phonetic": "Ana ara az-zujaja",
+    "english": "I see the bottle.",
+    "audio": "bottle_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الزُّجَاجَةُ جَمِيلَةٌ",
+    "audio_text": "الزُّجَاجَةُ جَمِيلَة",
+    "phonetic": "Az-zujajatu jameela",
+    "english": "The bottle is beautiful.",
+    "audio": "bottle_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ الزُّجَاجَةَ",
+    "audio_text": "أَنَا أَفتَحُ الزُّجَاجَة",
+    "phonetic": "Ana aftahu az-zujaja",
+    "english": "I open the bottle.",
+    "audio": "bottle_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الزُّجَاجَةُ؟",
+    "audio_text": "أَينَ الزُّجَاجَة؟",
+    "phonetic": "Ayna az-zujaja?",
+    "english": "Where is the bottle?",
+    "audio": "bottle_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "blanket",
+  "english_word": "Blanket",
+  "arabic_word": "بَطَّانِيَّة",
+  "phonetic": "Battaniyya",
+  "letter": "ب",
+  "gender": "F",
+  "category": "bedroom",
+  "word_audio": "blanket_word.mp3",
+  "sticker": "assets/images/blanket.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ بَطَّانِيَّةٌ",
+    "audio_text": "هَذِهِ بَطَّانِيَّة",
+    "phonetic": "Hadhihi battaniyya",
+    "english": "This is a blanket.",
+    "audio": "blanket_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي بَطَّانِيَّةٌ",
+    "audio_text": "عِندِي بَطَّانِيَّة",
+    "phonetic": "'Indi battaniyya",
+    "english": "I have a blanket.",
+    "audio": "blanket_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْبَطَّانِيَّةَ",
+    "audio_text": "أَنَا أَرَى البَطَّانِيَّة",
+    "phonetic": "Ana ara al-battaniyya",
+    "english": "I see the blanket.",
+    "audio": "blanket_s3.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الْبَطَّانِيَّةُ كَبِيرَةٌ",
+    "audio_text": "البَطَّانِيَّةُ كَبِيرَة",
+    "phonetic": "Al-battaniyyatu kabeera",
+    "english": "The blanket is big.",
+    "audio": "blanket_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْبَطَّانِيَّةَ",
+    "audio_text": "أَنَا أُحِبُّ البَطَّانِيَّة",
+    "phonetic": "Ana uhibbu al-battaniyya",
+    "english": "I like the blanket.",
+    "audio": "blanket_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "trousers",
+  "english_word": "Trousers",
+  "arabic_word": "بِنْطَال",
+  "phonetic": "Bintal",
+  "letter": "ب",
+  "gender": "M",
+  "category": "bedroom",
+  "word_audio": "trousers_word.mp3",
+  "sticker": "assets/images/trousers.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا بِنْطَالٌ",
+    "audio_text": "هَذَا بِنطَال",
+    "phonetic": "Hadha bintal",
+    "english": "This is a pair of trousers.",
+    "audio": "trousers_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْبِنْطَالَ",
+    "audio_text": "أَنَا أَرَى البِنطَال",
+    "phonetic": "Ana ara al-bintal",
+    "english": "I see the trousers.",
+    "audio": "trousers_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْبِنْطَالُ صَغِيرٌ",
+    "audio_text": "البِنطَالُ صَغِير",
+    "phonetic": "Al-bintalu sagheer",
+    "english": "The trousers are small.",
+    "audio": "trousers_s3.mp3"
+   },
+   {
+    "template": "wear",
+    "arabic": "أَنَا أَلْبَسُ الْبِنْطَالَ",
+    "audio_text": "أَنَا أَلبَسُ البِنطَال",
+    "phonetic": "Ana albasu al-bintal",
+    "english": "I wear the trousers.",
+    "audio": "trousers_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْبِنْطَالُ؟",
+    "audio_text": "أَينَ البِنطَال؟",
+    "phonetic": "Ayna al-bintal?",
+    "english": "Where are the trousers?",
+    "audio": "trousers_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "dress",
+  "english_word": "Dress",
+  "arabic_word": "فُسْتَان",
+  "phonetic": "Fustan",
+  "letter": "ف",
+  "gender": "M",
+  "category": "bedroom",
+  "word_audio": "dress_word.mp3",
+  "sticker": "assets/images/dress.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا فُسْتَانٌ",
+    "audio_text": "هَذَا فُستَان",
+    "phonetic": "Hadha fustan",
+    "english": "This is a dress.",
+    "audio": "dress_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْفُسْتَانَ",
+    "audio_text": "أَنَا أَرَى الفُستَان",
+    "phonetic": "Ana ara al-fustan",
+    "english": "I see the dress.",
+    "audio": "dress_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْفُسْتَانُ جَمِيلٌ",
+    "audio_text": "الفُستَانُ جَمِيل",
+    "phonetic": "Al-fustanu jameel",
+    "english": "The dress is beautiful.",
+    "audio": "dress_s3.mp3"
+   },
+   {
+    "template": "wear",
+    "arabic": "أَنَا أَلْبَسُ الْفُسْتَانَ",
+    "audio_text": "أَنَا أَلبَسُ الفُستَان",
+    "phonetic": "Ana albasu al-fustan",
+    "english": "I wear the dress.",
+    "audio": "dress_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْفُسْتَانَ",
+    "audio_text": "أَنَا أُحِبُّ الفُستَان",
+    "phonetic": "Ana uhibbu al-fustan",
+    "english": "I like the dress.",
+    "audio": "dress_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "toothbrush",
+  "english_word": "Toothbrush",
+  "arabic_word": "فُرْشَاة أَسْنَان",
+  "phonetic": "Furshat asnan",
+  "letter": "ف",
+  "gender": "F",
+  "category": "bedroom",
+  "word_audio": "toothbrush_word.mp3",
+  "sticker": "assets/images/toothbrush.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ فُرْشَاةُ أَسْنَانٍ",
+    "audio_text": "هَذِهِ فُرشَاةُ أَسنَان",
+    "phonetic": "Hadhihi furshatu asnan",
+    "english": "This is a toothbrush.",
+    "audio": "toothbrush_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى فُرْشَاةَ الْأَسْنَانِ",
+    "audio_text": "أَنَا أَرَى فُرشَاةَ الأَسنَان",
+    "phonetic": "Ana ara furshata al-asnan",
+    "english": "I see the toothbrush.",
+    "audio": "toothbrush_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "فُرْشَاةُ الْأَسْنَانِ كَبِيرَةٌ",
+    "audio_text": "فُرشَاةُ الأَسنَانِ كَبِيرَة",
+    "phonetic": "Furshatu al-asnani kabeera",
+    "english": "The toothbrush is big.",
+    "audio": "toothbrush_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ فُرْشَاةَ الْأَسْنَانِ",
+    "audio_text": "أَنَا أَستَخدِمُ فُرشَاةَ الأَسنَان",
+    "phonetic": "Ana astakhdimu furshata al-asnan",
+    "english": "I use the toothbrush.",
+    "audio": "toothbrush_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ فُرْشَاةُ الْأَسْنَانِ؟",
+    "audio_text": "أَينَ فُرشَاةُ الأَسنَان؟",
+    "phonetic": "Ayna furshatu al-asnan?",
+    "english": "Where is the toothbrush?",
+    "audio": "toothbrush_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "shoe",
+  "english_word": "Shoe",
+  "arabic_word": "حِذَاء",
+  "phonetic": "Hidhaa'",
+  "letter": "ح",
+  "gender": "M",
+  "category": "bedroom",
+  "word_audio": "shoe_word.mp3",
+  "sticker": "assets/images/shoe.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا حِذَاءٌ",
+    "audio_text": "هَذَا حِذَاء",
+    "phonetic": "Hadha hidhaa'",
+    "english": "This is a shoe.",
+    "audio": "shoe_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْحِذَاءَ",
+    "audio_text": "أَنَا أَرَى الحِذَاء",
+    "phonetic": "Ana ara al-hidhaa'",
+    "english": "I see the shoe.",
+    "audio": "shoe_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْحِذَاءُ صَغِيرٌ",
+    "audio_text": "الحِذَاءُ صَغِير",
+    "phonetic": "Al-hidhaa'u sagheer",
+    "english": "The shoe is small.",
+    "audio": "shoe_s3.mp3"
+   },
+   {
+    "template": "wear",
+    "arabic": "أَنَا أَلْبَسُ الْحِذَاءَ",
+    "audio_text": "أَنَا أَلبَسُ الحِذَاء",
+    "phonetic": "Ana albasu al-hidhaa'",
+    "english": "I wear the shoe.",
+    "audio": "shoe_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْحِذَاءَ",
+    "audio_text": "أَنَا أُحِبُّ الحِذَاء",
+    "phonetic": "Ana uhibbu al-hidhaa'",
+    "english": "I like the shoe.",
+    "audio": "shoe_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "bag",
+  "english_word": "Bag",
+  "arabic_word": "حَقِيبَة",
+  "phonetic": "Haqeeba",
+  "letter": "ح",
+  "gender": "F",
+  "category": "bedroom",
+  "word_audio": "bag_word.mp3",
+  "sticker": "assets/images/bag.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ حَقِيبَةٌ",
+    "audio_text": "هَذِهِ حَقِيبَة",
+    "phonetic": "Hadhihi haqeeba",
+    "english": "This is a bag.",
+    "audio": "bag_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْحَقِيبَةَ",
+    "audio_text": "أَنَا أَرَى الحَقِيبَة",
+    "phonetic": "Ana ara al-haqeeba",
+    "english": "I see the bag.",
+    "audio": "bag_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْحَقِيبَةُ جَمِيلَةٌ",
+    "audio_text": "الحَقِيبَةُ جَمِيلَة",
+    "phonetic": "Al-haqeebatu jameela",
+    "english": "The bag is beautiful.",
+    "audio": "bag_s3.mp3"
+   },
+   {
+    "template": "open",
+    "arabic": "أَنَا أَفْتَحُ الْحَقِيبَةَ",
+    "audio_text": "أَنَا أَفتَحُ الحَقِيبَة",
+    "phonetic": "Ana aftahu al-haqeeba",
+    "english": "I open the bag.",
+    "audio": "bag_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْحَقِيبَةَ",
+    "audio_text": "أَنَا أُحِبُّ الحَقِيبَة",
+    "phonetic": "Ana uhibbu al-haqeeba",
+    "english": "I like the bag.",
+    "audio": "bag_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "phone",
+  "english_word": "Phone",
+  "arabic_word": "هَاتِف",
+  "phonetic": "Hatif",
+  "letter": "هـ",
+  "gender": "M",
+  "category": "bedroom",
+  "word_audio": "phone_word.mp3",
+  "sticker": "assets/images/phone.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا هَاتِفٌ",
+    "audio_text": "هَذَا هَاتِف",
+    "phonetic": "Hadha hatif",
+    "english": "This is a phone.",
+    "audio": "phone_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْهَاتِفَ",
+    "audio_text": "أَنَا أَرَى الهَاتِف",
+    "phonetic": "Ana ara al-hatif",
+    "english": "I see the phone.",
+    "audio": "phone_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الْهَاتِفُ كَبِيرٌ",
+    "audio_text": "الهَاتِفُ كَبِير",
+    "phonetic": "Al-hatifu kabeer",
+    "english": "The phone is big.",
+    "audio": "phone_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الْهَاتِفَ",
+    "audio_text": "أَنَا أَستَخدِمُ الهَاتِف",
+    "phonetic": "Ana astakhdimu al-hatif",
+    "english": "I use the phone.",
+    "audio": "phone_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْهَاتِفُ؟",
+    "audio_text": "أَينَ الهَاتِف؟",
+    "phonetic": "Ayna al-hatif?",
+    "english": "Where is the phone?",
+    "audio": "phone_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "towel",
+  "english_word": "Towel",
+  "arabic_word": "مِنْشَفَة",
+  "phonetic": "Minshafa",
+  "letter": "م",
+  "gender": "F",
+  "category": "bedroom",
+  "word_audio": "towel_word.mp3",
+  "sticker": "assets/images/towel.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ مِنْشَفَةٌ",
+    "audio_text": "هَذِهِ مِنشَفَة",
+    "phonetic": "Hadhihi minshafa",
+    "english": "This is a towel.",
+    "audio": "towel_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمِنْشَفَةَ",
+    "audio_text": "أَنَا أَرَى المِنشَفَة",
+    "phonetic": "Ana ara al-minshafa",
+    "english": "I see the towel.",
+    "audio": "towel_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْمِنْشَفَةُ صَغِيرَةٌ",
+    "audio_text": "المِنشَفَةُ صَغِيرَة",
+    "phonetic": "Al-minshafatu sagheera",
+    "english": "The towel is small.",
+    "audio": "towel_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الْمِنْشَفَةَ",
+    "audio_text": "أَنَا أَستَخدِمُ المِنشَفَة",
+    "phonetic": "Ana astakhdimu al-minshafa",
+    "english": "I use the towel.",
+    "audio": "towel_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْمِنْشَفَةُ؟",
+    "audio_text": "أَينَ المِنشَفَة؟",
+    "phonetic": "Ayna al-minshafa?",
+    "english": "Where is the towel?",
+    "audio": "towel_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "comb",
+  "english_word": "Comb",
+  "arabic_word": "مِشْط",
+  "phonetic": "Musht",
+  "letter": "م",
+  "gender": "M",
+  "category": "bedroom",
+  "word_audio": "comb_word.mp3",
+  "sticker": "assets/images/comb.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا مِشْطٌ",
+    "audio_text": "هَذَا مِشط",
+    "phonetic": "Hadha mush",
+    "english": "This is a comb.",
+    "audio": "comb_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْمِشْطَ",
+    "audio_text": "أَنَا أَرَى المِشط",
+    "phonetic": "Ana ara al-mush",
+    "english": "I see the comb.",
+    "audio": "comb_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "الْمِشْطُ جَمِيلٌ",
+    "audio_text": "المِشطُ جَمِيل",
+    "phonetic": "Al-mushtu jameel",
+    "english": "The comb is beautiful.",
+    "audio": "comb_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الْمِشْطَ",
+    "audio_text": "أَنَا أَستَخدِمُ المِشط",
+    "phonetic": "Ana astakhdimu al-mush",
+    "english": "I use the comb.",
+    "audio": "comb_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الْمِشْطُ؟",
+    "audio_text": "أَينَ المِشط؟",
+    "phonetic": "Ayna al-mush?",
+    "english": "Where is the comb?",
+    "audio": "comb_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "glasses",
+  "english_word": "Glasses",
+  "arabic_word": "نَظَّارَة",
+  "phonetic": "Nadhdhara",
+  "letter": "ن",
+  "gender": "F",
+  "category": "bedroom",
+  "word_audio": "glasses_word.mp3",
+  "sticker": "assets/images/glasses.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ نَظَّارَةٌ",
+    "audio_text": "هَذِهِ نَظَّارَة",
+    "phonetic": "Hadhihi nadhdhara",
+    "english": "This is a pair of glasses.",
+    "audio": "glasses_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى النَّظَّارَةَ",
+    "audio_text": "أَنَا أَرَى النَّظَّارَة",
+    "phonetic": "Ana ara an-nadhdhara",
+    "english": "I see the glasses.",
+    "audio": "glasses_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "النَّظَّارَةُ كَبِيرَةٌ",
+    "audio_text": "النَّظَّارَةُ كَبِيرَة",
+    "phonetic": "An-nadhdharatu kabeera",
+    "english": "The glasses are big.",
+    "audio": "glasses_s3.mp3"
+   },
+   {
+    "template": "wear",
+    "arabic": "أَنَا أَلْبَسُ النَّظَّارَةَ",
+    "audio_text": "أَنَا أَلبَسُ النَّظَّارَة",
+    "phonetic": "Ana albasu an-nadhdhara",
+    "english": "I wear the glasses.",
+    "audio": "glasses_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ النَّظَّارَةُ؟",
+    "audio_text": "أَينَ النَّظَّارَة؟",
+    "phonetic": "Ayna an-nadhdhara?",
+    "english": "Where are the glasses?",
+    "audio": "glasses_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "shirt",
+  "english_word": "Shirt",
+  "arabic_word": "قَمِيص",
+  "phonetic": "Qamees",
+  "letter": "ق",
+  "gender": "M",
+  "category": "bedroom",
+  "word_audio": "shirt_word.mp3",
+  "sticker": "assets/images/shirt.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا قَمِيصٌ",
+    "audio_text": "هَذَا قَمِيص",
+    "phonetic": "Hadha qamees",
+    "english": "This is a shirt.",
+    "audio": "shirt_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْقَمِيصَ",
+    "audio_text": "أَنَا أَرَى القَمِيص",
+    "phonetic": "Ana ara al-qamees",
+    "english": "I see the shirt.",
+    "audio": "shirt_s2.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْقَمِيصُ صَغِيرٌ",
+    "audio_text": "القَمِيصُ صَغِير",
+    "phonetic": "Al-qameesu sagheer",
+    "english": "The shirt is small.",
+    "audio": "shirt_s3.mp3"
+   },
+   {
+    "template": "wear",
+    "arabic": "أَنَا أَلْبَسُ الْقَمِيصَ",
+    "audio_text": "أَنَا أَلبَسُ القَمِيص",
+    "phonetic": "Ana albasu al-qamees",
+    "english": "I wear the shirt.",
+    "audio": "shirt_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْقَمِيصَ",
+    "audio_text": "أَنَا أُحِبُّ القَمِيص",
+    "phonetic": "Ana uhibbu al-qamees",
+    "english": "I like the shirt.",
+    "audio": "shirt_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "bed",
+  "english_word": "Bed",
+  "arabic_word": "سَرِير",
+  "phonetic": "Sareer",
+  "letter": "س",
+  "gender": "M",
+  "category": "bedroom",
+  "word_audio": "bed_word.mp3",
+  "sticker": "assets/images/bed.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا سَرِيرٌ",
+    "audio_text": "هَذَا سَرِير",
+    "phonetic": "Hadha sareer",
+    "english": "This is a bed.",
+    "audio": "bed_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى السَّرِيرَ",
+    "audio_text": "أَنَا أَرَى السَّرِير",
+    "phonetic": "Ana ara as-sareer",
+    "english": "I see the bed.",
+    "audio": "bed_s2.mp3"
+   },
+   {
+    "template": "beautiful",
+    "arabic": "السَّرِيرُ جَمِيلٌ",
+    "audio_text": "السَّرِيرُ جَمِيل",
+    "phonetic": "As-sareeru jameel",
+    "english": "The bed is beautiful.",
+    "audio": "bed_s3.mp3"
+   },
+   {
+    "template": "sleep",
+    "arabic": "أَنَا أَنَامُ عَلَى السَّرِيرِ",
+    "audio_text": "أَنَا أَنَامُ عَلَى السَّرِير",
+    "phonetic": "Ana anamu 'ala as-sareer",
+    "english": "I sleep on the bed.",
+    "audio": "bed_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ السَّرِيرَ",
+    "audio_text": "أَنَا أُحِبُّ السَّرِير",
+    "phonetic": "Ana uhibbu as-sareer",
+    "english": "I like the bed.",
+    "audio": "bed_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "soap",
+  "english_word": "Soap",
+  "arabic_word": "صَابُون",
+  "phonetic": "Saboon",
+  "letter": "ص",
+  "gender": "M",
+  "category": "bedroom",
+  "word_audio": "soap_word.mp3",
+  "sticker": "assets/images/soap.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذَا صَابُونٌ",
+    "audio_text": "هَذَا صَابُون",
+    "phonetic": "Hadha saboon",
+    "english": "This is soap.",
+    "audio": "soap_s1.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الصَّابُونَ",
+    "audio_text": "أَنَا أَرَى الصَّابُون",
+    "phonetic": "Ana ara as-saboon",
+    "english": "I see the soap.",
+    "audio": "soap_s2.mp3"
+   },
+   {
+    "template": "big",
+    "arabic": "الصَّابُونُ كَبِيرٌ",
+    "audio_text": "الصَّابُونُ كَبِير",
+    "phonetic": "As-saboonu kabeer",
+    "english": "The soap is big.",
+    "audio": "soap_s3.mp3"
+   },
+   {
+    "template": "use",
+    "arabic": "أَنَا أَسْتَخْدِمُ الصَّابُونَ",
+    "audio_text": "أَنَا أَستَخدِمُ الصَّابُون",
+    "phonetic": "Ana astakhdimu as-saboon",
+    "english": "I use the soap.",
+    "audio": "soap_s4.mp3"
+   },
+   {
+    "template": "where",
+    "arabic": "أَيْنَ الصَّابُونُ؟",
+    "audio_text": "أَينَ الصَّابُون؟",
+    "phonetic": "Ayna as-saboon?",
+    "english": "Where is the soap?",
+    "audio": "soap_s5.mp3"
+   }
+  ]
+ },
+ {
+  "id": "pillow",
+  "english_word": "Pillow",
+  "arabic_word": "وِسَادَة",
+  "phonetic": "Wisada",
+  "letter": "و",
+  "gender": "F",
+  "category": "bedroom",
+  "word_audio": "pillow_word.mp3",
+  "sticker": "assets/images/pillow.webp",
+  "sentences": [
+   {
+    "template": "this_is",
+    "arabic": "هَذِهِ وِسَادَةٌ",
+    "audio_text": "هَذِهِ وِسَادَة",
+    "phonetic": "Hadhihi wisada",
+    "english": "This is a pillow.",
+    "audio": "pillow_s1.mp3"
+   },
+   {
+    "template": "have",
+    "arabic": "عِنْدِي وِسَادَةٌ",
+    "audio_text": "عِندِي وِسَادَة",
+    "phonetic": "'Indi wisada",
+    "english": "I have a pillow.",
+    "audio": "pillow_s2.mp3"
+   },
+   {
+    "template": "see",
+    "arabic": "أَنَا أَرَى الْوِسَادَةَ",
+    "audio_text": "أَنَا أَرَى الوِسَادَة",
+    "phonetic": "Ana ara al-wisada",
+    "english": "I see the pillow.",
+    "audio": "pillow_s3.mp3"
+   },
+   {
+    "template": "small",
+    "arabic": "الْوِسَادَةُ صَغِيرَةٌ",
+    "audio_text": "الوِسَادَةُ صَغِيرَة",
+    "phonetic": "Al-wisadatu sagheera",
+    "english": "The pillow is small.",
+    "audio": "pillow_s4.mp3"
+   },
+   {
+    "template": "like",
+    "arabic": "أَنَا أُحِبُّ الْوِسَادَةَ",
+    "audio_text": "أَنَا أُحِبُّ الوِسَادَة",
+    "phonetic": "Ana uhibbu al-wisada",
+    "english": "I like the pillow.",
+    "audio": "pillow_s5.mp3"
+   }
+  ]
+ }
+]

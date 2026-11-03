@@ -1,0 +1,566 @@
+{
+ "ا": {
+  "name": "Alif",
+  "connects": false,
+  "positions": {
+   "beginning": [
+    "أَرِيكَة (Sofa)",
+    "أَرْنَب (Toy Rabbit)",
+    "أَرُزّ (Rice)",
+    "فُرْشَاة أَسْنَان (Toothbrush)"
+   ],
+   "middle": [
+    "بَاب (Door)",
+    "تِلْفَاز (Television)",
+    "مِصْبَاح (Lamp)",
+    "مِفْتَاح (Key)",
+    "سَاعَة (Clock)",
+    "سَجَّادَة (Carpet)",
+    "نَافِذَة (Window)",
+    "طَاوِلَة (Table)",
+    "دَرَّاجَة (Bicycle)",
+    "قِطَار (Toy Train)",
+    "كِتَاب (Book)",
+    "سَيَّارَة (Toy Car)",
+    "حَافِلَة (Toy Bus)",
+    "بُرْتُقَالَة (Orange)",
+    "تُفَّاحَة (Apple)",
+    "مَاء (Water)",
+    "شُكُولَاتَة (Chocolate)",
+    "ثَلَّاجَة (Fridge)",
+    "غَسَّالَة (Washing Machine)",
+    "زُجَاجَة (Bottle)",
+    "بَطَّانِيَّة (Blanket)",
+    "بِنْطَال (Trousers)",
+    "فُسْتَان (Dress)",
+    "فُرْشَاة أَسْنَان (Toothbrush)",
+    "حِذَاء (Shoe)",
+    "هَاتِف (Phone)",
+    "نَظَّارَة (Glasses)",
+    "صَابُون (Soap)",
+    "وِسَادَة (Pillow)"
+   ],
+   "end": []
+  }
+ },
+ "ب": {
+  "name": "Baa",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "بَاب (Door)",
+    "بُرْتُقَالَة (Orange)",
+    "بَيْضَة (Egg)",
+    "بَطَّانِيَّة (Blanket)",
+    "بِنْطَال (Trousers)"
+   ],
+   "middle": [
+    "مِصْبَاح (Lamp)",
+    "جُبْن (Cheese)",
+    "خُبْز (Bread)",
+    "زُبْدَة (Butter)",
+    "مُرَبَّى (Jam)",
+    "حَقِيبَة (Bag)",
+    "صَابُون (Soap)"
+   ],
+   "end": [
+    "بَاب (Door)",
+    "أَرْنَب (Toy Rabbit)",
+    "دُبّ (Teddy Bear)",
+    "كِتَاب (Book)",
+    "مُكَعَّب (Block)",
+    "حَلِيب (Milk)",
+    "كُوب (Cup)"
+   ]
+  }
+ },
+ "ت": {
+  "name": "Taa",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "تِلْفَاز (Television)",
+    "تُفَّاحَة (Apple)"
+   ],
+   "middle": [
+    "مِفْتَاح (Key)",
+    "كِتَاب (Book)",
+    "بُرْتُقَالَة (Orange)",
+    "شُكُولَاتَة (Chocolate)",
+    "فُسْتَان (Dress)",
+    "هَاتِف (Phone)"
+   ],
+   "end": []
+  }
+ },
+ "ث": {
+  "name": "Thaa",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "ثَلَّاجَة (Fridge)"
+   ],
+   "middle": [],
+   "end": []
+  }
+ },
+ "ج": {
+  "name": "Jeem",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "جُبْن (Cheese)"
+   ],
+   "middle": [
+    "سَجَّادَة (Carpet)",
+    "دَرَّاجَة (Bicycle)",
+    "ثَلَّاجَة (Fridge)",
+    "زُجَاجَة (Bottle)"
+   ],
+   "end": []
+  }
+ },
+ "ح": {
+  "name": "Haa",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "حَافِلَة (Toy Bus)",
+    "حَلِيب (Milk)",
+    "حِذَاء (Shoe)",
+    "حَقِيبَة (Bag)"
+   ],
+   "middle": [
+    "تُفَّاحَة (Apple)",
+    "صَحْن (Plate)"
+   ],
+   "end": [
+    "مِصْبَاح (Lamp)",
+    "مِفْتَاح (Key)"
+   ]
+  }
+ },
+ "خ": {
+  "name": "Khaa",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "خُبْز (Bread)"
+   ],
+   "middle": [],
+   "end": []
+  }
+ },
+ "د": {
+  "name": "Daal",
+  "connects": false,
+  "positions": {
+   "beginning": [
+    "دُبّ (Teddy Bear)",
+    "دُمْيَة (Doll)",
+    "دَرَّاجَة (Bicycle)"
+   ],
+   "middle": [
+    "سَجَّادَة (Carpet)",
+    "صُنْدُوق (Box)",
+    "ضِفْدَع (Toy Frog)",
+    "زُبْدَة (Butter)",
+    "وِسَادَة (Pillow)"
+   ],
+   "end": []
+  }
+ },
+ "ذ": {
+  "name": "Dhaal",
+  "connects": false,
+  "positions": {
+   "beginning": [
+    "ذُرَة (Corn)"
+   ],
+   "middle": [
+    "نَافِذَة (Window)",
+    "حِذَاء (Shoe)"
+   ],
+   "end": []
+  }
+ },
+ "ر": {
+  "name": "Raa",
+  "connects": false,
+  "positions": {
+   "beginning": [
+    "رَفّ (Shelf)"
+   ],
+   "middle": [
+    "أَرِيكَة (Sofa)",
+    "كُرْسِيّ (Chair)",
+    "صُورَة (Picture)",
+    "ظَرْف (Envelope)",
+    "أَرْنَب (Toy Rabbit)",
+    "دَرَّاجَة (Bicycle)",
+    "كُرَة (Ball)",
+    "سَيَّارَة (Toy Car)",
+    "وَرَقَة (Paper)",
+    "بُرْتُقَالَة (Orange)",
+    "ذُرَة (Corn)",
+    "أَرُزّ (Rice)",
+    "مُرَبَّى (Jam)",
+    "فُرْشَاة أَسْنَان (Toothbrush)",
+    "نَظَّارَة (Glasses)",
+    "سَرِير (Bed)"
+   ],
+   "end": [
+    "قِطَار (Toy Train)",
+    "عَصِير (Juice)",
+    "سَرِير (Bed)"
+   ]
+  }
+ },
+ "ز": {
+  "name": "Zay",
+  "connects": false,
+  "positions": {
+   "beginning": [
+    "زُبْدَة (Butter)",
+    "زُجَاجَة (Bottle)"
+   ],
+   "middle": [
+    "مَوْزَة (Banana)"
+   ],
+   "end": [
+    "تِلْفَاز (Television)",
+    "خُبْز (Bread)",
+    "أَرُزّ (Rice)"
+   ]
+  }
+ },
+ "س": {
+  "name": "Seen",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "سَاعَة (Clock)",
+    "سَجَّادَة (Carpet)",
+    "سَيَّارَة (Toy Car)",
+    "سَرِير (Bed)"
+   ],
+   "middle": [
+    "كُرْسِيّ (Chair)",
+    "عَسَل (Honey)",
+    "غَسَّالَة (Washing Machine)",
+    "فُسْتَان (Dress)",
+    "فُرْشَاة أَسْنَان (Toothbrush)",
+    "وِسَادَة (Pillow)"
+   ],
+   "end": []
+  }
+ },
+ "ش": {
+  "name": "Sheen",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "شُكُولَاتَة (Chocolate)",
+    "شَوْكَة (Fork)"
+   ],
+   "middle": [
+    "فُرْشَاة أَسْنَان (Toothbrush)",
+    "مِنْشَفَة (Towel)",
+    "مِشْط (Comb)"
+   ],
+   "end": []
+  }
+ },
+ "ص": {
+  "name": "Saad",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "صُنْدُوق (Box)",
+    "صُورَة (Picture)",
+    "صَحْن (Plate)",
+    "صَابُون (Soap)"
+   ],
+   "middle": [
+    "مِصْبَاح (Lamp)",
+    "عَصِير (Juice)"
+   ],
+   "end": [
+    "قَمِيص (Shirt)"
+   ]
+  }
+ },
+ "ض": {
+  "name": "Daad",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "ضِفْدَع (Toy Frog)"
+   ],
+   "middle": [
+    "بَيْضَة (Egg)"
+   ],
+   "end": []
+  }
+ },
+ "ط": {
+  "name": "Taa(heavy)",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "طَاوِلَة (Table)"
+   ],
+   "middle": [
+    "قِطَار (Toy Train)",
+    "بَطَّانِيَّة (Blanket)",
+    "بِنْطَال (Trousers)"
+   ],
+   "end": [
+    "مِشْط (Comb)"
+   ]
+  }
+ },
+ "ظ": {
+  "name": "Dhaa",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "ظَرْف (Envelope)"
+   ],
+   "middle": [
+    "نَظَّارَة (Glasses)"
+   ],
+   "end": []
+  }
+ },
+ "ع": {
+  "name": "Ayn",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "عَصِير (Juice)",
+    "عَسَل (Honey)"
+   ],
+   "middle": [
+    "سَاعَة (Clock)",
+    "مُكَعَّب (Block)",
+    "مِلْعَقَة (Spoon)"
+   ],
+   "end": [
+    "ضِفْدَع (Toy Frog)"
+   ]
+  }
+ },
+ "غ": {
+  "name": "Ghayn",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "غَسَّالَة (Washing Machine)"
+   ],
+   "middle": [],
+   "end": []
+  }
+ },
+ "ف": {
+  "name": "Faa",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "فُسْتَان (Dress)",
+    "فُرْشَاة أَسْنَان (Toothbrush)"
+   ],
+   "middle": [
+    "تِلْفَاز (Television)",
+    "مِفْتَاح (Key)",
+    "نَافِذَة (Window)",
+    "ضِفْدَع (Toy Frog)",
+    "حَافِلَة (Toy Bus)",
+    "تُفَّاحَة (Apple)",
+    "مِنْشَفَة (Towel)"
+   ],
+   "end": [
+    "رَفّ (Shelf)",
+    "ظَرْف (Envelope)",
+    "هَاتِف (Phone)"
+   ]
+  }
+ },
+ "ق": {
+  "name": "Qaaf",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "قَلَم (Pencil)",
+    "قِطَار (Toy Train)",
+    "قَمِيص (Shirt)"
+   ],
+   "middle": [
+    "وَرَقَة (Paper)",
+    "بُرْتُقَالَة (Orange)",
+    "مِلْعَقَة (Spoon)",
+    "حَقِيبَة (Bag)"
+   ],
+   "end": [
+    "صُنْدُوق (Box)"
+   ]
+  }
+ },
+ "ك": {
+  "name": "Kaaf",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "كُرْسِيّ (Chair)",
+    "كِتَاب (Book)",
+    "كُرَة (Ball)",
+    "كُوب (Cup)"
+   ],
+   "middle": [
+    "أَرِيكَة (Sofa)",
+    "مُكَعَّب (Block)",
+    "شُكُولَاتَة (Chocolate)",
+    "شَوْكَة (Fork)"
+   ],
+   "end": []
+  }
+ },
+ "ل": {
+  "name": "Laam",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "لَيْمُونَة (Lemon)"
+   ],
+   "middle": [
+    "تِلْفَاز (Television)",
+    "طَاوِلَة (Table)",
+    "قَلَم (Pencil)",
+    "حَافِلَة (Toy Bus)",
+    "بُرْتُقَالَة (Orange)",
+    "حَلِيب (Milk)",
+    "شُكُولَاتَة (Chocolate)",
+    "ثَلَّاجَة (Fridge)",
+    "غَسَّالَة (Washing Machine)",
+    "مِلْعَقَة (Spoon)"
+   ],
+   "end": [
+    "عَسَل (Honey)",
+    "بِنْطَال (Trousers)"
+   ]
+  }
+ },
+ "م": {
+  "name": "Meem",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "مِصْبَاح (Lamp)",
+    "مِفْتَاح (Key)",
+    "مُكَعَّب (Block)",
+    "مَوْزَة (Banana)",
+    "مَاء (Water)",
+    "مُرَبَّى (Jam)",
+    "مِلْعَقَة (Spoon)",
+    "مِنْشَفَة (Towel)",
+    "مِشْط (Comb)"
+   ],
+   "middle": [
+    "دُمْيَة (Doll)",
+    "لَيْمُونَة (Lemon)",
+    "قَمِيص (Shirt)"
+   ],
+   "end": [
+    "قَلَم (Pencil)"
+   ]
+  }
+ },
+ "ن": {
+  "name": "Noon",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "نَافِذَة (Window)",
+    "نَظَّارَة (Glasses)"
+   ],
+   "middle": [
+    "صُنْدُوق (Box)",
+    "أَرْنَب (Toy Rabbit)",
+    "لَيْمُونَة (Lemon)",
+    "بَطَّانِيَّة (Blanket)",
+    "بِنْطَال (Trousers)",
+    "فُرْشَاة أَسْنَان (Toothbrush)",
+    "مِنْشَفَة (Towel)"
+   ],
+   "end": [
+    "جُبْن (Cheese)",
+    "صَحْن (Plate)",
+    "فُسْتَان (Dress)",
+    "فُرْشَاة أَسْنَان (Toothbrush)",
+    "صَابُون (Soap)"
+   ]
+  }
+ },
+ "ه": {
+  "name": "Haa(soft)",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "هَاتِف (Phone)"
+   ],
+   "middle": [],
+   "end": []
+  }
+ },
+ "و": {
+  "name": "Waw",
+  "connects": false,
+  "positions": {
+   "beginning": [
+    "وَرَقَة (Paper)",
+    "وِسَادَة (Pillow)"
+   ],
+   "middle": [
+    "صُنْدُوق (Box)",
+    "صُورَة (Picture)",
+    "طَاوِلَة (Table)",
+    "يُويُو (Yo-yo)",
+    "لَيْمُونَة (Lemon)",
+    "مَوْزَة (Banana)",
+    "شُكُولَاتَة (Chocolate)",
+    "كُوب (Cup)",
+    "شَوْكَة (Fork)",
+    "صَابُون (Soap)"
+   ],
+   "end": [
+    "يُويُو (Yo-yo)"
+   ]
+  }
+ },
+ "ي": {
+  "name": "Yaa",
+  "connects": true,
+  "positions": {
+   "beginning": [
+    "يُويُو (Yo-yo)"
+   ],
+   "middle": [
+    "أَرِيكَة (Sofa)",
+    "دُمْيَة (Doll)",
+    "سَيَّارَة (Toy Car)",
+    "يُويُو (Yo-yo)",
+    "عَصِير (Juice)",
+    "بَيْضَة (Egg)",
+    "حَلِيب (Milk)",
+    "لَيْمُونَة (Lemon)",
+    "بَطَّانِيَّة (Blanket)",
+    "حَقِيبَة (Bag)",
+    "قَمِيص (Shirt)",
+    "سَرِير (Bed)"
+   ],
+   "end": [
+    "كُرْسِيّ (Chair)"
+   ]
+  }
+ }
+}

@@ -1,0 +1,112 @@
+[
+ {
+  "id": "red",
+  "en": "red",
+  "m": "أَحْمَر",
+  "f": "حَمْرَاء",
+  "ph_m": "ahmar",
+  "ph_f": "hamraa'",
+  "diptote": true,
+  "visual_cue": "make the {obj} red all over"
+ },
+ {
+  "id": "blue",
+  "en": "blue",
+  "m": "أَزْرَق",
+  "f": "زَرْقَاء",
+  "ph_m": "azraq",
+  "ph_f": "zarqaa'",
+  "diptote": true,
+  "visual_cue": "make the {obj} blue all over"
+ },
+ {
+  "id": "green",
+  "en": "green",
+  "m": "أَخْضَر",
+  "f": "خَضْرَاء",
+  "ph_m": "akhdar",
+  "ph_f": "khadraa'",
+  "diptote": true,
+  "visual_cue": "make the {obj} green all over"
+ },
+ {
+  "id": "yellow",
+  "en": "yellow",
+  "m": "أَصْفَر",
+  "f": "صَفْرَاء",
+  "ph_m": "asfar",
+  "ph_f": "safraa'",
+  "diptote": true,
+  "visual_cue": "make the {obj} yellow all over"
+ },
+ {
+  "id": "white",
+  "en": "white",
+  "m": "أَبْيَض",
+  "f": "بَيْضَاء",
+  "ph_m": "abyad",
+  "ph_f": "baydaa'",
+  "diptote": true,
+  "visual_cue": "make the {obj} white all over"
+ },
+ {
+  "id": "black",
+  "en": "black",
+  "m": "أَسْوَد",
+  "f": "سَوْدَاء",
+  "ph_m": "aswad",
+  "ph_f": "sawdaa'",
+  "diptote": true,
+  "visual_cue": "make the {obj} black all over"
+ },
+ {
+  "id": "brown",
+  "en": "brown",
+  "m": "بُنِّيّ",
+  "f": "بُنِّيَّة",
+  "ph_m": "bunni",
+  "ph_f": "bunniyya",
+  "diptote": false,
+  "visual_cue": "make the {obj} brown all over"
+ },
+ {
+  "id": "orange",
+  "en": "orange",
+  "m": "بُرْتُقَالِيّ",
+  "f": "بُرْتُقَالِيَّة",
+  "ph_m": "burtuqali",
+  "ph_f": "burtuqaliyya",
+  "diptote": false,
+  "visual_cue": "make the {obj} orange all over"
+ },
+ {
+  "id": "pink",
+  "en": "pink",
+  "m": "وَرْدِيّ",
+  "f": "وَرْدِيَّة",
+  "ph_m": "wardi",
+  "ph_f": "wardiyya",
+  "diptote": false,
+  "visual_cue": "make the {obj} pink all over"
+ },
+ {
+  "id": "purple",
+  "en": "purple",
+  "m": "بَنَفْسَجِيّ",
+  "f": "بَنَفْسَجِيَّة",
+  "ph_m": "banafsaji",
+  "ph_f": "banafsajiyya",
+  "diptote": false,
+  "visual_cue": "make the {obj} purple all over"
+ },
+ {
+  "id": "grey",
+  "en": "grey",
+  "m": "رَمَادِيّ",
+  "f": "رَمَادِيَّة",
+  "ph_m": "ramadi",
+  "ph_f": "ramadiyya",
+  "diptote": false,
+  "visual_cue": "make the {obj} grey all over"
+ }
+]

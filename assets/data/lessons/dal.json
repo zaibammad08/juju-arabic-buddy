@@ -1,0 +1,252 @@
+{
+ "letter": "د",
+ "name": "Daal",
+ "shapes": [
+  {
+   "position": "beginning",
+   "form": "د",
+   "word": "دُبّ",
+   "plain": "دب",
+   "english": "bear",
+   "emoji": "🐻",
+   "sticker": "assets/images/teddy_bear.webp"
+  },
+  {
+   "position": "middle",
+   "form": "ـد",
+   "word": "مَدْرَسَة",
+   "plain": "مدرسة",
+   "english": "school",
+   "emoji": "🏫",
+   "sticker": "assets/images/page_school.webp"
+  },
+  {
+   "position": "end",
+   "form": "ـد",
+   "word": "يَد",
+   "plain": "يد",
+   "english": "hand",
+   "emoji": "✋",
+   "sticker": "assets/images/lesson_hand.webp"
+  }
+ ],
+ "posq": [
+  {
+   "word": "دَجَاجَة",
+   "plain": "دجاجة",
+   "english": "hen",
+   "emoji": "🐔",
+   "sticker": "assets/images/lesson_hen.webp",
+   "answer": "beginning"
+  },
+  {
+   "word": "هَدِيَّة",
+   "plain": "هدية",
+   "english": "gift",
+   "emoji": "🎁",
+   "sticker": "assets/images/lesson_gift.webp",
+   "answer": "middle"
+  },
+  {
+   "word": "وَلَد",
+   "plain": "ولد",
+   "english": "boy",
+   "emoji": "👦",
+   "sticker": "assets/images/lesson_boy.webp",
+   "answer": "end"
+  }
+ ],
+ "words": [
+  {
+   "word": "دِرْهَم",
+   "plain": "درهم",
+   "english": "dirham",
+   "emoji": "🪙",
+   "sticker": "assets/images/page_dirham.webp",
+   "phonetic": "dirham"
+  },
+  {
+   "word": "دَجَاجَة",
+   "plain": "دجاجة",
+   "english": "hen",
+   "emoji": "🐔",
+   "sticker": "assets/images/lesson_hen.webp",
+   "phonetic": "dajaaja"
+  },
+  {
+   "word": "دِيك",
+   "plain": "ديك",
+   "english": "rooster",
+   "emoji": "🐓",
+   "sticker": "assets/images/lesson_rooster.webp",
+   "phonetic": "diik"
+  },
+  {
+   "word": "دُبّ",
+   "plain": "دب",
+   "english": "bear",
+   "emoji": "🐻",
+   "sticker": "assets/images/teddy_bear.webp",
+   "phonetic": "dubb"
+  },
+  {
+   "word": "دُمْيَة",
+   "plain": "دمية",
+   "english": "doll",
+   "emoji": "🪆",
+   "sticker": "assets/images/doll.webp",
+   "phonetic": "dumya"
+  },
+  {
+   "word": "دَرَّاجَة",
+   "plain": "دراجة",
+   "english": "bicycle",
+   "emoji": "🚲",
+   "sticker": "assets/images/bicycle.webp",
+   "phonetic": "darraaja"
+  }
+ ],
+ "not_words": [
+  {
+   "word": "ذِئْب",
+   "plain": "ذئب",
+   "english": "wolf",
+   "emoji": "🐺",
+   "sticker": "assets/images/lesson_wolf.webp",
+   "phonetic": "dhiʾb"
+  },
+  {
+   "word": "سَمَكَة",
+   "plain": "سمكة",
+   "english": "fish",
+   "emoji": "🐟",
+   "sticker": "assets/images/lesson_fish.webp",
+   "phonetic": "samaka"
+  },
+  {
+   "word": "بَطَّة",
+   "plain": "بطة",
+   "english": "duck",
+   "emoji": "🦆",
+   "sticker": "assets/images/lesson_duck.webp",
+   "phonetic": "baṭṭa"
+  },
+  {
+   "word": "بَاب",
+   "plain": "باب",
+   "english": "door",
+   "emoji": "🚪",
+   "sticker": "assets/images/door.webp",
+   "phonetic": "baab"
+  },
+  {
+   "word": "جَمَل",
+   "plain": "جمل",
+   "english": "camel",
+   "emoji": "🐫",
+   "sticker": "assets/images/lesson_camel.webp",
+   "phonetic": "jamal"
+  }
+ ],
+ "vowels": [
+  {
+   "ar": "دَ",
+   "say": "دَ",
+   "s": "da",
+   "mark": "fatha: a small line on top",
+   "ex": {
+    "e": "🐔",
+    "ar": "دَجاجة",
+    "say": "دَجَاجَة",
+    "tr": "dajaaja",
+    "en": "hen"
+   }
+  },
+  {
+   "ar": "دِ",
+   "say": "دِ",
+   "s": "di",
+   "mark": "kasra: a small line below",
+   "ex": {
+    "e": "🪙",
+    "ar": "دِرهم",
+    "say": "دِرْهَم",
+    "tr": "dirham",
+    "en": "dirham"
+   }
+  },
+  {
+   "ar": "دُ",
+   "say": "دُ",
+   "s": "du",
+   "mark": "damma: a little curl on top",
+   "ex": {
+    "e": "🐻",
+    "ar": "دُبّ",
+    "say": "دُبّ",
+    "tr": "dubb",
+    "en": "bear"
+   }
+  }
+ ],
+ "long_vowels": [
+  {
+   "ar": "دا",
+   "say": "دَا",
+   "s": "daa",
+   "mark": "with alif: a long a",
+   "ex": {
+    "e": "⭕",
+    "ar": "دَائرة",
+    "say": "دَائِرَة",
+    "tr": "daaʾira",
+    "en": "circle"
+   }
+  },
+  {
+   "ar": "دي",
+   "say": "دِي",
+   "s": "dii",
+   "mark": "with yaa: a long i",
+   "ex": {
+    "e": "🐓",
+    "ar": "دِيك",
+    "say": "دِيك",
+    "tr": "diik",
+    "en": "rooster"
+   }
+  },
+  {
+   "ar": "دو",
+   "say": "دُو",
+   "s": "duu",
+   "mark": "with waaw: a long u",
+   "ex": {
+    "e": "🪱",
+    "ar": "دُودة",
+    "say": "دُودَة",
+    "tr": "duuda",
+    "en": "worm"
+   }
+  }
+ ],
+ "trace": [
+  "د",
+  "دب",
+  "ديك"
+ ],
+ "trace_say": [
+  [
+   "دَال",
+   ""
+  ],
+  [
+   "دُبّ",
+   "bear"
+  ],
+  [
+   "دِيك",
+   "rooster"
+  ]
+ ]
+}

@@ -1,0 +1,253 @@
+{
+ "letter": "ب",
+ "name": "Baa",
+ "shapes": [
+  {
+   "position": "beginning",
+   "form": "بـ",
+   "word": "بَقَرَة",
+   "plain": "بقرة",
+   "english": "cow",
+   "emoji": "🐄",
+   "sticker": "assets/images/page_cow.webp"
+  },
+  {
+   "position": "middle",
+   "form": "ـبـ",
+   "word": "حَبْل",
+   "plain": "حبل",
+   "english": "rope",
+   "emoji": "🪢",
+   "sticker": "assets/images/page_rope.webp"
+  },
+  {
+   "position": "end",
+   "form": "ـب",
+   "word": "كُتُب",
+   "plain": "كتب",
+   "english": "books",
+   "emoji": "📚",
+   "sticker": "assets/images/page_books.webp"
+  }
+ ],
+ "posq": [
+  {
+   "word": "بَطِّيخ",
+   "plain": "بطيخ",
+   "english": "watermelon",
+   "emoji": "🍉",
+   "sticker": "assets/images/page_watermelon.webp",
+   "answer": "beginning"
+  },
+  {
+   "word": "قُبَّعَة",
+   "plain": "قبعة",
+   "english": "hat",
+   "emoji": "🧢",
+   "sticker": "assets/images/page_hat.webp",
+   "answer": "middle"
+  },
+  {
+   "word": "كَلْب",
+   "plain": "كلب",
+   "english": "dog",
+   "emoji": "🐕",
+   "sticker": "assets/images/lesson_dog.webp",
+   "answer": "end"
+  }
+ ],
+ "words": [
+  {
+   "word": "بَطَّة",
+   "plain": "بطة",
+   "english": "duck",
+   "emoji": "🦆",
+   "sticker": "assets/images/lesson_duck.webp",
+   "phonetic": "baṭṭa"
+  },
+  {
+   "word": "بَقَرَة",
+   "plain": "بقرة",
+   "english": "cow",
+   "emoji": "🐄",
+   "sticker": "assets/images/page_cow.webp",
+   "phonetic": "baqara"
+  },
+  {
+   "word": "بَاب",
+   "plain": "باب",
+   "english": "door",
+   "emoji": "🚪",
+   "sticker": "assets/images/door.webp",
+   "phonetic": "baab"
+  },
+  {
+   "word": "بَيْض",
+   "plain": "بيض",
+   "english": "eggs",
+   "emoji": "🥚",
+   "sticker": "assets/images/egg.webp",
+   "phonetic": "bayḍ"
+  },
+  {
+   "word": "بَيْت",
+   "plain": "بيت",
+   "english": "house",
+   "emoji": "🏠",
+   "sticker": "assets/images/page_house.webp",
+   "phonetic": "bayt"
+  },
+  {
+   "word": "بِطْرِيق",
+   "plain": "بطريق",
+   "english": "penguin",
+   "emoji": "🐧",
+   "sticker": "assets/images/page_penguin.webp",
+   "phonetic": "biṭriiq"
+  },
+  {
+   "word": "بُومَة",
+   "plain": "بومة",
+   "english": "owl",
+   "emoji": "🦉",
+   "sticker": "assets/images/page_owl.webp",
+   "phonetic": "buuma"
+  },
+  {
+   "word": "بُرْج خَلِيفَة",
+   "plain": "برج خليفة",
+   "english": "Burj Khalifa",
+   "emoji": "🏙️",
+   "sticker": "assets/images/page_burj_khalifa.webp",
+   "phonetic": "burj khaliifa"
+  }
+ ],
+ "not_words": [
+  {
+   "word": "شَجَرَة",
+   "plain": "شجرة",
+   "english": "tree",
+   "emoji": "🌳",
+   "sticker": "assets/images/lesson_tree.webp",
+   "phonetic": "shajara"
+  },
+  {
+   "word": "طِفْل",
+   "plain": "طفل",
+   "english": "child",
+   "emoji": "👶",
+   "sticker": "assets/images/page_child.webp",
+   "phonetic": "ṭifl"
+  },
+  {
+   "word": "أَسَد",
+   "plain": "أسد",
+   "english": "lion",
+   "emoji": "🦁",
+   "sticker": "assets/images/lesson_lion.webp",
+   "phonetic": "asad"
+  },
+  {
+   "word": "جَمَل",
+   "plain": "جمل",
+   "english": "camel",
+   "emoji": "🐫",
+   "sticker": "assets/images/lesson_camel.webp",
+   "phonetic": "jamal"
+  }
+ ],
+ "vowels": [
+  {
+   "ar": "بَ",
+   "s": "ba",
+   "mark": "fatha: a small line on top",
+   "ex": {
+    "e": "🌊",
+    "ar": "بَحر",
+    "say": "بَحْر",
+    "tr": "baḥr",
+    "en": "sea"
+   }
+  },
+  {
+   "ar": "بِ",
+   "s": "bi",
+   "mark": "kasra: a small line below",
+   "ex": {
+    "e": "👧",
+    "ar": "بِنت",
+    "say": "بنت",
+    "tr": "bint",
+    "en": "girl"
+   }
+  },
+  {
+   "ar": "بُ",
+   "s": "bu",
+   "mark": "damma: a little curl on top",
+   "ex": {
+    "e": "🍊",
+    "ar": "بُرتقال",
+    "say": "بُرْتُقَال",
+    "tr": "burtuqaal",
+    "en": "orange"
+   }
+  }
+ ],
+ "trace": [
+  "ب",
+  "باب",
+  "بيت"
+ ],
+ "trace_say": [
+  [
+   "بَا",
+   ""
+  ],
+  [
+   "بَاب",
+   "door"
+  ],
+  [
+   "بَيْت",
+   "house"
+  ]
+ ],
+ "speak": [
+  {
+   "e": "🏠",
+   "ar": "هذا بيت.",
+   "say": "هَذَا بَيْت",
+   "tr": "haadhaa bayt",
+   "en": "This is a house."
+  },
+  {
+   "e": "🚪",
+   "ar": "هذا باب.",
+   "say": "هَذَا بَاب",
+   "tr": "haadhaa baab",
+   "en": "This is a door."
+  },
+  {
+   "e": "🦆",
+   "ar": "هذه بطة.",
+   "say": "هَذِهِ بَطَّة",
+   "tr": "haadhihi baṭṭa",
+   "en": "This is a duck."
+  },
+  {
+   "e": "🐄",
+   "ar": "هذه بقرة.",
+   "say": "هَذِهِ بَقَرَة",
+   "tr": "haadhihi baqara",
+   "en": "This is a cow."
+  },
+  {
+   "e": "🏙️",
+   "ar": "هذا برج خليفة.",
+   "say": "هَذَا بُرْج خَلِيفَة",
+   "tr": "haadhaa burj khaliifa",
+   "en": "This is Burj Khalifa."
+  }
+ ]
+}

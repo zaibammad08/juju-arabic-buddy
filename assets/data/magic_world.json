@@ -1,0 +1,273 @@
+{
+  "feed_riddles": [
+    {
+      "id": "red_round_fruit",
+      "clues": [
+        {
+          "type": "colour",
+          "id": "red",
+          "rule": "It is mainly red"
+        },
+        {
+          "type": "adjective",
+          "id": "round",
+          "rule": "It is round"
+        },
+        {
+          "type": "kind",
+          "arabic": "فَاكِهَة",
+          "english": "a fruit",
+          "audio": "magic/clue_fruit.mp3",
+          "rule": "It is a real fruit you can eat (a toy or a picture is not a fruit)"
+        }
+      ],
+      "answers": {
+        "apple": {
+          "colour": "red",
+          "fact": "Apples float in water, because about a quarter of an apple is air!",
+          "sentence": {
+            "arabic": "التُّفَّاحَةُ حَمْرَاءُ",
+            "english": "The apple is red.",
+            "audio": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "yellow_long_fruit",
+      "clues": [
+        {
+          "type": "colour",
+          "id": "yellow",
+          "rule": "It is mainly yellow"
+        },
+        {
+          "type": "adjective",
+          "id": "long",
+          "rule": "It is long, not round"
+        },
+        {
+          "type": "kind",
+          "arabic": "فَاكِهَة",
+          "english": "a fruit",
+          "audio": "magic/clue_fruit.mp3",
+          "rule": "It is a real fruit you can eat (a toy or a picture is not a fruit)"
+        }
+      ],
+      "answers": {
+        "banana": {
+          "colour": "yellow",
+          "fact": "Bananas grow in big bunches called hands, and one banana is called a finger!",
+          "sentence": {
+            "arabic": "الْمَوْزَةُ صَفْرَاءُ",
+            "english": "The banana is yellow.",
+            "audio": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "orange_round_fruit",
+      "clues": [
+        {
+          "type": "colour",
+          "id": "orange",
+          "rule": "It is mainly orange"
+        },
+        {
+          "type": "adjective",
+          "id": "round",
+          "rule": "It is round"
+        },
+        {
+          "type": "kind",
+          "arabic": "فَاكِهَة",
+          "english": "a fruit",
+          "audio": "magic/clue_fruit.mp3",
+          "rule": "It is a real fruit you can eat (a toy or a picture is not a fruit)"
+        }
+      ],
+      "answers": {
+        "orange": {
+          "colour": "orange",
+          "fact": "The colour orange got its name from the fruit!",
+          "sentence": {
+            "arabic": "الْبُرْتُقَالَةُ بُرْتُقَالِيَّةٌ",
+            "english": "The orange is orange.",
+            "audio": ""
+          }
+        }
+      }
+    }
+  ],
+  "letter_families": [
+    {
+      "id": "baa",
+      "lesson_letter": "ب",
+      "body": "boat",
+      "body_text": "",
+      "shape_description": "the dotless body of the Arabic letter baa: a wide, shallow curve like a little boat or a smile, with both ends turned up",
+      "members": [
+        {
+          "letter": "ب",
+          "dots": 1,
+          "where": "below"
+        },
+        {
+          "letter": "ت",
+          "dots": 2,
+          "where": "above"
+        },
+        {
+          "letter": "ث",
+          "dots": 3,
+          "where": "above"
+        }
+      ]
+    },
+    {
+      "id": "haa",
+      "lesson_letter": "ح",
+      "body": "text",
+      "body_text": "ح",
+      "shape_description": "the Arabic letter haa: a short flat line on top with a big round curve below it that opens to the right, like a hook or the letter C turned around",
+      "members": [
+        {
+          "letter": "ح",
+          "dots": 0,
+          "where": "above"
+        },
+        {
+          "letter": "ج",
+          "dots": 1,
+          "where": "inside"
+        },
+        {
+          "letter": "خ",
+          "dots": 1,
+          "where": "above"
+        }
+      ]
+    },
+    {
+      "id": "dal",
+      "lesson_letter": "د",
+      "body": "text",
+      "body_text": "د",
+      "shape_description": "the Arabic letter dal: a small bent line, like a tilted number 7 opening to the left",
+      "members": [
+        {
+          "letter": "د",
+          "dots": 0,
+          "where": "above"
+        },
+        {
+          "letter": "ذ",
+          "dots": 1,
+          "where": "above"
+        }
+      ]
+    },
+    {
+      "id": "raa",
+      "lesson_letter": "ر",
+      "body": "text",
+      "body_text": "ر",
+      "shape_description": "the Arabic letter raa: a small curved line that slopes down to the left, like a little slide or a comma",
+      "members": [
+        {
+          "letter": "ر",
+          "dots": 0,
+          "where": "above"
+        },
+        {
+          "letter": "ز",
+          "dots": 1,
+          "where": "above"
+        }
+      ]
+    },
+    {
+      "id": "seen",
+      "lesson_letter": "س",
+      "body": "text",
+      "body_text": "س",
+      "shape_description": "the Arabic letter seen: three small teeth bumps followed by a wide curved bowl",
+      "members": [
+        {
+          "letter": "س",
+          "dots": 0,
+          "where": "above"
+        },
+        {
+          "letter": "ش",
+          "dots": 3,
+          "where": "above"
+        }
+      ]
+    },
+    {
+      "id": "saad",
+      "lesson_letter": "ص",
+      "body": "text",
+      "body_text": "ص",
+      "shape_description": "the Arabic letter saad: a flat oval loop followed by a wide curved bowl",
+      "members": [
+        {
+          "letter": "ص",
+          "dots": 0,
+          "where": "above"
+        },
+        {
+          "letter": "ض",
+          "dots": 1,
+          "where": "above"
+        }
+      ]
+    },
+    {
+      "id": "taa_heavy",
+      "lesson_letter": "ط",
+      "body": "text",
+      "body_text": "ط",
+      "shape_description": "the Arabic letter taa (heavy): a flat oval loop with a tall straight line standing up from it",
+      "members": [
+        {
+          "letter": "ط",
+          "dots": 0,
+          "where": "above"
+        },
+        {
+          "letter": "ظ",
+          "dots": 1,
+          "where": "above"
+        }
+      ]
+    },
+    {
+      "id": "ain",
+      "lesson_letter": "ع",
+      "body": "text",
+      "body_text": "ع",
+      "shape_description": "the Arabic letter ain: a small open curve on top like a little c, with a big round curve below it",
+      "members": [
+        {
+          "letter": "ع",
+          "dots": 0,
+          "where": "above"
+        },
+        {
+          "letter": "غ",
+          "dots": 1,
+          "where": "above"
+        }
+      ]
+    }
+  ],
+  "audio": {
+    "detective_intro": "magic/detective_intro.mp3",
+    "feed_hungry": "magic/feed_hungry.mp3",
+    "playdough_make": "magic/playdough_make.mp3",
+    "story_draw": "magic/story_draw.mp3"
+  }
+}

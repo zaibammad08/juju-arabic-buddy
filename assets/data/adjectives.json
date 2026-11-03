@@ -1,0 +1,262 @@
+[
+ {
+  "id": "big",
+  "en": "big",
+  "m": "كَبِير",
+  "f": "كَبِيرَة",
+  "ph_m": "kabeer",
+  "ph_f": "kabeera",
+  "group": "size",
+  "visual_cue": "make the {obj} very big, filling most of the picture"
+ },
+ {
+  "id": "small",
+  "en": "small",
+  "m": "صَغِير",
+  "f": "صَغِيرَة",
+  "ph_m": "sagheer",
+  "ph_f": "sagheera",
+  "group": "size",
+  "visual_cue": "make the {obj} tiny, small in the middle of the white background"
+ },
+ {
+  "id": "long",
+  "en": "long",
+  "m": "طَوِيل",
+  "f": "طَوِيلَة",
+  "ph_m": "taweel",
+  "ph_f": "taweela",
+  "group": "shape",
+  "visual_cue": "make the {obj} extra long and stretched"
+ },
+ {
+  "id": "short",
+  "en": "short",
+  "m": "قَصِير",
+  "f": "قَصِيرَة",
+  "ph_m": "qaseer",
+  "ph_f": "qaseera",
+  "group": "shape",
+  "visual_cue": "make the {obj} short and stubby"
+ },
+ {
+  "id": "round",
+  "en": "round",
+  "m": "مُسْتَدِير",
+  "f": "مُسْتَدِيرَة",
+  "ph_m": "mustadeer",
+  "ph_f": "mustadeera",
+  "group": "shape",
+  "visual_cue": "make the {obj} look perfectly round and bouncy"
+ },
+ {
+  "id": "heavy",
+  "en": "heavy",
+  "m": "ثَقِيل",
+  "f": "ثَقِيلَة",
+  "ph_m": "thaqeel",
+  "ph_f": "thaqeela",
+  "group": "weight",
+  "visual_cue": "show it sitting heavily with a little dent under it and the cute baby camel mascot straining to lift one side"
+ },
+ {
+  "id": "light",
+  "en": "light",
+  "m": "خَفِيف",
+  "f": "خَفِيفَة",
+  "ph_m": "khafeef",
+  "ph_f": "khafeefa",
+  "group": "weight",
+  "visual_cue": "make the {obj} float gently in the air like a feather, with little puffs of air"
+ },
+ {
+  "id": "new",
+  "en": "new",
+  "m": "جَدِيد",
+  "f": "جَدِيدَة",
+  "ph_m": "jadeed",
+  "ph_f": "jadeeda",
+  "group": "age",
+  "visual_cue": "add a sparkle and a shiny gift ribbon bow on the {obj}"
+ },
+ {
+  "id": "old",
+  "en": "old",
+  "m": "قَدِيم",
+  "f": "قَدِيمَة",
+  "ph_m": "qadeem",
+  "ph_f": "qadeema",
+  "group": "age",
+  "visual_cue": "make the {obj} look old and faded with soft dust and a small patch"
+ },
+ {
+  "id": "clean",
+  "en": "clean",
+  "m": "نَظِيف",
+  "f": "نَظِيفَة",
+  "ph_m": "nadheef",
+  "ph_f": "nadheefa",
+  "group": "state",
+  "visual_cue": "make the {obj} sparkling clean with shiny highlights and a few soap bubbles"
+ },
+ {
+  "id": "beautiful",
+  "en": "beautiful",
+  "m": "جَمِيل",
+  "f": "جَمِيلَة",
+  "ph_m": "jameel",
+  "ph_f": "jameela",
+  "group": "look",
+  "visual_cue": "decorate the {obj} with small flowers and little hearts around it"
+ },
+ {
+  "id": "shiny",
+  "en": "shiny",
+  "m": "لَامِع",
+  "f": "لَامِعَة",
+  "ph_m": "lami'",
+  "ph_f": "lami'a",
+  "group": "look",
+  "visual_cue": "make the {obj} gleam with bright shiny highlights and star twinkles"
+ },
+ {
+  "id": "colourful",
+  "en": "colourful",
+  "m": "مُلَوَّن",
+  "f": "مُلَوَّنَة",
+  "ph_m": "mulawwan",
+  "ph_f": "mulawwana",
+  "group": "look",
+  "visual_cue": "make the {obj} rainbow coloured with bright stripes and dots"
+ },
+ {
+  "id": "soft",
+  "en": "soft",
+  "m": "نَاعِم",
+  "f": "نَاعِمَة",
+  "ph_m": "na'im",
+  "ph_f": "na'ima",
+  "group": "touch",
+  "visual_cue": "make the {obj} look fluffy and squishy like a soft cushion"
+ },
+ {
+  "id": "hard",
+  "en": "hard",
+  "m": "صُلْب",
+  "f": "صُلْبَة",
+  "ph_m": "sulb",
+  "ph_f": "sulba",
+  "group": "touch",
+  "visual_cue": "make the {obj} look solid and strong, as if made of tough wood or plastic"
+ },
+ {
+  "id": "cold",
+  "en": "cold",
+  "m": "بَارِد",
+  "f": "بَارِدَة",
+  "ph_m": "barid",
+  "ph_f": "barida",
+  "group": "temp",
+  "visual_cue": "add frost, little snowflakes and a cool blue glow around the {obj}"
+ },
+ {
+  "id": "warm",
+  "en": "warm",
+  "m": "دَافِئ",
+  "f": "دَافِئَة",
+  "ph_m": "dafi'",
+  "ph_f": "dafi'a",
+  "group": "temp",
+  "visual_cue": "add a soft cosy orange glow and a little gentle steam swirl (no fire)"
+ },
+ {
+  "id": "full",
+  "en": "full",
+  "m": "مُمْتَلِئ",
+  "f": "مُمْتَلِئَة",
+  "ph_m": "mumtali'",
+  "ph_f": "mumtali'a",
+  "group": "fill",
+  "visual_cue": "show the {obj} filled right up to the top"
+ },
+ {
+  "id": "empty",
+  "en": "empty",
+  "m": "فَارِغ",
+  "f": "فَارِغَة",
+  "ph_m": "farigh",
+  "ph_f": "farigha",
+  "group": "fill",
+  "visual_cue": "show the {obj} completely empty inside"
+ },
+ {
+  "id": "fast",
+  "en": "fast",
+  "m": "سَرِيع",
+  "f": "سَرِيعَة",
+  "ph_m": "saree'",
+  "ph_f": "saree'a",
+  "group": "speed",
+  "visual_cue": "add speed lines and little motion clouds as if the {obj} is zooming"
+ },
+ {
+  "id": "delicious",
+  "en": "delicious",
+  "m": "لَذِيذ",
+  "f": "لَذِيذَة",
+  "ph_m": "ladheedh",
+  "ph_f": "ladheedha",
+  "group": "taste",
+  "visual_cue": "add the cute baby camel mascot licking its lips happily next to the {obj}"
+ },
+ {
+  "id": "sweet",
+  "en": "sweet",
+  "m": "حُلْو",
+  "f": "حُلْوَة",
+  "ph_m": "hulw",
+  "ph_f": "hulwa",
+  "group": "taste",
+  "visual_cue": "add tiny candy hearts and sparkles floating around the {obj}"
+ },
+ {
+  "id": "sour",
+  "en": "sour",
+  "m": "حَامِض",
+  "f": "حَامِضَة",
+  "ph_m": "hamid",
+  "ph_f": "hamida",
+  "group": "taste",
+  "visual_cue": "add the cute baby camel mascot with a funny puckered sour face next to the {obj}"
+ },
+ {
+  "id": "fresh",
+  "en": "fresh",
+  "m": "طَازَج",
+  "f": "طَازَجَة",
+  "ph_m": "tazaj",
+  "ph_f": "tazaja",
+  "group": "taste",
+  "visual_cue": "add tiny water droplets and a green leaf to show it is fresh"
+ },
+ {
+  "id": "happy",
+  "en": "happy",
+  "m": "سَعِيد",
+  "f": "سَعِيدَة",
+  "ph_m": "sa'eed",
+  "ph_f": "sa'eeda",
+  "group": "fun",
+  "visual_cue": "give the {obj} a big happy smiling cartoon face with friendly eyes"
+ },
+ {
+  "id": "funny",
+  "en": "funny",
+  "m": "مُضْحِك",
+  "f": "مُضْحِكَة",
+  "ph_m": "mudhik",
+  "ph_f": "mudhika",
+  "group": "fun",
+  "visual_cue": "give the {obj} a silly funny face sticking its tongue out, with googly eyes"
+ }
+]

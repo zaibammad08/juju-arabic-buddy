@@ -1,0 +1,225 @@
+{
+ "letter": "ا",
+ "name": "Alif",
+ "words": [
+  {
+   "word": "أَسَد",
+   "plain": "أَسد",
+   "english": "lion",
+   "emoji": "🦁",
+   "sticker": "assets/images/lesson_lion.webp",
+   "phonetic": "asad"
+  },
+  {
+   "word": "أَرْنَب",
+   "plain": "أَرنب",
+   "english": "rabbit",
+   "emoji": "🐰",
+   "sticker": "assets/images/toy_rabbit.webp",
+   "phonetic": "arnab"
+  },
+  {
+   "word": "أَنْف",
+   "plain": "أَنف",
+   "english": "nose",
+   "emoji": "👃",
+   "sticker": "assets/images/lesson_nose.webp",
+   "phonetic": "anf"
+  },
+  {
+   "word": "أَب",
+   "plain": "أَب",
+   "english": "father",
+   "emoji": "👨",
+   "sticker": "assets/images/page_father.webp",
+   "phonetic": "ab"
+  },
+  {
+   "word": "أُم",
+   "plain": "أُم",
+   "english": "mother",
+   "emoji": "👩",
+   "sticker": "assets/images/lesson_mother.webp",
+   "phonetic": "umm"
+  },
+  {
+   "word": "أَخ",
+   "plain": "أَخ",
+   "english": "brother",
+   "emoji": "👦",
+   "sticker": "assets/images/page_brother.webp",
+   "phonetic": "akh"
+  },
+  {
+   "word": "أُخْت",
+   "plain": "أُخت",
+   "english": "sister",
+   "emoji": "👧",
+   "sticker": "assets/images/page_sister.webp",
+   "phonetic": "ukht"
+  },
+  {
+   "word": "أُسْرَة",
+   "plain": "أُسرة",
+   "english": "family",
+   "emoji": "👨‍👩‍👧‍👦",
+   "sticker": "assets/images/page_family.webp",
+   "phonetic": "usra"
+  }
+ ],
+ "trace": [
+  "أ",
+  "أنا",
+  "أب"
+ ],
+ "trace_say": [
+  [
+   "أَلِف",
+   ""
+  ],
+  [
+   "أَنَا",
+   "I, me"
+  ],
+  [
+   "أَب",
+   "father"
+  ]
+ ],
+ "colours": [
+  {
+   "e": "🟥",
+   "ar": "أَحمر",
+   "say": "أَحْمَر",
+   "tr": "aḥmar",
+   "en": "red"
+  },
+  {
+   "e": "🟦",
+   "ar": "أَزرق",
+   "say": "أَزْرَق",
+   "tr": "azraq",
+   "en": "blue"
+  },
+  {
+   "e": "🟩",
+   "ar": "أَخضر",
+   "say": "أَخْضَر",
+   "tr": "akhḍar",
+   "en": "green"
+  }
+ ],
+ "long_short": [
+  {
+   "e": "🙋",
+   "ar": "أَنا",
+   "say": "أَنَا",
+   "tr": "ana",
+   "en": "I, me",
+   "long": false
+  },
+  {
+   "e": "😋",
+   "ar": "آكُل",
+   "say": "آكُل",
+   "tr": "aakul",
+   "en": "I eat",
+   "long": true
+  },
+  {
+   "e": "👨",
+   "ar": "أَب",
+   "say": "أَب",
+   "tr": "ab",
+   "en": "father",
+   "long": false
+  },
+  {
+   "e": "🧒",
+   "ar": "آدَم",
+   "say": "آدَم",
+   "tr": "Aadam",
+   "en": "Adam (a name)",
+   "long": true
+  },
+  {
+   "e": "👦",
+   "ar": "أَخ",
+   "say": "أَخ",
+   "tr": "akh",
+   "en": "brother",
+   "long": false
+  },
+  {
+   "e": "🦁",
+   "ar": "أَسد",
+   "say": "أَسَد",
+   "tr": "asad",
+   "en": "lion",
+   "long": false
+  }
+ ],
+ "meet": [
+  {
+   "ar": "أَنا",
+   "say": "أَنَا",
+   "tr": "ana",
+   "en": "I, me"
+  },
+  {
+   "ar": "هذا أَنا",
+   "say": "هَذَا أَنَا",
+   "tr": "haadhaa ana",
+   "en": "This is me"
+  },
+  {
+   "ar": "أَنا اسْمي …",
+   "say": "أَنَا اسْمِي",
+   "tr": "ana ismii …",
+   "en": "My name is …"
+  },
+  {
+   "ar": "أَهْلًا",
+   "say": "أَهْلًا",
+   "tr": "ahlan",
+   "en": "Hello, welcome"
+  }
+ ],
+ "speak": [
+  {
+   "e": "👨",
+   "ar": "أنا أُحِبُّ أبي.",
+   "say": "أَنَا أُحِبُّ أَبِي",
+   "tr": "ana uḥibbu abii",
+   "en": "I love my father."
+  },
+  {
+   "e": "👩",
+   "ar": "أنا أُحِبُّ أمي.",
+   "say": "أَنَا أُحِبُّ أُمِّي",
+   "tr": "ana uḥibbu ummii",
+   "en": "I love my mother."
+  },
+  {
+   "e": "🐰",
+   "ar": "أنا أُحِبُّ الأرنب.",
+   "say": "أَنَا أُحِبُّ الأَرْنَب",
+   "tr": "ana uḥibbu l-arnab",
+   "en": "I like the rabbit."
+  },
+  {
+   "e": "🦁",
+   "ar": "أنا أُحِبُّ الأسد.",
+   "say": "أَنَا أُحِبُّ الأَسَد",
+   "tr": "ana uḥibbu l-asad",
+   "en": "I like the lion."
+  },
+  {
+   "e": "🟥",
+   "ar": "أنا أُحِبُّ اللون الأحمر.",
+   "say": "أَنَا أُحِبُّ اللَّوْن الأَحْمَر",
+   "tr": "ana uḥibbu l-lawn al-aḥmar",
+   "en": "I like the colour red."
+  }
+ ]
+}

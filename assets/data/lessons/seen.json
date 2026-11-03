@@ -1,0 +1,316 @@
+{
+ "letter": "س",
+ "name": "Seen",
+ "shapes": [
+  {
+   "position": "beginning",
+   "form": "سـ",
+   "word": "سَمَكَة",
+   "plain": "سمكة",
+   "english": "fish",
+   "emoji": "🐟",
+   "sticker": "assets/images/lesson_fish.webp"
+  },
+  {
+   "position": "middle",
+   "form": "ـسـ",
+   "word": "مِسْطَرَة",
+   "plain": "مسطرة",
+   "english": "ruler",
+   "emoji": "📏",
+   "sticker": "assets/images/page_ruler.webp"
+  },
+  {
+   "position": "end",
+   "form": "ـس",
+   "word": "شَمْس",
+   "plain": "شمس",
+   "english": "sun",
+   "emoji": "☀️",
+   "sticker": "assets/images/lesson_sun.webp"
+  }
+ ],
+ "posq": [
+  {
+   "word": "سَفِينَة",
+   "plain": "سفينة",
+   "english": "ship",
+   "emoji": "🚢",
+   "sticker": "assets/images/page_ship.webp",
+   "answer": "beginning"
+  },
+  {
+   "word": "بَسْكَوِيت",
+   "plain": "بسكويت",
+   "english": "biscuit",
+   "emoji": "🍪",
+   "sticker": "assets/images/page_biscuit.webp",
+   "answer": "middle"
+  },
+  {
+   "word": "خَمْس",
+   "plain": "خمس",
+   "english": "five",
+   "emoji": "🖐️",
+   "sticker": "assets/images/page_five.webp",
+   "answer": "end"
+  }
+ ],
+ "words": [
+  {
+   "word": "سَمَكَة",
+   "plain": "سمكة",
+   "english": "fish",
+   "emoji": "🐟",
+   "sticker": "assets/images/lesson_fish.webp",
+   "phonetic": "samaka"
+  },
+  {
+   "word": "سَاعَة",
+   "plain": "ساعة",
+   "english": "clock",
+   "emoji": "⏰",
+   "sticker": "assets/images/clock.webp",
+   "phonetic": "saaʿa"
+  },
+  {
+   "word": "سَبُّورَة",
+   "plain": "سبورة",
+   "english": "board",
+   "emoji": "📋",
+   "sticker": "assets/images/page_board.webp",
+   "phonetic": "sabbuura"
+  },
+  {
+   "word": "سَرِير",
+   "plain": "سرير",
+   "english": "bed",
+   "emoji": "🛏️",
+   "sticker": "assets/images/bed.webp",
+   "phonetic": "sariir"
+  },
+  {
+   "word": "سَفِينَة",
+   "plain": "سفينة",
+   "english": "ship",
+   "emoji": "🚢",
+   "sticker": "assets/images/page_ship.webp",
+   "phonetic": "safiina"
+  }
+ ],
+ "not_words": [
+  {
+   "word": "شَجَرَة",
+   "plain": "شجرة",
+   "english": "tree",
+   "emoji": "🌳",
+   "sticker": "assets/images/lesson_tree.webp",
+   "phonetic": "shajara"
+  },
+  {
+   "word": "طِفْل",
+   "plain": "طفل",
+   "english": "child",
+   "emoji": "👶",
+   "sticker": "assets/images/page_child.webp",
+   "phonetic": "ṭifl"
+  },
+  {
+   "word": "جَمَل",
+   "plain": "جمل",
+   "english": "camel",
+   "emoji": "🐫",
+   "sticker": "assets/images/lesson_camel.webp",
+   "phonetic": "jamal"
+  },
+  {
+   "word": "بَطَّة",
+   "plain": "بطة",
+   "english": "duck",
+   "emoji": "🦆",
+   "sticker": "assets/images/lesson_duck.webp",
+   "phonetic": "baṭṭa"
+  },
+  {
+   "word": "بَاب",
+   "plain": "باب",
+   "english": "door",
+   "emoji": "🚪",
+   "sticker": "assets/images/door.webp",
+   "phonetic": "baab"
+  }
+ ],
+ "vowels": [
+  {
+   "ar": "سَ",
+   "say": "سَ",
+   "s": "sa",
+   "mark": "fatha: a small line on top",
+   "ex": {
+    "e": "🐟",
+    "ar": "سَمكة",
+    "say": "سَمَكَة",
+    "tr": "samaka",
+    "en": "fish"
+   }
+  },
+  {
+   "ar": "سِ",
+   "say": "سِ",
+   "s": "si",
+   "mark": "kasra: a small line below",
+   "ex": {
+    "e": "6️⃣",
+    "ar": "سِتّة",
+    "say": "سِتَّة",
+    "tr": "sitta",
+    "en": "six"
+   }
+  },
+  {
+   "ar": "سُ",
+   "say": "سُ",
+   "s": "su",
+   "mark": "damma: a little curl on top",
+   "ex": {
+    "e": "🍬",
+    "ar": "سُكّر",
+    "say": "سُكَّر",
+    "tr": "sukkar",
+    "en": "sugar"
+   }
+  }
+ ],
+ "long_vowels": [
+  {
+   "ar": "سا",
+   "say": "سَا",
+   "s": "saa",
+   "mark": "with alif: a long a",
+   "ex": {
+    "e": "⏰",
+    "ar": "سَاعة",
+    "say": "سَاعَة",
+    "tr": "saaʿa",
+    "en": "clock"
+   }
+  },
+  {
+   "ar": "سي",
+   "say": "سِي",
+   "s": "sii",
+   "mark": "with yaa: a long i",
+   "ex": {
+    "e": "🎬",
+    "ar": "سِينما",
+    "say": "سِينَمَا",
+    "tr": "siinamaa",
+    "en": "cinema"
+   }
+  },
+  {
+   "ar": "سو",
+   "say": "سُو",
+   "s": "suu",
+   "mark": "with waaw: a long u",
+   "ex": {
+    "e": "🛒",
+    "ar": "سُوق",
+    "say": "سُوق",
+    "tr": "suuq",
+    "en": "market"
+   }
+  }
+ ],
+ "trace": [
+  "س",
+  "سرير",
+  "سمكة"
+ ],
+ "trace_say": [
+  [
+   "سِين",
+   ""
+  ],
+  [
+   "سَرِير",
+   "bed"
+  ],
+  [
+   "سَمَكَة",
+   "fish"
+  ]
+ ],
+ "speak": [
+  {
+   "e": "🐟",
+   "ar": "هذه سمكة.",
+   "say": "هَذِهِ سَمَكَة",
+   "tr": "haadhihi samaka",
+   "en": "This is a fish."
+  },
+  {
+   "e": "⏰",
+   "ar": "هذه ساعة.",
+   "say": "هَذِهِ سَاعَة",
+   "tr": "haadhihi saaʿa",
+   "en": "This is a clock."
+  },
+  {
+   "e": "📋",
+   "ar": "هذه سبورة.",
+   "say": "هَذِهِ سَبُّورَة",
+   "tr": "haadhihi sabbuura",
+   "en": "This is a board."
+  },
+  {
+   "e": "🛏️",
+   "ar": "هذا سرير.",
+   "say": "هَذَا سَرِير",
+   "tr": "haadhaa sariir",
+   "en": "This is a bed."
+  },
+  {
+   "e": "🚢",
+   "ar": "هذه سفينة.",
+   "say": "هَذِهِ سَفِينَة",
+   "tr": "haadhihi safiina",
+   "en": "This is a ship."
+  },
+  {
+   "e": "🐟",
+   "ar": "أنا أرى سمكة.",
+   "say": "أَنَا أَرَى سَمَكَة",
+   "tr": "anaa araa samaka",
+   "en": "I see a fish."
+  },
+  {
+   "e": "⏰",
+   "ar": "أنا أرى ساعة.",
+   "say": "أَنَا أَرَى سَاعَة",
+   "tr": "anaa araa saaʿa",
+   "en": "I see a clock."
+  },
+  {
+   "e": "📋",
+   "ar": "أنا أرى سبورة.",
+   "say": "أَنَا أَرَى سَبُّورَة",
+   "tr": "anaa araa sabbuura",
+   "en": "I see a board."
+  },
+  {
+   "e": "🛏️",
+   "ar": "أنا أرى سريرًا.",
+   "say": "أَنَا أَرَى سَرِيرَا",
+   "tr": "anaa araa sariiraa",
+   "en": "I see a bed."
+  },
+  {
+   "e": "🚢",
+   "ar": "أنا أرى سفينة.",
+   "say": "أَنَا أَرَى سَفِينَة",
+   "tr": "anaa araa safiina",
+   "en": "I see a ship."
+  }
+ ]
+}

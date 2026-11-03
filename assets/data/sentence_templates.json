@@ -1,0 +1,21 @@
+[
+ {"id": "this_is", "group": "all", "en": "This is {indef}.", "ar_m": "هَذَا {W:nom}", "ar_f": "هَذِهِ {W:nom}", "ph_m": "Hadha {w:nom}", "ph_f": "Hadhihi {w:nom}", "gloss": {"هَذَا": "this is", "هَذِهِ": "this is"}},
+ {"id": "have", "group": "all", "en": "I have {indef}.", "ar_m": "عِنْدِي {W:nom}", "ar_f": "عِنْدِي {W:nom}", "ph_m": "'Indi {w:nom}", "ph_f": "'Indi {w:nom}", "gloss": {"عِنْدِي": "I have"}},
+ {"id": "see", "group": "all", "en": "I see {def}.", "ar_m": "أَنَا أَرَى {D:acc}", "ar_f": "أَنَا أَرَى {D:acc}", "ph_m": "Ana ara {d:acc}", "ph_f": "Ana ara {d:acc}", "gloss": {"أَنَا": "I", "أَرَى": "see"}},
+ {"id": "big", "group": "adjective", "adj": "big", "en": "{Def} {be} big.", "ar_m": "{D:nom} {ADJ}", "ar_f": "{D:nom} {ADJ}", "ph_m": "{Dp:nom} {adj}", "ph_f": "{Dp:nom} {adj}"},
+ {"id": "small", "group": "adjective", "adj": "small", "en": "{Def} {be} small.", "ar_m": "{D:nom} {ADJ}", "ar_f": "{D:nom} {ADJ}", "ph_m": "{Dp:nom} {adj}", "ph_f": "{Dp:nom} {adj}"},
+ {"id": "beautiful", "group": "adjective", "adj": "beautiful", "en": "{Def} {be} beautiful.", "ar_m": "{D:nom} {ADJ}", "ar_f": "{D:nom} {ADJ}", "ph_m": "{Dp:nom} {adj}", "ph_f": "{Dp:nom} {adj}"},
+ {"id": "delicious", "group": "adjective", "adj": "delicious", "en": "{Def} {be} delicious.", "ar_m": "{D:nom} {ADJ}", "ar_f": "{D:nom} {ADJ}", "ph_m": "{Dp:nom} {adj}", "ph_f": "{Dp:nom} {adj}"},
+ {"id": "like", "group": "all", "en": "I like {def}.", "ar_m": "أَنَا أُحِبُّ {D:acc}", "ar_f": "أَنَا أُحِبُّ {D:acc}", "ph_m": "Ana uhibbu {d:acc}", "ph_f": "Ana uhibbu {d:acc}", "gloss": {"أَنَا": "I", "أُحِبُّ": "like"}},
+ {"id": "where", "group": "all", "en": "Where {be} {def}?", "ar_m": "أَيْنَ {D:nom}؟", "ar_f": "أَيْنَ {D:nom}؟", "ph_m": "Ayna {d:nom}?", "ph_f": "Ayna {d:nom}?", "gloss": {"أَيْنَ": "where is"}},
+ {"id": "play", "group": "action", "en": "I play with {def}.", "ar_m": "أَنَا أَلْعَبُ بِ{D:gen}", "ar_f": "أَنَا أَلْعَبُ بِ{D:gen}", "ph_m": "Ana al'abu {bd:gen}", "ph_f": "Ana al'abu {bd:gen}", "gloss": {"أَنَا": "I", "أَلْعَبُ": "play", "بِ": "with"}},
+ {"id": "eat", "group": "action", "en": "I eat {def}.", "ar_m": "أَنَا آكُلُ {D:acc}", "ar_f": "أَنَا آكُلُ {D:acc}", "ph_m": "Ana akulu {d:acc}", "ph_f": "Ana akulu {d:acc}", "gloss": {"أَنَا": "I", "آكُلُ": "eat"}},
+ {"id": "drink", "group": "action", "en": "I drink {def}.", "ar_m": "أَنَا أَشْرَبُ {D:acc}", "ar_f": "أَنَا أَشْرَبُ {D:acc}", "ph_m": "Ana ashrabu {d:acc}", "ph_f": "Ana ashrabu {d:acc}", "gloss": {"أَنَا": "I", "أَشْرَبُ": "drink"}},
+ {"id": "sit", "group": "action", "en": "I sit on {def}.", "ar_m": "أَنَا أَجْلِسُ عَلَى {D:gen}", "ar_f": "أَنَا أَجْلِسُ عَلَى {D:gen}", "ph_m": "Ana ajlisu 'ala {d:gen}", "ph_f": "Ana ajlisu 'ala {d:gen}", "gloss": {"أَنَا": "I", "أَجْلِسُ": "sit", "عَلَى": "on"}},
+ {"id": "sleep", "group": "action", "en": "I sleep on {def}.", "ar_m": "أَنَا أَنَامُ عَلَى {D:gen}", "ar_f": "أَنَا أَنَامُ عَلَى {D:gen}", "ph_m": "Ana anamu 'ala {d:gen}", "ph_f": "Ana anamu 'ala {d:gen}", "gloss": {"أَنَا": "I", "أَنَامُ": "sleep", "عَلَى": "on"}},
+ {"id": "ride", "group": "action", "en": "I ride {def}.", "ar_m": "أَنَا أَرْكَبُ {D:acc}", "ar_f": "أَنَا أَرْكَبُ {D:acc}", "ph_m": "Ana arkabu {d:acc}", "ph_f": "Ana arkabu {d:acc}", "gloss": {"أَنَا": "I", "أَرْكَبُ": "ride"}},
+ {"id": "wear", "group": "action", "en": "I wear {def}.", "ar_m": "أَنَا أَلْبَسُ {D:acc}", "ar_f": "أَنَا أَلْبَسُ {D:acc}", "ph_m": "Ana albasu {d:acc}", "ph_f": "Ana albasu {d:acc}", "gloss": {"أَنَا": "I", "أَلْبَسُ": "wear"}},
+ {"id": "open", "group": "action", "en": "I open {def}.", "ar_m": "أَنَا أَفْتَحُ {D:acc}", "ar_f": "أَنَا أَفْتَحُ {D:acc}", "ph_m": "Ana aftahu {d:acc}", "ph_f": "Ana aftahu {d:acc}", "gloss": {"أَنَا": "I", "أَفْتَحُ": "open"}},
+ {"id": "open_with", "group": "action", "en": "I open the door with {def}.", "ar_m": "أَنَا أَفْتَحُ الْبَابَ بِ{D:gen}", "ar_f": "أَنَا أَفْتَحُ الْبَابَ بِ{D:gen}", "ph_m": "Ana aftahu al-baba {bd:gen}", "ph_f": "Ana aftahu al-baba {bd:gen}", "gloss": {"أَنَا": "I", "أَفْتَحُ": "open", "الْبَابَ": "the door", "بِ": "with"}},
+ {"id": "use", "group": "action", "en": "I use {def}.", "ar_m": "أَنَا أَسْتَخْدِمُ {D:acc}", "ar_f": "أَنَا أَسْتَخْدِمُ {D:acc}", "ph_m": "Ana astakhdimu {d:acc}", "ph_f": "Ana astakhdimu {d:acc}", "gloss": {"أَنَا": "I", "أَسْتَخْدِمُ": "use"}}
+]

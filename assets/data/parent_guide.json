@@ -1,0 +1,592 @@
+{
+ "version": 3,
+ "note": "Parent Arabic Guide (Screen 16). Today's tip = tips[dayOfYear % tips.length]. Optional per tip: girl_label/girl_ar/girl_say, reply_ar/reply_say. audio:true = show the listen button (only fully vowelled phrases).",
+ "tips": [
+  {
+   "id": 1,
+   "group": "sounds-letters",
+   "title": "Short vowels",
+   "rule": "Three small marks give short vowel sounds. Fatha (ـَ) above = short 'a'. Kasra (ـِ) below = short 'i' as in 'sit'. Damma (ـُ) above = short 'u' as in 'put'.",
+   "example_ar": "بَ  بِ  بُ",
+   "example_say": "ba  bi  bu",
+   "example_en": "b + each short vowel"
+  },
+  {
+   "id": 2,
+   "group": "sounds-letters",
+   "title": "Long vowels",
+   "rule": "To stretch a vowel, add a letter: ا makes a long 'aa', ي makes a long 'ee', و makes a long 'oo'.",
+   "example_ar": "كِتاب  كَبير  نور",
+   "example_say": "kitaab  kabeer  noor",
+   "example_en": "book  big  light"
+  },
+  {
+   "id": 3,
+   "group": "sounds-letters",
+   "title": "Sukun = no vowel",
+   "rule": "A small circle (ـْ) above a letter means it has no vowel. You just say the consonant and stop.",
+   "example_ar": "بَيْت",
+   "example_say": "bayt",
+   "example_en": "house"
+  },
+  {
+   "id": 4,
+   "group": "sounds-letters",
+   "title": "Shadda = double letter",
+   "rule": "A small 'w' shape (ـّ) means say the letter twice, holding it a little longer.",
+   "example_ar": "أُمّ",
+   "example_say": "umm",
+   "example_en": "mother"
+  },
+  {
+   "id": 5,
+   "group": "sounds-letters",
+   "title": "Dots change the letter",
+   "rule": "Many letters share one shape and differ only by dots. Count the dots and check if they are above or below.",
+   "example_ar": "ب  ت  ث",
+   "example_say": "b  t  th",
+   "example_en": "1 dot below, 2 above, 3 above"
+  },
+  {
+   "id": 6,
+   "group": "sounds-letters",
+   "title": "Right to left",
+   "rule": "Arabic is read and written from right to left. Point your finger at the right side of the line to start.",
+   "example_ar": "أنا أحبّ العربية",
+   "example_say": "ana uhibbu al-arabiyya",
+   "example_en": "I love Arabic"
+  },
+  {
+   "id": 7,
+   "group": "sounds-letters",
+   "title": "Letters change shape",
+   "rule": "Most letters look different at the start, middle and end of a word. It is still the same letter.",
+   "example_ar": "بـ  ـبـ  ـب",
+   "example_say": "b  b  b",
+   "example_en": "start, middle, end"
+  },
+  {
+   "id": 8,
+   "group": "sounds-letters",
+   "title": "Letters that don't join forward",
+   "rule": "Six letters never connect to the letter after them: ا د ذ ر ز و. That's why some words have small gaps inside.",
+   "example_ar": "دار  ورد",
+   "example_say": "daar  ward",
+   "example_en": "home  roses"
+  },
+  {
+   "id": 9,
+   "group": "sounds-letters",
+   "title": "Sounds with no English match",
+   "rule": "ع ح خ غ ق come from the throat. Don't worry about perfection; let your child copy the app audio.",
+   "example_ar": "عين  خبز",
+   "example_say": "'ayn  khubz",
+   "example_en": "eye  bread"
+  },
+  {
+   "id": 10,
+   "group": "sounds-letters",
+   "title": "Heavy and light pairs",
+   "rule": "Some pairs sound close, but the second one is 'heavier' (deeper in the mouth): س/ص, ت/ط, د/ض, ذ/ظ.",
+   "example_ar": "سيف  صيف",
+   "example_say": "sayf  sayf (heavier)",
+   "example_en": "sword  summer"
+  },
+  {
+   "id": 11,
+   "group": "sounds-letters",
+   "title": "Hamza = a tiny stop",
+   "rule": "Hamza (ء) is a short catch in the throat, like the break in 'uh-oh'.",
+   "example_ar": "سَأَلَ",
+   "example_say": "sa'ala",
+   "example_en": "he asked"
+  },
+  {
+   "id": 12,
+   "group": "the-and-a",
+   "title": "'The' = ال",
+   "rule": "Arabic has no separate word for 'the'. Attach ال (al-) to the front of the word.",
+   "example_ar": "بيت ← البيت",
+   "example_say": "bayt → al-bayt",
+   "example_en": "house → the house"
+  },
+  {
+   "id": 13,
+   "group": "the-and-a",
+   "title": "'A / an' is hidden",
+   "rule": "There is no word for 'a'. The 'n' sound at the end (tanween, ـٌ ـً ـٍ) does the job.",
+   "example_ar": "بيتٌ",
+   "example_say": "baytun",
+   "example_en": "a house"
+  },
+  {
+   "id": 14,
+   "group": "the-and-a",
+   "title": "Moon letters",
+   "rule": "With moon letters you hear the 'l' in ال clearly.",
+   "example_ar": "القمر  الكتاب",
+   "example_say": "al-qamar  al-kitaab",
+   "example_en": "the moon  the book"
+  },
+  {
+   "id": 15,
+   "group": "the-and-a",
+   "title": "Sun letters",
+   "rule": "With sun letters (like ت د ر س ش ن) the 'l' is silent and the next letter is doubled instead.",
+   "example_ar": "الشمس  النور",
+   "example_say": "ash-shams  an-noor",
+   "example_en": "the sun  the light"
+  },
+  {
+   "id": 16,
+   "group": "boy-girl-words",
+   "title": "Masculine and feminine",
+   "rule": "Every noun is masculine or feminine. A ة at the end usually means feminine.",
+   "example_ar": "بيت  سيارة",
+   "example_say": "bayt  sayyaara",
+   "example_en": "house (m)  car (f)"
+  },
+  {
+   "id": 17,
+   "group": "boy-girl-words",
+   "title": "ة or ه?",
+   "rule": "ة (with 2 dots) only appears at the end of a word and sounds like 'a'. ه has no dots and sounds like 'h'.",
+   "example_ar": "مدرسة  وجه",
+   "example_say": "madrasa  wajh",
+   "example_en": "school  face"
+  },
+  {
+   "id": 18,
+   "group": "boy-girl-words",
+   "title": "Adjectives come after",
+   "rule": "The describing word comes after the noun, the opposite of English.",
+   "example_ar": "بيت كبير",
+   "example_say": "bayt kabeer",
+   "example_en": "a big house (house big)"
+  },
+  {
+   "id": 19,
+   "group": "boy-girl-words",
+   "title": "Adjectives match gender",
+   "rule": "If the noun is feminine, add ة to the adjective too.",
+   "example_ar": "بيت كبير  سيارة كبيرة",
+   "example_say": "bayt kabeer  sayyaara kabeera",
+   "example_en": "a big house  a big car"
+  },
+  {
+   "id": 20,
+   "group": "boy-girl-words",
+   "title": "Colours change for feminine",
+   "rule": "Colours have their own feminine form, not just ة.",
+   "example_ar": "أحمر/حمراء  أزرق/زرقاء",
+   "example_say": "ahmar/hamraa  azraq/zarqaa",
+   "example_en": "red  blue (m/f)"
+  },
+  {
+   "id": 21,
+   "group": "sentences-questions",
+   "title": "No 'is' in simple sentences",
+   "rule": "In present-tense sentences Arabic skips 'is' and 'are'.",
+   "example_ar": "هذا بيت",
+   "example_say": "haadha bayt",
+   "example_en": "This (is) a house"
+  },
+  {
+   "id": 22,
+   "group": "sentences-questions",
+   "title": "'The big house' vs 'The house is big'",
+   "rule": "If both words have ال it's a phrase. If only the noun has ال, it's a sentence.",
+   "example_ar": "البيت الكبير  البيت كبير",
+   "example_say": "al-bayt al-kabeer  al-bayt kabeer",
+   "example_en": "the big house  the house is big"
+  },
+  {
+   "id": 23,
+   "group": "sentences-questions",
+   "title": "This: هذا / هذه",
+   "rule": "Use هذا for masculine nouns and هذه for feminine nouns.",
+   "example_ar": "هذا كرسي  هذه طاولة",
+   "example_say": "haadha kursi  haadhihi taawila",
+   "example_en": "this is a chair  this is a table"
+  },
+  {
+   "id": 24,
+   "group": "sentences-questions",
+   "title": "That: ذلك / تلك",
+   "rule": "For something far away, use ذلك (masculine) or تلك (feminine).",
+   "example_ar": "ذلك بيت  تلك سيارة",
+   "example_say": "dhaalika bayt  tilka sayyaara",
+   "example_en": "that is a house  that is a car"
+  },
+  {
+   "id": 25,
+   "group": "sentences-questions",
+   "title": "What is this?",
+   "rule": "ما هذا؟ asks about a thing. Answer with هذا + the word.",
+   "example_ar": "ما هذا؟ هذا قلم",
+   "example_say": "maa haadha? haadha qalam",
+   "example_en": "What is this? This is a pen"
+  },
+  {
+   "id": 26,
+   "group": "sentences-questions",
+   "title": "Who is this?",
+   "rule": "مَن asks about a person.",
+   "example_ar": "مَن هذا؟ هذا أبي",
+   "example_say": "man haadha? haadha abi",
+   "example_en": "Who is this? This is my dad"
+  },
+  {
+   "id": 27,
+   "group": "sentences-questions",
+   "title": "Where?",
+   "rule": "أين asks where something is. في = in, على = on.",
+   "example_ar": "أين القطة؟ القطة على الكرسي",
+   "example_say": "ayna al-qitta? al-qitta 'ala al-kursi",
+   "example_en": "Where is the cat? The cat is on the chair"
+  },
+  {
+   "id": 28,
+   "group": "sentences-questions",
+   "title": "Yes/no questions",
+   "rule": "Put هل at the start to make a yes/no question. Answer with نعم (yes) or لا (no).",
+   "example_ar": "هل هذا بيت؟ نعم",
+   "example_say": "hal haadha bayt? na'am",
+   "example_en": "Is this a house? Yes"
+  },
+  {
+   "id": 29,
+   "group": "endings",
+   "title": "I, you, he, she",
+   "rule": "'You' changes for a boy or a girl.",
+   "example_ar": "أنا  أنتَ  أنتِ  هو  هي",
+   "example_say": "ana  anta  anti  huwa  hiya",
+   "example_en": "I  you (boy)  you (girl)  he  she"
+  },
+  {
+   "id": 30,
+   "group": "endings",
+   "title": "'My' is an ending",
+   "rule": "Add ـي to the end of a word to say 'my'.",
+   "example_ar": "كتاب ← كتابي",
+   "example_say": "kitaab → kitaabi",
+   "example_en": "book → my book"
+  },
+  {
+   "id": 31,
+   "group": "endings",
+   "title": "'Your' and 'his' are endings too",
+   "rule": "Add ـكَ for 'your' (boy), ـكِ for 'your' (girl), and ـه for 'his'.",
+   "example_ar": "بيتكَ  بيتكِ  بيته",
+   "example_say": "baytuka  baytuki  baytuhu",
+   "example_en": "your house (boy/girl)  his house"
+  },
+  {
+   "id": 32,
+   "group": "endings",
+   "title": "'And' sticks to the next word",
+   "rule": "و (and) is written with no space before the next word.",
+   "example_ar": "قلم ودفتر",
+   "example_say": "qalam wa daftar",
+   "example_en": "a pen and a notebook"
+  },
+  {
+   "id": 33,
+   "group": "endings",
+   "title": "Two of something",
+   "rule": "Arabic has a special 'two' form: add ـان to the end.",
+   "example_ar": "كتاب ← كتابان",
+   "example_say": "kitaab → kitaabaan",
+   "example_en": "book → two books"
+  },
+  {
+   "id": 34,
+   "group": "endings",
+   "title": "Easy plurals",
+   "rule": "Many feminine words make a plural by swapping ة for ـات.",
+   "example_ar": "سيارة ← سيارات",
+   "example_say": "sayyaara → sayyaaraat",
+   "example_en": "car → cars"
+  },
+  {
+   "id": 35,
+   "group": "endings",
+   "title": "Broken plurals",
+   "rule": "Many plurals change the inside of the word. These are learned one by one, so don't worry about rules.",
+   "example_ar": "كتاب ← كُتُب  بيت ← بيوت",
+   "example_say": "kitaab → kutub  bayt → buyoot",
+   "example_en": "book → books  house → houses"
+  },
+  {
+   "id": 36,
+   "group": "everyday",
+   "title": "Arabic numbers",
+   "rule": "Textbooks use these digits, and they are written left to right even inside Arabic text.",
+   "example_ar": "١ ٢ ٣ ٤ ٥",
+   "example_say": "1 2 3 4 5",
+   "example_en": "one to five"
+  },
+  {
+   "id": 37,
+   "group": "everyday",
+   "title": "Vowel marks disappear later",
+   "rule": "Kids' books show every vowel mark. Adult texts usually drop them, so readers rely on knowing the word.",
+   "example_ar": "كِتابٌ ← كتاب",
+   "example_say": "kitaabun",
+   "example_en": "book (with and without marks)"
+  },
+  {
+   "id": 38,
+   "group": "everyday",
+   "title": "School Arabic vs home Arabic",
+   "rule": "School uses Fusha (standard Arabic). Words at home may differ, so both are fine; just know the textbook form for homework.",
+   "example_ar": "ماذا؟ (fusha)  شو؟ (home)",
+   "example_say": "maadha?  shu?",
+   "example_en": "what?"
+  },
+  {
+   "id": 39,
+   "group": "everyday",
+   "title": "Everyday greeting",
+   "rule": "The standard greeting and its reply are great for daily practice at the door.",
+   "example_ar": "السلام عليكم  وعليكم السلام",
+   "example_say": "as-salaamu 'alaykum  wa 'alaykum as-salaam",
+   "example_en": "Peace be upon you  and upon you peace"
+  },
+  {
+   "id": 40,
+   "group": "everyday",
+   "title": "Thank you / you're welcome",
+   "rule": "Use these at home every day to build the habit.",
+   "example_ar": "شكراً  عفواً",
+   "example_say": "shukran  'afwan",
+   "example_en": "thank you  you're welcome"
+  },
+  {
+   "id": 41,
+   "group": "say-it-at-home",
+   "title": "What is this?",
+   "rule": "Point at anything and ask. For a feminine thing, use هذه instead.",
+   "example_ar": "مَا هَذَا؟",
+   "example_say": "maa haadha?",
+   "example_en": "What is this?",
+   "audio": true
+  },
+  {
+   "id": 42,
+   "group": "say-it-at-home",
+   "title": "Where is…?",
+   "rule": "Hide a toy and ask. Swap in any word your child knows.",
+   "example_ar": "أَيْنَ الْكُرَةُ؟",
+   "example_say": "ayna al-kura?",
+   "example_en": "Where is the ball?",
+   "audio": true
+  },
+  {
+   "id": 43,
+   "group": "say-it-at-home",
+   "title": "Look here!",
+   "rule": "Great for showing your child something. The ending changes for a girl.",
+   "example_ar": "اُنْظُرْ هُنَا!",
+   "example_say": "unzhur huna!",
+   "example_en": "Look here!",
+   "girl_label": "To a girl",
+   "girl_ar": "اُنْظُرِي هُنَا!",
+   "girl_say": "unzhuri huna!",
+   "audio": true
+  },
+  {
+   "id": 44,
+   "group": "say-it-at-home",
+   "title": "Let's play!",
+   "rule": "Use it to start any game, and get your child to say it to siblings.",
+   "example_ar": "هَيَّا نَلْعَبْ!",
+   "example_say": "hayya nal'ab!",
+   "example_en": "Let's play!",
+   "audio": true
+  },
+  {
+   "id": 45,
+   "group": "say-it-at-home",
+   "title": "It's my turn",
+   "rule": "Perfect for board games and taking turns.",
+   "example_ar": "جَاءَ دَوْرِي",
+   "example_say": "jaa'a dawri",
+   "example_en": "It's my turn",
+   "audio": true
+  },
+  {
+   "id": 46,
+   "group": "say-it-at-home",
+   "title": "Come with me",
+   "rule": "Say it when you walk somewhere together.",
+   "example_ar": "تَعَالَ مَعِي",
+   "example_say": "ta'aala ma'i",
+   "example_en": "Come with me",
+   "girl_label": "To a girl",
+   "girl_ar": "تَعَالَيْ مَعِي",
+   "girl_say": "ta'aalay ma'i",
+   "audio": true
+  },
+  {
+   "id": 47,
+   "group": "say-it-at-home",
+   "title": "I won!",
+   "rule": "Let your child shout it after a game.",
+   "example_ar": "أَنَا فُزْتُ!",
+   "example_say": "ana fuztu!",
+   "example_en": "I won!",
+   "audio": true
+  },
+  {
+   "id": 48,
+   "group": "say-it-at-home",
+   "title": "I'm hungry",
+   "rule": "Ask your child to say it before snacks.",
+   "example_ar": "أَنَا جَائِعٌ",
+   "example_say": "ana jaa'i'",
+   "example_en": "I'm hungry",
+   "girl_label": "A girl says",
+   "girl_ar": "أَنَا جَائِعَةٌ",
+   "girl_say": "ana jaa'i'a",
+   "audio": true
+  },
+  {
+   "id": 49,
+   "group": "say-it-at-home",
+   "title": "I want water",
+   "rule": "Practise it at every meal.",
+   "example_ar": "أُرِيدُ مَاءً",
+   "example_say": "ureedu maa'an",
+   "example_en": "I want water",
+   "audio": true
+  },
+  {
+   "id": 50,
+   "group": "say-it-at-home",
+   "title": "Please",
+   "rule": "Add it to any request. The ending depends on who you ask.",
+   "example_ar": "مِنْ فَضْلِكَ",
+   "example_say": "min fadlika",
+   "example_en": "Please (to a boy or man)",
+   "girl_label": "To a girl",
+   "girl_ar": "مِنْ فَضْلِكِ",
+   "girl_say": "min fadliki",
+   "audio": true
+  },
+  {
+   "id": 51,
+   "group": "say-it-at-home",
+   "title": "Help me",
+   "rule": "Encourage your child to ask for help in Arabic.",
+   "example_ar": "سَاعِدْنِي",
+   "example_say": "saa'idni",
+   "example_en": "Help me",
+   "girl_label": "To a girl",
+   "girl_ar": "سَاعِدِينِي",
+   "girl_say": "saa'ideeni",
+   "audio": true
+  },
+  {
+   "id": 52,
+   "group": "say-it-at-home",
+   "title": "I finished",
+   "rule": "Say it after homework, meals or tidying up.",
+   "example_ar": "انْتَهَيْتُ",
+   "example_say": "intahaytu",
+   "example_en": "I finished",
+   "audio": true
+  },
+  {
+   "id": 53,
+   "group": "say-it-at-home",
+   "title": "Good morning",
+   "rule": "Start every day with it. The reply means 'morning of light'.",
+   "example_ar": "صَبَاحُ الْخَيْرِ",
+   "example_say": "sabaah al-khayr",
+   "example_en": "Good morning",
+   "reply_ar": "صَبَاحُ النُّورِ",
+   "reply_say": "sabaah an-noor",
+   "audio": true
+  },
+  {
+   "id": 54,
+   "group": "say-it-at-home",
+   "title": "Good night",
+   "rule": "Make it your bedtime routine. It changes when said to a girl.",
+   "example_ar": "تُصْبِحُ عَلَى خَيْرٍ",
+   "example_say": "tusbihu 'ala khayr",
+   "example_en": "Good night (to a boy)",
+   "girl_label": "To a girl",
+   "girl_ar": "تُصْبِحِينَ عَلَى خَيْرٍ",
+   "girl_say": "tusbiheena 'ala khayr",
+   "reply_ar": "وَأَنْتَ مِنْ أَهْلِهِ",
+   "reply_say": "wa anta min ahlih",
+   "audio": true
+  },
+  {
+   "id": 55,
+   "group": "say-it-at-home",
+   "title": "I love you",
+   "rule": "Say it every day. It changes for a girl.",
+   "example_ar": "أُحِبُّكَ",
+   "example_say": "uhibbuka",
+   "example_en": "I love you (to a boy)",
+   "girl_label": "To a girl",
+   "girl_ar": "أُحِبُّكِ",
+   "girl_say": "uhibbuki",
+   "audio": true
+  }
+ ],
+ "groups": [
+  {
+   "id": "sounds-letters",
+   "title": "Sounds & letters",
+   "order": 1,
+   "color": "#E5536B",
+   "icon": "بَ"
+  },
+  {
+   "id": "the-and-a",
+   "title": "\"The\" and \"a\"",
+   "order": 2,
+   "color": "#2F6FDE",
+   "icon": "ال"
+  },
+  {
+   "id": "boy-girl-words",
+   "title": "Boy/girl words",
+   "order": 3,
+   "color": "#F2A65A",
+   "icon": "ة"
+  },
+  {
+   "id": "sentences-questions",
+   "title": "Simple sentences & questions",
+   "order": 4,
+   "color": "#1FA67A",
+   "icon": "؟"
+  },
+  {
+   "id": "endings",
+   "title": "Endings: my, your, two, plurals",
+   "order": 5,
+   "color": "#8A5CD0",
+   "icon": "ـي"
+  },
+  {
+   "id": "everyday",
+   "title": "Everyday Arabic",
+   "order": 6,
+   "color": "#C98A12",
+   "icon": "♥"
+  },
+  {
+   "id": "say-it-at-home",
+   "title": "Say it at home",
+   "order": 7,
+   "color": "#0E8FA8",
+   "icon": "💬"
+  }
+ ]
+}

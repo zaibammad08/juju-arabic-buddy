@@ -1,0 +1,18 @@
+{
+  "home_hello":   {"arabic": "مَرْحَبًا! أَنَا جُوجُو", "audio_text": "مَرْحَبًا! أَنَا جُوجُو", "english": "Hello! I'm Juju!", "voice": "juju", "audio": "juju/juju_ar_hello.mp3"},
+  "home_choose":  {"arabic": "", "audio_text": "", "english": "What shall we do today?", "voice": "jujuEnglish", "audio": "juju/juju_en_what_today.mp3"},
+
+  "hunt_hello":   {"arabic": "هَيَّا!", "audio_text": "هَيَّا", "english": "Let's go!", "voice": "juju", "audio": "juju/juju_ar_lets_go.mp3"},
+
+  "cam_hold":     {"arabic": "ثَلَاثَة، اثْنَان، وَاحِد", "audio_text": "ثَلَاثَة، اثْنَان، وَاحِد", "english": "Hold still! Three, two, one!", "voice": "juju", "audio": "juju/juju_ar_countdown.mp3"},
+  "cam_blurry":   {"arabic": "", "audio_text": "", "english": "Oops, too wobbly! Hold the phone still and try again.", "voice": "jujuEnglish", "audio": "juju/juju_en_blurry.mp3"},
+  "cam_wobbly":   {"arabic": "", "audio_text": "", "english": "Oops, too wobbly! Hold the phone still and try again.", "voice": "jujuEnglish", "audio": "juju/juju_en_blurry.mp3"},
+  "cam_dark":     {"arabic": "", "audio_text": "", "english": "It's a bit dark. Can you turn on a light?", "voice": "jujuEnglish", "audio": "juju/juju_en_too_dark.mp3"},
+  "cam_nothing":  {"arabic": "", "audio_text": "", "english": "Hmm, I can't see anything. Let's try again!", "voice": "jujuEnglish", "audio": "juju/juju_en_nothing.mp3"},
+  "customise_colour":    {"arabic": "", "audio_text": "", "english": "What colour do you want? Tap a bubble or say it!", "voice": "jujuEnglish", "audio": ""},
+"customise_listening": {"arabic": "", "audio_text": "", "english": "I'm listening… say the colour!", "voice": "jujuEnglish", "audio": ""},
+"customise_try_tap":   {"arabic": "", "audio_text": "", "english": "Hmm, I didn't catch that. Tap the colour you like!", "voice": "jujuEnglish", "audio": ""},
+"customise_size":      {"arabic": "", "audio_text": "", "english": "Big or small? You choose!", "voice": "jujuEnglish", "audio": ""},
+"customise_fun":       {"arabic": "", "audio_text": "", "english": "Now make it fun! Happy or funny?", "voice": "jujuEnglish", "audio": ""},
+"customise_done":      {"arabic": "", "audio_text": "", "english": "Wow, it's all yours! Let's make your story!", "voice": "jujuEnglish", "audio": ""}
+}

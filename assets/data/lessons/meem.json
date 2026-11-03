@@ -1,0 +1,252 @@
+{
+ "letter": "م",
+ "name": "Meem",
+ "shapes": [
+  {
+   "position": "beginning",
+   "form": "مـ",
+   "word": "مَوْزَة",
+   "plain": "موزة",
+   "english": "banana",
+   "emoji": "🍌",
+   "sticker": "assets/images/banana.webp"
+  },
+  {
+   "position": "middle",
+   "form": "ـمـ",
+   "word": "سَمَكَة",
+   "plain": "سمكة",
+   "english": "fish",
+   "emoji": "🐟",
+   "sticker": "assets/images/lesson_fish.webp"
+  },
+  {
+   "position": "end",
+   "form": "ـم",
+   "word": "قَلَم",
+   "plain": "قلم",
+   "english": "pen",
+   "emoji": "✏️",
+   "sticker": "assets/images/pen.webp"
+  }
+ ],
+ "posq": [
+  {
+   "word": "مِفْتَاح",
+   "plain": "مفتاح",
+   "english": "key",
+   "emoji": "🔑",
+   "sticker": "assets/images/key.webp",
+   "answer": "beginning"
+  },
+  {
+   "word": "نَمِر",
+   "plain": "نمر",
+   "english": "tiger",
+   "emoji": "🐯",
+   "sticker": "assets/images/lesson_tiger.webp",
+   "answer": "middle"
+  },
+  {
+   "word": "فَم",
+   "plain": "فم",
+   "english": "mouth",
+   "emoji": "👄",
+   "sticker": "assets/images/page_mouth.webp",
+   "answer": "end"
+  }
+ ],
+ "words": [
+  {
+   "word": "مِصْبَاح",
+   "plain": "مصباح",
+   "english": "lamp",
+   "emoji": "💡",
+   "sticker": "assets/images/lamp.webp",
+   "phonetic": "miṣbaaḥ"
+  },
+  {
+   "word": "مِفْتَاح",
+   "plain": "مفتاح",
+   "english": "key",
+   "emoji": "🔑",
+   "sticker": "assets/images/key.webp",
+   "phonetic": "miftaaḥ"
+  },
+  {
+   "word": "مَوْزَة",
+   "plain": "موزة",
+   "english": "banana",
+   "emoji": "🍌",
+   "sticker": "assets/images/banana.webp",
+   "phonetic": "mawza"
+  },
+  {
+   "word": "مَاء",
+   "plain": "ماء",
+   "english": "water",
+   "emoji": "💧",
+   "sticker": "assets/images/water.webp",
+   "phonetic": "maaʾ"
+  },
+  {
+   "word": "مِلْعَقَة",
+   "plain": "ملعقة",
+   "english": "spoon",
+   "emoji": "🥄",
+   "sticker": "assets/images/spoon.webp",
+   "phonetic": "milʿaqa"
+  },
+  {
+   "word": "مُشْط",
+   "plain": "مشط",
+   "english": "comb",
+   "emoji": "🪮",
+   "sticker": "assets/images/comb.webp",
+   "phonetic": "musht"
+  }
+ ],
+ "not_words": [
+  {
+   "word": "لَيْمُونَة",
+   "plain": "ليمونة",
+   "english": "lemon",
+   "emoji": "🍋",
+   "sticker": "assets/images/lemon.webp",
+   "phonetic": "laymuuna"
+  },
+  {
+   "word": "نَجْمَة",
+   "plain": "نجمة",
+   "english": "star",
+   "emoji": "⭐",
+   "sticker": "assets/images/lesson_star.webp",
+   "phonetic": "najma"
+  },
+  {
+   "word": "سَمَكَة",
+   "plain": "سمكة",
+   "english": "fish",
+   "emoji": "🐟",
+   "sticker": "assets/images/lesson_fish.webp",
+   "phonetic": "samaka"
+  },
+  {
+   "word": "دُبّ",
+   "plain": "دب",
+   "english": "bear",
+   "emoji": "🐻",
+   "sticker": "assets/images/teddy_bear.webp",
+   "phonetic": "dubb"
+  },
+  {
+   "word": "بَطَّة",
+   "plain": "بطة",
+   "english": "duck",
+   "emoji": "🦆",
+   "sticker": "assets/images/lesson_duck.webp",
+   "phonetic": "baṭṭa"
+  }
+ ],
+ "vowels": [
+  {
+   "ar": "مَ",
+   "say": "مَ",
+   "s": "ma",
+   "mark": "fatha: a small line on top",
+   "ex": {
+    "e": "🍌",
+    "ar": "مَوزة",
+    "say": "مَوْزَة",
+    "tr": "mawza",
+    "en": "banana"
+   }
+  },
+  {
+   "ar": "مِ",
+   "say": "مِ",
+   "s": "mi",
+   "mark": "kasra: a small line below",
+   "ex": {
+    "e": "🔑",
+    "ar": "مِفتاح",
+    "say": "مِفْتَاح",
+    "tr": "miftaaḥ",
+    "en": "key"
+   }
+  },
+  {
+   "ar": "مُ",
+   "say": "مُ",
+   "s": "mu",
+   "mark": "damma: a little curl on top",
+   "ex": {
+    "e": "🪮",
+    "ar": "مُشط",
+    "say": "مُشْط",
+    "tr": "musht",
+    "en": "comb"
+   }
+  }
+ ],
+ "long_vowels": [
+  {
+   "ar": "ما",
+   "say": "مَا",
+   "s": "maa",
+   "mark": "with alif: a long a",
+   "ex": {
+    "e": "💧",
+    "ar": "مَاء",
+    "say": "مَاء",
+    "tr": "maaʾ",
+    "en": "water"
+   }
+  },
+  {
+   "ar": "مي",
+   "say": "مِي",
+   "s": "mii",
+   "mark": "with yaa: a long i",
+   "ex": {
+    "e": "🏅",
+    "ar": "مِيدالية",
+    "say": "مِيدَالِيَة",
+    "tr": "miidaaliya",
+    "en": "medal"
+   }
+  },
+  {
+   "ar": "مو",
+   "say": "مُو",
+   "s": "muu",
+   "mark": "with waaw: a long u",
+   "ex": {
+    "e": "🎵",
+    "ar": "مُوسيقى",
+    "say": "مُوسِيقَى",
+    "tr": "muusiiqaa",
+    "en": "music"
+   }
+  }
+ ],
+ "trace": [
+  "م",
+  "موزة",
+  "مشط"
+ ],
+ "trace_say": [
+  [
+   "مِيم",
+   ""
+  ],
+  [
+   "مَوْزَة",
+   "banana"
+  ],
+  [
+   "مُشْط",
+   "comb"
+  ]
+ ]
+}
