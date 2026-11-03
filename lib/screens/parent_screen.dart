@@ -1,4 +1,4 @@
-﻿// Screen 16 – Parent Corner (opened from Home after the hold-3-s gate).
+// Screen 16 – Parent Corner (opened from Home after the hold-3-s gate).
 // Tabs: Progress (skills per letter + Muse Spark weekly report) ·
 //       Arabic guide (55 tips from parent_guide.json, today's tip on top) ·
 //       Ask Juju (lesson questions only, 2–3 sentences, Muse Spark).
@@ -85,12 +85,6 @@ class _ParentScreenState extends State<ParentScreen> {
     if (v is Map) return v.length;
     return 0;
   }
-
-  void _sayEnglish(String text) =>
-      AudioService.instance.say(text, voice: TtsVoice.parent);
-
-  void _sayArabic(String ar) => AudioService.instance
-      .say(ParentGuide.speakable(ar), voice: TtsVoice.lesson);
 
   // ---------------------------------------------------------------- actions
   Future<void> _makeReport() async {
@@ -366,26 +360,6 @@ class _ParentScreenState extends State<ParentScreen> {
         ],
       );
 
-  Widget _listen(VoidCallback onTap, {String label = 'Listen'}) => Semantics(
-        button: true,
-        label: label,
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: onTap,
-          child: Container(
-            width: 44,
-            height: 44,
-            decoration: BoxDecoration(
-              color: AppColors.surface,
-              shape: BoxShape.circle,
-              border: Border.all(color: AppColors.accent, width: 2),
-            ),
-            child: const Icon(Icons.volume_up_rounded,
-                size: 20, color: AppColors.ink),
-          ),
-        ),
-      );
-
   /// Yellow tip card with a left accent stripe (non-uniform border → clip).
   Widget _tipCard({required Widget child}) => ClipRRect(
         borderRadius: BorderRadius.circular(18),
@@ -532,7 +506,6 @@ class _ParentScreenState extends State<ParentScreen> {
                     style: AppTheme.english(
                         size: 12, weight: FontWeight.w800, color: _tipInk)),
               ),
-              if (_report != null) _listen(() => _sayEnglish(_report!)),
             ]),
             const SizedBox(height: 6),
             if (_reportLoading)
@@ -672,34 +645,26 @@ class _ParentScreenState extends State<ParentScreen> {
           Text(t.rule,
               style: AppTheme.english(size: 14, weight: FontWeight.w500)),
           const SizedBox(height: 6),
-          Row(children: [
-            if ((t.group == 'say-it-at-home')) ...[
-              _listen(() => _sayArabic(t.exampleAr),
-                  label: 'Listen to the example'),
-              const SizedBox(width: 8),
-            ],
-            Expanded(
-              child: Text(ParentGuide.dotted(t.exampleAr),
-                  textAlign: TextAlign.right,
-                  textDirection: TextDirection.rtl,
-                  style: AppTheme.arabic(size: 24, weight: FontWeight.w700)),
-            ),
-          ]),
+          SizedBox(
+            width: double.infinity,
+            child: Text(ParentGuide.dotted(t.exampleAr),
+                textAlign: TextAlign.right,
+                textDirection: TextDirection.rtl,
+                style: AppTheme.arabic(size: 24, weight: FontWeight.w700)),
+          ),
           Text(
               '${ParentGuide.dotted(t.exampleSay)}  →  ${ParentGuide.dotted(t.exampleEn)}',
               style: AppTheme.english(size: 13, weight: FontWeight.w700)),
           if (t.girlAr != null)
-            _extraRow(t.girlLabel ?? 'To a girl', t.girlAr!, t.girlSay ?? '',
-                (t.group == 'say-it-at-home')),
+            _extraRow(t.girlLabel ?? 'To a girl', t.girlAr!, t.girlSay ?? ''),
           if (t.replyAr != null)
-            _extraRow('Reply', t.replyAr!, t.replySay ?? '', (t.group == 'say-it-at-home')),
+            _extraRow('Reply', t.replyAr!, t.replySay ?? ''),
         ],
       ),
     );
   }
 
-  Widget _extraRow(String label, String ar, String say, bool audio) =>
-      Container(
+  Widget _extraRow(String label, String ar, String say) => Container(
         margin: const EdgeInsets.only(top: 6),
         padding: const EdgeInsets.only(top: 6),
         decoration: const BoxDecoration(
@@ -720,10 +685,6 @@ class _ParentScreenState extends State<ParentScreen> {
           Text(ar,
               textDirection: TextDirection.rtl,
               style: AppTheme.arabic(size: 20, weight: FontWeight.w700)),
-          if (audio) ...[
-            const SizedBox(width: 8),
-            _listen(() => _sayArabic(ar), label: 'Listen: $label'),
-          ],
         ]),
       );
 
@@ -916,15 +877,9 @@ class _ParentScreenState extends State<ParentScreen> {
                       style:
                           AppTheme.english(size: 15, weight: FontWeight.w600))
                 else if (_answer != null)
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Expanded(
-                      child: Text(_answer!,
-                          style: AppTheme.english(
-                              size: 15, weight: FontWeight.w500)),
-                    ),
-                    const SizedBox(width: 8),
-                    _listen(() => _sayEnglish(_answer!)),
-                  ]),
+                  Text(_answer!,
+                      style:
+                          AppTheme.english(size: 15, weight: FontWeight.w500)),
               ],
             ),
           ),
@@ -936,4 +891,3 @@ class _ParentScreenState extends State<ParentScreen> {
     );
   }
 }
-

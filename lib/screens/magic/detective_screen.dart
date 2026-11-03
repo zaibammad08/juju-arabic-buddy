@@ -117,8 +117,9 @@ class _DetectiveScreenState extends State<DetectiveScreen> {
   Future<void> _snap() async {
     final t = _target;
     if (t == null) return;
-    final photo = await snapPhoto();
+    final photo = await snapPhoto(context);
     if (photo == null || !mounted) return;
+    // ← after    if (photo == null || !mounted) return;
     final res = await waitWithMatch(
         context, MetaGames.instance.detectiveCheck(photo, str(t.englishWord)),
         message: "I'm looking at your photo…");

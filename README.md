@@ -108,6 +108,17 @@ Tested at home with children, who helped check the vocabulary and the activities
 
 Full timeline: [docs/BEFORE_AND_DURING.md](docs/BEFORE_AND_DURING.md). The commit history starts on 26 Oct 2026.
 
+## Where this goes next
+
+Arabic Buddy is built as a product, not just a demo. These are the next steps after the hackathon:
+
+- **More worlds to explore.** This hackathon build includes the first world, **My Home**. Five more worlds are planned, such as the beach, the park and the market, so children learn Arabic for the places they actually visit with their family.
+- **A licensed product for schools.** Schools can license Arabic Buddy as their home-learning companion for expat families: the school's letter of the week appears in the app, and parents get support in English. We have started conversations with schools in the UAE about a pilot.
+- **All primary years.** The Listen, Speak, Read and Write modules are built from lesson data, so they can grow with the child, from letters in the early years to words, sentences and reading across all primary classes.
+- **All 28 letters.** With our Muse Code lesson tools, a reviewed lesson plan becomes a full four-skill lesson in hours. Next, letters will load from one index file, so adding a letter needs no code change, only reviewed content.
+- **A secure backend.** For this hackathon build, the API key is built into the app. Before public release, every Meta model call will go through a small server that holds the key, limits usage per school and family, and keeps no photos or recordings.
+- **Parent controls.** A stronger parent gate in front of Parent Corner and Settings, and clear consent before the camera and microphone are used.
+
 ## Run it
 
 **Requirements:** Flutter 3.22+ (Dart 3.4+) and a Meta Model API key. The easiest way to try it is the Android APK linked at the top.

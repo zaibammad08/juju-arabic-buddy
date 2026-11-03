@@ -110,8 +110,9 @@ class _FeedJujuScreenState extends State<FeedJujuScreen> {
     if (_busy) return;
     _busy = true;
     try {
-      final photo = await snapPhoto();
+      final photo = await snapPhoto(context);
       if (photo == null || !mounted) return;
+      // ← after      if (photo == null || !mounted) return;
       final res = await waitWithMatch(context,
           MetaGames.instance.feedCheck(photo, [for (final c in _clues) c.rule]),
           message: "I'm checking your food…");

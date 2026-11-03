@@ -143,7 +143,7 @@ class _PlaydoughScreenState extends State<PlaydoughScreen> {
   }
 
   Future<void> _snap() async {
-    final photo = await snapPhoto();
+    final photo = await snapPhoto(context); // ← after
     if (photo != null && mounted) await _check(photo, isDrawing: false);
   }
 

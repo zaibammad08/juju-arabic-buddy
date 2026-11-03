@@ -3,11 +3,10 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
-
+export 'quick_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../data/audio_index.dart';
 import '../../data/repository.dart';
@@ -75,24 +74,6 @@ Future<void> playColour(String colourId, {required bool feminine}) =>
 
 /// Takes a photo, returns the bytes and deletes the file straight away
 /// (golden rule 7: photos are never saved).
-Future<Uint8List?> snapPhoto() async {
-  try {
-    final x = await ImagePicker().pickImage(
-        source: ImageSource.camera,
-        maxWidth: 768,
-        maxHeight: 768,
-        imageQuality: 82);
-    if (x == null) return null;
-    final bytes = await x.readAsBytes();
-    try {
-      await File(x.path).delete();
-    } catch (_) {}
-    return bytes;
-  } catch (e) {
-    debugPrint('camera: $e');
-    return null;
-  }
-}
 
 // ---------------------------------------------------------------- layout
 
