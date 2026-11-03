@@ -5,8 +5,8 @@
 Built for the **Meta Global AI Developer Hackathon 2026** · Startup track · Theme: **Build for Your World**
 Built by **WowDesignAI** (Abu Dhabi, UAE) during the hackathon, **26 October – 4 November 2026**.
 
-📹 **Demo video:** 
-📱 **Android APK:** 
+📹 **Demo video:** [Watch on YouTube](https://www.youtube.com/watch?v=kD48g7cl4mQ)
+📱 **Android APK:** [Download app-release.apk](https://github.com/zaibammad08/juju-arabic-buddy/releases/download/1.0-hackathon/app-release.apk) (Android 8+, allow "Install unknown apps")
 
 
 > **Muse understands the child's world. Arabic Buddy controls what the child learns.**
@@ -17,15 +17,15 @@ Built by **WowDesignAI** (Abu Dhabi, UAE) during the hackathon, **26 October –
 
 In the UAE, children learn Arabic at school from their early years. In many expat families, the parents don't speak or read Arabic themselves. When Arabic homework comes home, parents turn to Google Translate or guesswork, and children lose interest.
 
-Before building, **we surveyed 62 parents**. Most have young children; the largest groups were aged 5, 6 and 7, the age range Arabic Buddy is designed for.
+Before building, **we surveyed 63 parents**. Most have young children; the largest groups were aged 5, 6 and 7, the age range Arabic Buddy is designed for.
 
 | What parents told us | Responses |
 |---|---:|
 | Feel completely lost helping with Arabic homework | 23 (37%) |
-| Only somewhat confident, relying on Google Translate | 28 (45%) |
-| **Cannot confidently support Arabic homework** | **51 of 62 (82%)** |
-| Child is not interested (25) or frustrated (8) when practising at home | 33 (53%) |
-| Biggest challenge: no English support for parents | 29 (47%) |
+| Only somewhat confident, relying on Google Translate | 28 (44%) |
+| **Cannot confidently support Arabic homework** | **51 of 63 (81%)** |
+| Child is not interested (25) or frustrated (8) when practising at home | 33 (52%) |
+| Biggest challenge: no English support for parents | 30 (48%) |
 | Biggest challenge: too classroom-focused, not fun at home | 13 (21%) |
 
 Not every family has this problem: 13 parents said there was no issue. But for most, **the gap isn't a lack of Arabic content. It's the missing link between what children learn at school and what parents can support at home, in a language they understand.**
@@ -67,18 +67,18 @@ Meta's models handle what needs understanding of images, speech and context. The
 ### From a lesson plan to an interactive lesson
 Our lesson plans follow the school's letter sequence. They were written and checked by a person before the hackathon. During the event we used **Muse Code** to build tools that turn each lesson plan into structured lesson data (JSON) covering all four skills: words for each letter position, a listening quiz, vowel sounds with example words, speaking sentences and tracing. A person checks the result (vowel marks, meanings, pictures) before it is loaded into the app. A new letter becomes a full Listen, Speak, Read and Write lesson in hours, not weeks, still with human review.
 
-**No school materials are included in the app or this repository** Lessons use the school's letter sequence and everyday vocabulary, with our own sentences, pictures and audio.
+**No school materials are included in the app or this repository.** Lessons use the school's letter sequence and everyday vocabulary, with our own sentences, pictures and audio.
 
 ## Safe by design for young children
 
 - **Reviewed Arabic.** AI never writes the Arabic the child learns. Every word and sentence comes from human-reviewed content with full vowel marks.
 - **Rule-based grammar.** Case endings and masculine/feminine agreement are applied by app rules, not generated.
-- **Reviewed audio.** All audio is pre-made and checked by ear, word by word. No speech service is called while the app runs.
+- **Reviewed audio.** All audio is pre-made and checked by ear, word by word. No text-to-speech service is called while the app runs.
 - **Photos stay on the family's phone.** Each photo is sent only for its single AI check, and nothing is kept on our servers. Parents can clear all photos and progress in Settings.
 
 ## Validation
 
-### 62 parents surveyed
+### 63 parents surveyed
 The results above shaped our focus: English support for parents, fun practice at home, and lessons that match school.
 
 **Evidence:**
@@ -86,8 +86,8 @@ The results above shaped our focus: English support for parents, fun practice at
 - [Survey results (Google Sheet)](https://docs.google.com/spreadsheets/d/1epfZQ5pWoT1iNOiSfxbLg3awwG6dk9mTcNEQ68__Xek/edit?usp=sharing)
 - [Screenshots and teacher feedback](docs/evidence/)
 
-### Reviewed by the Head of Arabic B, GEMS Founders School, Abu Dhabi
-We shared Arabic Buddy with **Mr Mohamed Essam Eldean, Head of Arabic B at GEMS Founders School, Abu Dhabi**, for feedback on its content and vision:
+### Reviewed by the Head of Arabic B, GEMS Founders School (GFA), Masdar City Abu Dhabi
+We shared Arabic Buddy with **Mr Mohamed Essam Eldean, Head of Arabic B at GEMS Founders School (GFA), Masdar City, Abu Dhabi**, for feedback on its content and vision:
 
 > "I was genuinely impressed by the quality and depth of the application… What makes the platform particularly valuable is that it addresses all the key language skills young learners need, including listening, speaking, reading, and writing, while providing meaningful support for parents to guide their children's learning at home."
 >
@@ -112,7 +112,7 @@ Full timeline: [docs/BEFORE_AND_DURING.md](docs/BEFORE_AND_DURING.md). The commi
 
 Arabic Buddy is built as a product, not just a demo. These are the next steps after the hackathon:
 
-- **More worlds to explore.** This hackathon build includes the first world, **My Home**. Five more worlds are planned, such as the beach, the park and the market, so children learn Arabic for the places they actually visit with their family.
+- **More worlds to explore.** This hackathon build includes the first world, **My Home (My Arabic Room)**. Five more worlds are planned, such as the beach, the park and the market, so children learn Arabic for the places they actually visit with their family.
 - **A licensed product for schools.** Schools can license Arabic Buddy as their home-learning companion for expat families: the school's letter of the week appears in the app, and parents get support in English. We have started conversations with schools in the UAE about a pilot.
 - **All primary years.** The Listen, Speak, Read and Write modules are built from lesson data, so they can grow with the child, from letters in the early years to words, sentences and reading across all primary classes.
 - **All 28 letters.** With our Muse Code lesson tools, a reviewed lesson plan becomes a full four-skill lesson in hours. Next, letters will load from one index file, so adding a letter needs no code change, only reviewed content.
